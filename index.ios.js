@@ -1,5 +1,5 @@
 /**
- * Sample React Native App
+ * Barteguiden App
  * https://github.com/facebook/react-native
  */
 'use strict';
@@ -10,23 +10,62 @@ var {
   StyleSheet,
   Text,
   View,
+  TabBarIOS,
 } = React;
 
 var BarteguidenApp = React.createClass({
-  render: function() {
+  getInitialState: function() {
+    return {
+      selectedTab: 'all'
+    };
+  },
+
+  _renderContent: function(pageText: string) {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Text style={styles.tabText}>{pageText}</Text>
       </View>
+    );
+  },
+
+
+  render: function() {
+    return (
+      <TabBarIOS>
+        <TabBarIOS.Item
+          title="Alle"
+          systemIcon="history"
+          selected={this.state.selectedTab === 'all'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'all',
+            });
+          }}>
+          {this._renderContent('Alle')}
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title="Favoritter"
+          systemIcon="favorites"
+          selected={this.state.selectedTab === 'favorites'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'favorites',
+            });
+          }}>
+          {this._renderContent('Favoritter')}
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title="Innstillinger"
+          systemIcon="contacts"
+          selected={this.state.selectedTab === 'settings'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'settings',
+            });
+          }}>
+          {this._renderContent('Innstillinger')}
+        </TabBarIOS.Item>
+      </TabBarIOS>
     );
   }
 });
@@ -38,16 +77,11 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
+  tabText: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
 
 AppRegistry.registerComponent('BarteguidenApp', () => BarteguidenApp);
