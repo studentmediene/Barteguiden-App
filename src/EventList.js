@@ -1,6 +1,9 @@
 'use strict';
 
 var React = require('react-native');
+var moment = require('moment');
+require('moment/locale/nb');
+
 var {
   StyleSheet,
   Text,
@@ -55,10 +58,11 @@ var EventList = React.createClass({
             dayIndex = -1,
             event,
             dateString;
+        moment.locale('nb');
 
         for(var i = 0; i < length; i++) {
           event = events[i];
-          dateString = new Date(event.startAt).toDateString();
+          dateString = moment(event.startAt).format('Do MMMM YYYY');
           if(sectionIDs.indexOf(dateString) === -1) {
             sectionIDs.push(dateString);
             dayIndex += 1;
