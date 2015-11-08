@@ -5,48 +5,64 @@
 'use strict';
 
 import React from 'react-native';
+import ToolbarAndroid from 'ToolbarAndroid';
+import EventStore from './src/EventStore';
+import PromotedEventSwiper from './src/components/PromotedEventSwiper';
+import EventList from './src/components/EventList';
+import {logoImage} from './src/constants';
+import _ from 'lodash';
 
-var {
+
+const {
   AppRegistry,
   StyleSheet,
   Text,
   View,
+  Component,
 } = React;
 
-var BarteguidenApp = React.createClass({
-  render: function() {
+class BarteguidenApp extends Component {
+  constructor() {
+    super();
+    this.state = {
+      events: []
+    };
+  }
+
+  async componentDidMount() {
+    let events = await EventStore.fetchEvents();
+    this.setState({events});
+  }
+
+  render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+        <ToolbarAndroid
+          style={styles.toolbar}
+          title="Barteguiden"
+          icon={require('./src/img/Icon.png')}
+          actions={[{title: 'Innstillinger', show: 'always'}]}
+          onActionSelected={this.onActionSelected} />
+        <PromotedEventSwiper events={this.state.events}/>
+        <EventList events={_.take(this.state.events, 10)}/>
       </View>
     );
   }
-});
 
-var styles = StyleSheet.create({
+  onActionSelected(position) {
+    if (position === 0) { // index of 'Settings'
+    }
+  }
+
+}
+
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  toolbar: {
+    backgroundColor: '#e9eaed',
+    height: 56,
   },
 });
 
