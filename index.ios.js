@@ -4,7 +4,9 @@
  */
 'use strict';
 
-var React = require('react-native');
+import React from 'react-native'
+import EventList from './src/EventList';
+
 var {
   AppRegistry,
   StyleSheet,
@@ -13,7 +15,6 @@ var {
   TabBarIOS,
 } = React;
 
-var EventList = require('./src/EventList');
 
 var BarteguidenApp = React.createClass({
   getInitialState: function() {

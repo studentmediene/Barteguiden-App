@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var moment = require('moment');
-require('moment/locale/nb');
+import React from  'react-native'
+import moment from 'moment';
+import 'moment/locale/nb';
+import EventListItem from './EventListItem';
 
 var {
   StyleSheet,
   Text,
   View,
   ListView,
-  } = React;
+} = React;
 
-var EventListItem = require('./EventListItem');
 
 /*
  Function used for sorting the events by date.
@@ -122,4 +122,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = EventList;
+export default EventList;
