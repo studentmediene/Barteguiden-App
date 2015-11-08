@@ -27,7 +27,7 @@ var BarteguidenApp = React.createClass({
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>Alle arrangementer</Text>
+          <Text style={styles.headerText}>Arrangementer</Text>
         </View>
         <EventList showOnlyUserFavorites={false}/>
       </View>
@@ -96,7 +96,7 @@ var styles = StyleSheet.create({
     paddingTop: 25
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '600',
     color: 'black'
   },

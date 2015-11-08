@@ -113,7 +113,7 @@ var styles = StyleSheet.create({
   sectionHeader: {
     marginLeft: 10,
     marginTop: 10,
-    fontSize: 13,
+    fontSize: 16,
     color: 'black',
     fontWeight: '600',
   },

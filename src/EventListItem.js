@@ -35,7 +35,7 @@ var styles = StyleSheet.create({
     borderColor: '#AFAFAF',
   },
   eventTitle: {
-    fontSize: 15,
+    fontSize: 18,
     margin: 10,
   },
   onTouch: {
