@@ -25,7 +25,12 @@ var BarteguidenApp = React.createClass({
 
   _renderEvents: function(pageText: string) {
     return (
-      <EventList showOnlyUserFavorites={false}/>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Alle arrangementer</Text>
+        </View>
+        <EventList showOnlyUserFavorites={false}/>
+      </View>
     );
   },
 
@@ -82,9 +87,18 @@ var BarteguidenApp = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'column',
+    paddingTop: 25
+  },
+  headerText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: 'black'
   },
   tabText: {
     fontSize: 20,

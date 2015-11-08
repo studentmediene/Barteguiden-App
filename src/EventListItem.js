@@ -30,14 +30,12 @@ var EventListItem = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
     borderBottomWidth: 1,
     borderColor: '#AFAFAF',
-    margin: 3,
   },
   eventTitle: {
-    fontSize: 16,
+    fontSize: 15,
     margin: 10,
   },
   onTouch: {
