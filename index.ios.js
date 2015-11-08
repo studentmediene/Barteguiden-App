@@ -13,11 +13,19 @@ var {
   TabBarIOS,
 } = React;
 
+var EventList = require('./src/EventList');
+
 var BarteguidenApp = React.createClass({
   getInitialState: function() {
     return {
       selectedTab: 'all'
     };
+  },
+
+  _renderEvents: function(pageText: string) {
+    return (
+      <EventList showOnlyUserFavorites={false}/>
+    );
   },
 
   _renderContent: function(pageText: string) {
@@ -41,7 +49,7 @@ var BarteguidenApp = React.createClass({
               selectedTab: 'all',
             });
           }}>
-          {this._renderContent('Alle')}
+          {this._renderEvents('Alle')}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Favoritter"
