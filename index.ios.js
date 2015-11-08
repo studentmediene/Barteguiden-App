@@ -48,7 +48,7 @@ var BarteguidenApp = React.createClass({
       <TabBarIOS>
         <TabBarIOS.Item
           title="Alle"
-          systemIcon="history"
+          icon={{ uri: "all", isStatic: true }}
           selected={this.state.selectedTab === 'all'}
           onPress={() => {
             this.setState({
@@ -59,7 +59,7 @@ var BarteguidenApp = React.createClass({
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Favoritter"
-          systemIcon="favorites"
+          icon={{ uri: "favorites", isStatic: true }}
           selected={this.state.selectedTab === 'favorites'}
           onPress={() => {
             this.setState({
@@ -70,7 +70,7 @@ var BarteguidenApp = React.createClass({
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Innstillinger"
-          systemIcon="contacts"
+          icon={{ uri: "settings", isStatic: true }}
           selected={this.state.selectedTab === 'settings'}
           onPress={() => {
             this.setState({
