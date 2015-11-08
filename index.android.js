@@ -1,10 +1,11 @@
 /**
- * Sample React Native App
+ * Barteguiden App
  * https://github.com/facebook/react-native
  */
 'use strict';
 
-var React = require('react-native');
+import React from 'react-native';
+
 var {
   AppRegistry,
   StyleSheet,

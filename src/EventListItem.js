@@ -1,12 +1,13 @@
 'use strict';
 
-var React = require('react-native');
+import React from 'react-native';
+
 var {
   StyleSheet,
   Text,
   View,
   TouchableOpacity
-  } = React;
+} = React;
 
 var EventListItem = React.createClass({
   render: function() {
@@ -43,4 +44,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = EventListItem;
+export default EventListItem;
