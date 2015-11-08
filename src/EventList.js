@@ -91,6 +91,8 @@ var EventList = React.createClass({
      dataSource={this.state.dataSource}
      renderRow={this._renderEvent}
      renderSectionHeader = {this._renderSectionHeader}
+     automaticallyAdjustContentInsets={false}
+     contentInset={{bottom:49}}
      style={styles.listView}
    />)
   },
@@ -106,14 +108,14 @@ var EventList = React.createClass({
 
 var styles = StyleSheet.create({
   listView: {
-    paddingTop: 20,
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#EFEFEF'
   },
   sectionHeader: {
     marginLeft: 10,
-    fontSize: 18,
-    color: '#5CCFFF',
-    fontWeight: 'bold',
+    marginTop: 10,
+    fontSize: 16,
+    color: 'black',
+    fontWeight: '600',
   },
   headerContainer: {
     borderBottomWidth: 3,

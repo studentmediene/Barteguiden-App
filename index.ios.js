@@ -25,7 +25,12 @@ var BarteguidenApp = React.createClass({
 
   _renderEvents: function(pageText: string) {
     return (
-      <EventList showOnlyUserFavorites={false}/>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Arrangementer</Text>
+        </View>
+        <EventList showOnlyUserFavorites={false}/>
+      </View>
     );
   },
 
@@ -43,7 +48,7 @@ var BarteguidenApp = React.createClass({
       <TabBarIOS>
         <TabBarIOS.Item
           title="Alle"
-          systemIcon="history"
+          icon={{ uri: "all", isStatic: true }}
           selected={this.state.selectedTab === 'all'}
           onPress={() => {
             this.setState({
@@ -54,7 +59,7 @@ var BarteguidenApp = React.createClass({
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Favoritter"
-          systemIcon="favorites"
+          icon={{ uri: "favorites", isStatic: true }}
           selected={this.state.selectedTab === 'favorites'}
           onPress={() => {
             this.setState({
@@ -65,7 +70,7 @@ var BarteguidenApp = React.createClass({
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Innstillinger"
-          systemIcon="contacts"
+          icon={{ uri: "settings", isStatic: true }}
           selected={this.state.selectedTab === 'settings'}
           onPress={() => {
             this.setState({
@@ -82,9 +87,18 @@ var BarteguidenApp = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'column',
+    paddingTop: 25
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: 'black'
   },
   tabText: {
     fontSize: 20,
