@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react-native';
+import {getTimeFromDate, formatPrice} from './utilities';
 
 var {
   StyleSheet,
@@ -19,7 +20,13 @@ var EventListItem = React.createClass({
             style={styles.image}
             source={{ uri: this._categoryImage(this.props.event.category), isStatic: true }}
           />
-          <Text style={styles.eventTitle}>{this.props.event.title}</Text>
+          <View style={styles.eventContents}>
+            <Text style={styles.eventTitle}>{this.props.event.title}</Text>
+            <View style={styles.eventInfo}>
+              <Text>{getTimeFromDate(this.props.event.startAt)} {this.props.event.venue.name}</Text>
+              <Text>{formatPrice(this.props.event.price)}</Text>
+            </View>
+          </View>
         </View>
       </TouchableOpacity>
     )
@@ -57,7 +64,16 @@ var styles = StyleSheet.create({
   },
   eventTitle: {
     fontSize: 18,
+  },
+  eventContents: {
+    flex: 1,
+    flexDirection: 'column',
     margin: 10,
+  },
+  eventInfo: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   onTouch: {
   },
