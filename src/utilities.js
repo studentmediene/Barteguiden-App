@@ -8,3 +8,7 @@ export function sortByDate (event1, event2) {
 export function getTimeFromDate(date) {
   return moment(date).format('HH:mm');
 };
+
+export function formatPrice(price) {
+  return !price ? 'Gratis' : 'Fra ' + price + ' kr';
+}
