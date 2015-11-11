@@ -6,6 +6,7 @@
 
 import React from 'react-native'
 import EventList from './src/EventList';
+import EventMixin from './src/EventMixin';
 
 var {
   AppRegistry,
@@ -17,6 +18,8 @@ var {
 
 
 var BarteguidenApp = React.createClass({
+  mixins: [EventMixin],
+
   getInitialState: function() {
     return {
       selectedTab: 'all'
@@ -29,7 +32,7 @@ var BarteguidenApp = React.createClass({
         <View style={styles.header}>
           <Text style={styles.headerText}>Arrangementer</Text>
         </View>
-        <EventList showOnlyUserFavorites={false}/>
+        <EventList events={this.state.events} showOnlyUserFavorites={false}/>
       </View>
     );
   },
