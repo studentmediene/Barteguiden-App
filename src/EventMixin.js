@@ -1,6 +1,6 @@
 'use strict';
 
-import sortByDate from './utilities';
+import {sortByDate} from './utilities';
 
 var EventMixin = {
   getInitialState() {
