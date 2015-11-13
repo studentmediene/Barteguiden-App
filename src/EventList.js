@@ -24,15 +24,24 @@ var EventList = React.createClass({
     };
   },
 
-  componentWillReceiveProps: function(props) {
-    var newDataBlob = _.groupBy(props.events, (event) => {
-      return formatDate(event.startAt);
-    });
+  componentWillMount() {
+    if (this.props.events) {
+      this._updateDataSource(this.props.events);
+    }
+  },
 
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRowsAndSections(newDataBlob)
-    });
+  componentWillReceiveProps(props) {
+    this._updateDataSource(props.events);
+  },
 
+  _updateDataSource(events) {
+     let newDataBlob = _.groupBy(events, (event) => {
+        return formatDate(event.startAt);
+      });
+
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(newDataBlob)
+      });
   },
 
   _renderEvent: function(event) {
