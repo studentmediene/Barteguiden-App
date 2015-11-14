@@ -14,14 +14,6 @@ var {
   View,
 } = React;
 
-
-var styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: 'black'
-  }
-})
-
 var PromotedEventSwiper = React.createClass({
   render: function() {
     let promotedEvents = this.props.events.filter(event => event.isPromoted);
@@ -44,6 +36,13 @@ var PromotedEventSwiper = React.createClass({
         }
       </Swiper>
     )
+  }
+})
+
+var styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: 'black'
   }
 })
 

@@ -7,7 +7,6 @@
 import React from 'react-native'
 import {formatDate, formatPrice} from './utilities';
 
-
 var {
   StyleSheet,
   Text,
@@ -16,6 +15,29 @@ var {
   TouchableOpacity
 } = React;
 
+
+var PromotedEvent = React.createClass({
+  render: function() {
+    return (
+      <TouchableOpacity>
+        <View style={{height: 200}}>
+          <Image
+            style={styles.image}
+            source={{uri: this.props.promoted.imageUrl}}>
+          </Image>
+          <View style={styles.eventContents}>
+            <Text style={styles.title}>{this.props.promoted.title}</Text>
+            <View style={styles.eventInfo}>
+              <Text style={styles.subtitle}>{this.props.promoted.venue.name}</Text>
+              <Text style={styles.subtitle}>{formatDate(this.props.promoted.startAt)}</Text>
+              <Text style={styles.subtitle}>{formatPrice(this.props.promoted.price)}</Text>
+            </View>
+          </View>
+        </View>
+      </TouchableOpacity>
+    )
+  }
+})
 
 var styles = StyleSheet.create({
   title: {
@@ -43,29 +65,6 @@ var styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
-})
-
-var PromotedEvent = React.createClass({
-  render: function() {
-    return (
-      <TouchableOpacity>
-        <View style={{height: 200}}>
-          <Image
-            style={styles.image}
-            source={{uri: this.props.promoted.imageUrl}}>
-          </Image>
-          <View style={styles.eventContents}>
-            <Text style={styles.title}>{this.props.promoted.title}</Text>
-            <View style={styles.eventInfo}>
-              <Text style={styles.subtitle}>{this.props.promoted.venue.name}</Text>
-              <Text style={styles.subtitle}>{formatDate(this.props.promoted.startAt)}</Text>
-              <Text style={styles.subtitle}>{formatPrice(this.props.promoted.price)}</Text>
-            </View>
-          </View>
-        </View>
-      </TouchableOpacity>
-    )
-  }
 })
 
 export default PromotedEvent;
