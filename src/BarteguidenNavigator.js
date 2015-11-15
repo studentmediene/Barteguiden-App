@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react-native';
+import {iOSBlue} from './constants'
 
 const {
   Navigator,
@@ -38,7 +39,7 @@ const NavigationBarRouteMapper = {
   Title(route, navigator, index, navState) {
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
-        {route.title} [{index}]
+        {route.title}
       </Text>
     );
   }
@@ -59,11 +60,12 @@ const BarteguidenNavigator = React.createClass({
   render() {
     return (
       <Navigator
-        sceneStyle={{paddingTop: 60}}
+        sceneStyle={{paddingTop: 64}}
         initialRoute={{id: 0, title: this.props.title}}
         renderScene={this._renderScene}
         navigationBar={
           <Navigator.NavigationBar
+            style={styles.navBar}
             routeMapper={NavigationBarRouteMapper}
           />
         }
@@ -92,20 +94,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  navBar: {
+    borderBottomWidth: 0.5,
+    borderColor: '#AFAFAF',
+  },
   navBarText: {
-    fontSize: 16,
+    fontSize: 18,
     marginVertical: 10,
   },
   navBarTitleText: {
     color: 'black',
-    fontWeight: '500',
+    fontWeight: '600',
     marginVertical: 9,
   },
   navBarLeftButton: {
     paddingLeft: 10,
   },
   navBarButtonText: {
-    color: 'black'
+    color: iOSBlue,
   },
 });
 
