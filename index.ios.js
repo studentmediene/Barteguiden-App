@@ -8,6 +8,7 @@ import React from 'react-native'
 import EventList from './src/EventList';
 import EventMixin from './src/EventMixin';
 import PromotedEventSwiper from './src/PromotedEventSwiper';
+import BarteguidenNavigator from './src/BarteguidenNavigator';
 import _ from 'lodash';
 
 var {
@@ -40,10 +41,9 @@ var BarteguidenApp = React.createClass({
 
   _renderAll: function() {
     return (
-      <View style={styles.container}>
-        <Header header="Alle"/>
+      <BarteguidenNavigator title={'Alle'}>
         <EventList events={this.state.events}/>
-      </View>
+      </BarteguidenNavigator>
     );
   },
 
