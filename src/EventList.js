@@ -46,7 +46,7 @@ var EventList = React.createClass({
 
   _renderEvent: function(event) {
     return(
-        <EventListItem event={event}/>
+        <EventListItem navigator={this.props.navigator} event={event}/>
     )
   },
 

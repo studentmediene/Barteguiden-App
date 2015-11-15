@@ -31,7 +31,8 @@ var PromotedEventSwiper = React.createClass({
                                  marginTop: 3, marginBottom: 3,}}/>}>
         {promotedEvents.map(promoted => {
           return (
-            <PromotedEvent key={promoted._id} promoted={promoted}/>
+            <PromotedEvent navigator={this.props.navigator} key={promoted._id}
+              promoted={promoted}/>
           )})
         }
       </Swiper>

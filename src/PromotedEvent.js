@@ -19,7 +19,7 @@ var {
 var PromotedEvent = React.createClass({
   render: function() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this._onPressEvent}>
         <View style={{height: 200}}>
           <Image
             style={styles.image}
@@ -36,6 +36,9 @@ var PromotedEvent = React.createClass({
         </View>
       </TouchableOpacity>
     )
+  },
+  _onPressEvent: function(event: Object) {
+    this.props.navigator.push({id: 1, title:'Detaljer', event: this.props.promoted});
   }
 })
 

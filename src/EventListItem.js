@@ -42,9 +42,7 @@ var EventListItem = React.createClass({
   },
 
   _onPressEvent: function(event: Object) {
-    return (
-      null // Do navigator stuff
-    )
+    this.props.navigator.push({id: 1, title:'Detaljer', event: this.props.event});
   }
 });
 
