@@ -7,6 +7,8 @@
 import React from 'react-native'
 import EventList from './src/EventList';
 import EventMixin from './src/EventMixin';
+import PromotedEventSwiper from './src/PromotedEventSwiper';
+import _ from 'lodash';
 
 var {
   AppRegistry,
@@ -17,22 +19,30 @@ var {
 } = React;
 
 
+var Header = React.createClass({
+  render() {
+    return (
+      <View style={styles.header}>
+        <Text style={styles.headerText}>{this.props.header}</Text>
+      </View>
+    );
+  }
+});
+
 var BarteguidenApp = React.createClass({
   mixins: [EventMixin],
 
   getInitialState: function() {
     return {
-      selectedTab: 'all'
+      selectedTab: 'whatisup'
     };
   },
 
-  _renderEvents: function(pageText: string) {
+  _renderAll: function() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Arrangementer</Text>
-        </View>
-        <EventList events={this.state.events} showOnlyUserFavorites={false}/>
+        <Header header="Alle"/>
+        <EventList events={this.state.events}/>
       </View>
     );
   },
@@ -45,10 +55,30 @@ var BarteguidenApp = React.createClass({
     );
   },
 
+  _renderWhatIsUp: function() {
+    return (
+      <View style={styles.container}>
+        <Header header="Hva skjer?"/>
+        <PromotedEventSwiper events={this.state.events}/>
+        <EventList events={_.take(this.state.events, 10)}/>
+      </View>
+    );
+  },
 
   render: function() {
     return (
       <TabBarIOS>
+        <TabBarIOS.Item
+          title="Hva skjer"
+          icon={{ uri: "all", isStatic: true }}
+          selected={this.state.selectedTab === 'whatisup'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'whatisup',
+            });
+          }}>
+          {this._renderWhatIsUp()}
+        </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Alle"
           icon={{ uri: "all", isStatic: true }}
@@ -58,7 +88,7 @@ var BarteguidenApp = React.createClass({
               selectedTab: 'all',
             });
           }}>
-          {this._renderEvents('Alle')}
+          {this._renderAll()}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Favoritter"
