@@ -57,11 +57,10 @@ var BarteguidenApp = React.createClass({
 
   _renderWhatIsUp: function() {
     return (
-      <View style={styles.container}>
-        <Header header="Hva skjer?"/>
+      <BarteguidenNavigator title={'Hva skjer?'}>
         <PromotedEventSwiper events={this.state.events}/>
         <EventList events={_.take(this.state.events, 10)}/>
-      </View>
+      </BarteguidenNavigator>
     );
   },
 
