@@ -4,6 +4,7 @@ import React from  'react-native'
 import EventListItem from './EventListItem';
 import _ from 'lodash';
 import {formatDate} from './utilities';
+import {generalBackground} from './constants';
 
 var {
   StyleSheet,
@@ -72,7 +73,7 @@ var EventList = React.createClass({
 
 var styles = StyleSheet.create({
   listView: {
-    backgroundColor: '#EFEFEF'
+    backgroundColor: generalBackground,
   },
   sectionHeader: {
     marginLeft: 10,
@@ -84,7 +85,7 @@ var styles = StyleSheet.create({
   headerContainer: {
     borderBottomWidth: 3,
     borderColor: '#5CCFFF',
-    backgroundColor: '#EFEFEF',
+    backgroundColor: generalBackground,
   }
 });
 
