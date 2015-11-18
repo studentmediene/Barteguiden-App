@@ -25,10 +25,10 @@ var PromotedEventSwiper = React.createClass({
         autoplayTimeout={5}
         dot={<View style={{backgroundColor:'rgba(255,255,255,.5)', width: 5, height: 5,
                            borderRadius: 4, marginLeft: 3, marginRight: 3,
-                           marginTop: 3, marginBottom: 3,}} />}
+                           marginTop: 3, marginBottom: 3, bottom: -15}} />}
         activeDot={<View style={{backgroundColor: '#fff', width: 8, height: 8,
                                  borderRadius: 4, marginLeft: 3, marginRight: 3,
-                                 marginTop: 3, marginBottom: 3,}}/>}>
+                                 marginTop: 3, marginBottom: 3, bottom: -15}}/>}>
         {promotedEvents.map(promoted => {
           return (
             <PromotedEvent navigator={this.props.navigator} key={promoted._id}

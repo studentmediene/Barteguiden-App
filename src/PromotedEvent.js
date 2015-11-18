@@ -20,7 +20,7 @@ var PromotedEvent = React.createClass({
   render: function() {
     return (
       <TouchableOpacity onPress={this._onPressEvent}>
-        <View style={{height: 200}}>
+        <View style={styles.wrapper}>
           <Image
             style={styles.image}
             source={{uri: this.props.promoted.imageUrl}}>
@@ -55,19 +55,26 @@ var styles = StyleSheet.create({
   },
   image: {
     resizeMode: Image.resizeMode.cover,
-    height: 200,
+    flex: 1,
     opacity: 0.7
   },
   eventContents: {
     margin: 10,
     position: 'absolute',
-    top: 0
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flex: 1
   },
   eventInfo: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
   },
+  wrapper: {
+    height: 200
+  }
 })
 
 export default PromotedEvent;
