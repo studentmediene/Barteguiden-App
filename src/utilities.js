@@ -25,4 +25,11 @@ export function formatPrice(price) {
   return !price ? 'Gratis' : 'Fra ' + price + ' kr';
 }
 
-
+export function categoryToImage(category) {
+  if (category) {
+    var prefix = category.charAt(0);
+    var suffix = category.substr(1).toLowerCase();
+    return 'category' + prefix + suffix;
+  }
+  return 'categoryOther';
+}

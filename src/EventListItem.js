@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react-native';
-import {getTimeFromDate, formatPrice} from './utilities';
+import {getTimeFromDate, formatPrice, categoryToImage} from './utilities';
 
 var {
   StyleSheet,
@@ -18,7 +18,7 @@ var EventListItem = React.createClass({
         <View style={styles.container}>
           <Image
             style={styles.image}
-            source={{ uri: this._categoryImage(this.props.event.category), isStatic: true }}
+            source={{ uri: categoryToImage(this.props.event.category), isStatic: true }}
           />
           <View style={styles.eventContents}>
             <Text style={styles.eventTitle}>{this.props.event.title}</Text>
@@ -30,15 +30,6 @@ var EventListItem = React.createClass({
         </View>
       </TouchableOpacity>
     )
-  },
-
-  _categoryImage(category) {
-    if (category) {
-      var prefix = category.charAt(0);
-      var suffix = category.substr(1).toLowerCase();
-      return 'category' + prefix + suffix;
-    }
-    return 'categoryOther';
   },
 
   _onPressEvent: function(event: Object) {
