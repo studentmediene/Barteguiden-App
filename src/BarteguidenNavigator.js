@@ -68,6 +68,7 @@ const BarteguidenNavigator = React.createClass({
     let children = Children.map(this.props.children, (element) =>
       cloneElement(element, {navigator: navigator})
     );
+
     switch(route.id) {
       case 0:
         return <View style={styles.container}>{children}</View>

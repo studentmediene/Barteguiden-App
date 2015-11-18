@@ -3,18 +3,19 @@
 import React from 'react-native';
 import {getTimeFromDate, formatPrice} from './utilities';
 
-var {
+const {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  Image
+  Image,
+  Component,
 } = React;
 
-var EventListItem = React.createClass({
-  render: function() {
+class EventListItem extends Component {
+  render() {
     return(
-      <TouchableOpacity onPress={this._onPressEvent} style={styles.onTouch}>
+      <TouchableOpacity onPress={this._onPressEvent.bind(this)} style={styles.onTouch}>
         <View style={styles.container}>
           <Image
             style={styles.image}
@@ -30,7 +31,7 @@ var EventListItem = React.createClass({
         </View>
       </TouchableOpacity>
     )
-  },
+  }
 
   _categoryImage(category) {
     if (category) {
@@ -39,14 +40,14 @@ var EventListItem = React.createClass({
       return 'category' + prefix + suffix;
     }
     return 'categoryOther';
-  },
+  }
 
-  _onPressEvent: function(event: Object) {
+  _onPressEvent(event: Object) {
     this.props.navigator.push({id: 1, title:'Detaljer', event: this.props.event});
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',

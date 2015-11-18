@@ -6,7 +6,7 @@
 
 import React from 'react-native'
 import EventList from './src/EventList';
-import EventMixin from './src/EventMixin';
+import EventStore from './src/EventStore';
 import PromotedEventSwiper from './src/PromotedEventSwiper';
 import BarteguidenNavigator from './src/BarteguidenNavigator';
 import _ from 'lodash';
@@ -17,10 +17,11 @@ var {
   Text,
   View,
   TabBarIOS,
+  Component,
 } = React;
 
 
-var Header = React.createClass({
+class Header extends Component {
   render() {
     return (
       <View style={styles.header}>
@@ -28,43 +29,51 @@ var Header = React.createClass({
       </View>
     );
   }
-});
+}
 
-var BarteguidenApp = React.createClass({
-  mixins: [EventMixin],
-
-  getInitialState: function() {
-    return {
-      selectedTab: 'whatisup'
+class BarteguidenApp extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedTab: 'whatisup',
+      events: []
     };
-  },
+  }
 
-  _renderAll: function() {
+  componentDidMount() {
+    EventStore.fetchEvents().then((events) => {
+      this.setState({
+        events: events
+      });
+    }).done();
+  }
+
+  _renderAll() {
     return (
       <BarteguidenNavigator title={'Alle'}>
         <EventList events={this.state.events}/>
       </BarteguidenNavigator>
     );
-  },
+  }
 
-  _renderContent: function(pageText: string) {
+  _renderContent(pageText) {
     return (
       <View style={styles.container}>
         <Text style={styles.tabText}>{pageText}</Text>
       </View>
     );
-  },
+  }
 
-  _renderWhatIsUp: function() {
+  _renderWhatIsUp() {
     return (
       <BarteguidenNavigator title={'Hva skjer?'}>
         <PromotedEventSwiper events={this.state.events}/>
         <EventList events={_.take(this.state.events, 10)}/>
       </BarteguidenNavigator>
     );
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <TabBarIOS>
         <TabBarIOS.Item
@@ -114,9 +123,9 @@ var BarteguidenApp = React.createClass({
       </TabBarIOS>
     );
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
   },

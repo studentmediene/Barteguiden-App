@@ -8,14 +8,15 @@ import React from 'react-native'
 import Swiper from 'react-native-swiper';
 import PromotedEvent from './PromotedEvent';
 
-var {
-  StyleSheet,
+const {
   Text,
   View,
+  Component,
 } = React;
 
-var PromotedEventSwiper = React.createClass({
-  render: function() {
+class PromotedEventSwiper extends Component {
+
+  render() {
     let promotedEvents = this.props.events.filter(event => event.isPromoted);
     return (
       <Swiper
@@ -37,9 +38,6 @@ var PromotedEventSwiper = React.createClass({
       </Swiper>
     )
   }
-})
-
-var styles = StyleSheet.create({
-})
+}
 
 export default PromotedEventSwiper;
