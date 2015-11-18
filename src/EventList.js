@@ -6,34 +6,38 @@ import _ from 'lodash';
 import {formatDate} from './utilities';
 import {generalBackground} from './constants';
 
-var {
+const {
   StyleSheet,
   Text,
   View,
   ListView,
+  Component,
 } = React;
 
 
-var EventList = React.createClass({
-  getInitialState: function() {
-    return {
+class EventList extends Component {
+  constructor() {
+    super();
+    this._updateDataSource = this._updateDataSource.bind(this);
+    this._renderEvent = this._renderEvent.bind(this);
+    this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
         sectionHeaderHasChanged: (s1, s2) => s1 !== s2
       }),
       loaded: false,
-    };
-  },
+    }
+  }
 
   componentWillMount() {
     if (this.props.events) {
       this._updateDataSource(this.props.events);
     }
-  },
+  }
 
   componentWillReceiveProps(props) {
     this._updateDataSource(props.events);
-  },
+  }
 
   _updateDataSource(events) {
      let newDataBlob = _.groupBy(events, (event) => {
@@ -43,15 +47,15 @@ var EventList = React.createClass({
       this.setState({
         dataSource: this.state.dataSource.cloneWithRowsAndSections(newDataBlob)
       });
-  },
+  }
 
-  _renderEvent: function(event) {
+  _renderEvent(event) {
     return(
         <EventListItem navigator={this.props.navigator} event={event}/>
     )
-  },
+  }
 
-  render: function() {
+  render() {
    return (<ListView
      dataSource={this.state.dataSource}
      renderRow={this._renderEvent}
@@ -60,7 +64,7 @@ var EventList = React.createClass({
      contentInset={{bottom:49}}
      style={styles.listView}
    />)
-  },
+  }
 
   _renderSectionHeader(sectionData, sectionID) {
     return (
@@ -69,7 +73,7 @@ var EventList = React.createClass({
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   listView: {

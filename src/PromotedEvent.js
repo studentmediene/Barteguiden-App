@@ -7,25 +7,29 @@
 import React from 'react-native'
 import EventDetailsImage from './EventDetailsImage';
 
-var {
+const {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Component
 } = React;
 
 
-var PromotedEvent = React.createClass({
-  render: function() {
+class PromotedEvent extends Component {
+
+  render() {
+    const {imageUrl, title, venue, startAt, price} = this.props.promoted;
     return (
-      <TouchableOpacity onPress={this._onPressEvent}>
+      <TouchableOpacity onPress={this._onPressEvent.bind(this)}>
         <EventDetailsImage event={this.props.promoted}/>
       </TouchableOpacity>
     )
-  },
-  _onPressEvent: function(event: Object) {
+  }
+
+  _onPressEvent(event) {
     this.props.navigator.push({id: 1, title:'Detaljer', event: this.props.promoted});
   }
-});
+}
 
 export default PromotedEvent;
