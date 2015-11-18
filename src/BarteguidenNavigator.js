@@ -2,6 +2,7 @@
 
 import React from 'react-native';
 import {iOSBlue} from './constants'
+import EventDetails from './EventDetails';
 
 const {
   Navigator,
@@ -45,16 +46,6 @@ const NavigationBarRouteMapper = {
   }
 
 };
-
-const EventDetails = React.createClass({
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>{this.props.event.title}</Text>
-      </View>
-    );
-  }
-})
 
 const BarteguidenNavigator = React.createClass({
   render() {

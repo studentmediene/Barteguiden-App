@@ -19,7 +19,6 @@ var PromotedEventSwiper = React.createClass({
     let promotedEvents = this.props.events.filter(event => event.isPromoted);
     return (
       <Swiper
-        style={styles.wrapper}
         height={200}
         autoplay={true}
         autoplayTimeout={5}
@@ -41,10 +40,6 @@ var PromotedEventSwiper = React.createClass({
 })
 
 var styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: 'black'
-  }
 })
 
 export default PromotedEventSwiper;
