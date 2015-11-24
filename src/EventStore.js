@@ -4,10 +4,10 @@ import {sortByDate} from './utilities';
 
 const EventStore = {
 
-  fetchEvents() {
-    return fetch('http://barteguiden.no/api/events')
-      .then((response) => response.json())
-      .then((responseData) => responseData.sort(sortByDate))
+  async fetchEvents() {
+    let response = await fetch('http://barteguiden.no/api/events')
+    let responseData = await response.json();
+    return await responseData.sort(sortByDate);
   }
 };
 

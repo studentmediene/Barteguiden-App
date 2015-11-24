@@ -40,12 +40,9 @@ class BarteguidenApp extends Component {
     };
   }
 
-  componentDidMount() {
-    EventStore.fetchEvents().then((events) => {
-      this.setState({
-        events: events
-      });
-    }).done();
+  async componentDidMount() {
+    let events = await EventStore.fetchEvents();
+    this.setState({events});
   }
 
   _renderAll() {
