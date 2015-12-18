@@ -3,8 +3,8 @@
 import React from  'react-native'
 import EventListItem from './EventListItem';
 import _ from 'lodash';
-import {formatDate} from './utilities';
-import {generalBackground} from './constants';
+import {formatDate} from '../utilities';
+import {generalBackground} from '../constants';
 
 const {
   StyleSheet,

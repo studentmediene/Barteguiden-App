@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react-native';
-import {getTimeFromDate, formatPrice, categoryToImage} from './utilities';
+import {getTimeFromDate, formatPrice, categoryToImage} from '../utilities';
 
 const {
   StyleSheet,

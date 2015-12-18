@@ -5,10 +5,10 @@
 'use strict';
 
 import React from 'react-native'
-import {formatDate, formatPrice} from './utilities';
+import {formatDate, formatPrice} from '../utilities';
 import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage.js';
-import {generalBackground} from './constants';
+import {generalBackground} from '../constants';
 
 const {
   StyleSheet,

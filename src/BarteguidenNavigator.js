@@ -2,7 +2,7 @@
 
 import React from 'react-native';
 import {iOSBlue} from './constants'
-import EventDetails from './EventDetails';
+import EventDetails from './components/EventDetails';
 
 const {
   Navigator,
