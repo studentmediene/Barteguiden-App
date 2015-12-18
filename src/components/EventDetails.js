@@ -17,6 +17,7 @@ const {
   Image,
   TouchableOpacity,
   Component,
+  ScrollView,
   } = React;
 
 class EventDetails extends Component {
@@ -24,9 +25,11 @@ class EventDetails extends Component {
     return (
       <View style={styles.container}>
         <EventDetailsImage event={this.props.event}/>
-        <View style={styles.descriptionContainer}>
-          <EventDescription description={this.props.event.description}/>
-        </View>
+        <ScrollView style={styles.scroll}>
+          <View style={styles.descriptionContainer}>
+            <EventDescription description={this.props.event.description}/>
+          </View>
+        </ScrollView>
       </View>
     );
   }
@@ -36,11 +39,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+    paddingBottom: 50,
   },
   descriptionContainer: {
     backgroundColor: generalBackground,
     flex: 1,
   },
+  scroll: {
+    backgroundColor: generalBackground,
+  }
 });
 
 export default EventDetails;
