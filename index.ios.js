@@ -75,7 +75,7 @@ class BarteguidenApp extends Component {
       <TabBarIOS>
         <TabBarIOS.Item
           title="Hva skjer"
-          icon={{ uri: "all", isStatic: true }}
+          icon={{ uri: "all", isStatic: true, scale: 2 }}
           selected={this.state.selectedTab === 'whatisup'}
           onPress={() => {
             this.setState({
@@ -86,7 +86,7 @@ class BarteguidenApp extends Component {
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Alle"
-          icon={{ uri: "all", isStatic: true }}
+          icon={{ uri: "all", isStatic: true, scale: 2 }}
           selected={this.state.selectedTab === 'all'}
           onPress={() => {
             this.setState({
@@ -97,7 +97,7 @@ class BarteguidenApp extends Component {
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Favoritter"
-          icon={{ uri: "favorites", isStatic: true }}
+          icon={{ uri: "favorites", isStatic: true, scale: 2 }}
           selected={this.state.selectedTab === 'favorites'}
           onPress={() => {
             this.setState({
@@ -108,7 +108,7 @@ class BarteguidenApp extends Component {
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Innstillinger"
-          icon={{ uri: "settings", isStatic: true }}
+          icon={{ uri: "settings", isStatic: true, scale: 2 }}
           selected={this.state.selectedTab === 'settings'}
           onPress={() => {
             this.setState({
