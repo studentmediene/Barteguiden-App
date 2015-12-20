@@ -2,7 +2,7 @@
  * Created by annakastet on 18/11/15.
  */
 import React from 'react-native'
-import {formatDate, formatPrice} from './utilities';
+import {formatDate, formatPrice} from '../utilities';
 
 const {
   StyleSheet,

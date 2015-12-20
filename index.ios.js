@@ -5,9 +5,9 @@
 'use strict';
 
 import React from 'react-native'
-import EventList from './src/EventList';
+import EventList from './src/components/EventList';
 import EventStore from './src/EventStore';
-import PromotedEventSwiper from './src/PromotedEventSwiper';
+import PromotedEventSwiper from './src/components/PromotedEventSwiper';
 import BarteguidenNavigator from './src/BarteguidenNavigator';
 import _ from 'lodash';
 
