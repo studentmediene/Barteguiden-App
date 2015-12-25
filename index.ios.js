@@ -5,37 +5,22 @@
 'use strict';
 
 import React from 'react-native'
-import EventList from './src/components/EventList';
 import EventStore from './src/EventStore';
-import PromotedEventSwiper from './src/components/PromotedEventSwiper';
 import BarteguidenNavigator from './src/BarteguidenNavigator';
-import _ from 'lodash';
+import Views from './src/views/index';
 
-var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
+const {
   TabBarIOS,
   Component,
+  AppRegistry,
 } = React;
 
-
-class Header extends Component {
-  render() {
-    return (
-      <View style={styles.header}>
-        <Text style={styles.headerText}>{this.props.header}</Text>
-      </View>
-    );
-  }
-}
 
 class BarteguidenApp extends Component {
   constructor() {
     super();
     this.state = {
-      selectedTab: 'whatisup',
+      selectedTab: 'home',
       events: []
     };
   }
@@ -45,104 +30,30 @@ class BarteguidenApp extends Component {
     this.setState({events});
   }
 
-  _renderAll() {
-    return (
-      <BarteguidenNavigator title={'Alle'}>
-        <EventList events={this.state.events}/>
-      </BarteguidenNavigator>
-    );
-  }
-
-  _renderContent(pageText) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.tabText}>{pageText}</Text>
-      </View>
-    );
-  }
-
-  _renderWhatIsUp() {
-    return (
-      <BarteguidenNavigator title={'Hva skjer?'}>
-        <PromotedEventSwiper events={this.state.events}/>
-        <EventList events={_.take(this.state.events, 10)}/>
-      </BarteguidenNavigator>
-    );
-  }
-
   render() {
     return (
       <TabBarIOS>
-        <TabBarIOS.Item
-          title="Hva skjer"
-          icon={{ uri: "all", isStatic: true, scale: 2 }}
-          selected={this.state.selectedTab === 'whatisup'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'whatisup',
-            });
-          }}>
-          {this._renderWhatIsUp()}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Alle"
-          icon={{ uri: "all", isStatic: true, scale: 2 }}
-          selected={this.state.selectedTab === 'all'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'all',
-            });
-          }}>
-          {this._renderAll()}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Favoritter"
-          icon={{ uri: "favorites", isStatic: true, scale: 2 }}
-          selected={this.state.selectedTab === 'favorites'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'favorites',
-            });
-          }}>
-          {this._renderContent('Favoritter')}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Innstillinger"
-          icon={{ uri: "settings", isStatic: true, scale: 2 }}
-          selected={this.state.selectedTab === 'settings'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'settings',
-            });
-          }}>
-          {this._renderContent('Innstillinger')}
-        </TabBarIOS.Item>
+        {Views.map((view) => {
+          let RouteComponent = view.component;
+
+          return (
+            <TabBarIOS.Item
+              key={view.id}
+              title={view.title}
+              icon={{ uri: view.iconUri, isStatic: true, scale: 2}}
+              selected={this.state.selectedTab === view.id}
+              onPress={() => {
+                this.setState({
+                  selectedTab: view.id,
+                });
+              }}>
+              <RouteComponent title={view.title} events={this.state.events}/>
+            </TabBarIOS.Item>
+          )
+        })}
       </TabBarIOS>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    paddingTop: 25
-  },
-  headerText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: 'black'
-  },
-  tabText: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
-});
 
 AppRegistry.registerComponent('BarteguidenApp', () => BarteguidenApp);
