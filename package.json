@@ -9,6 +9,6 @@
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "react-native": "^0.17.0",
-    "react-native-swiper": "git+https://github.com/genexliu/react-native-swiper.git"
+    "react-native-swiper": "^1.4.3"
   }
 }
