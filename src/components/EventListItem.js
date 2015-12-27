@@ -2,6 +2,7 @@
 
 import React from 'react-native';
 import {getTimeFromDate, formatPrice, categoryToImage} from '../utilities';
+import {categoryImages} from '../constants';
 
 const {
   StyleSheet,
@@ -14,18 +15,19 @@ const {
 
 class EventListItem extends Component {
   render() {
+    const {category, title, venue, price, startAt} = this.props.event;
     return(
       <TouchableOpacity onPress={this._onPressEvent.bind(this)} style={styles.onTouch}>
         <View style={styles.container}>
           <Image
             style={styles.image}
-            source={{ uri: categoryToImage(this.props.event.category), isStatic: true }}
+            source={categoryImages[categoryToImage(category)]}
           />
           <View style={styles.eventContents}>
-            <Text style={styles.eventTitle}>{this.props.event.title}</Text>
+            <Text style={styles.eventTitle}>{title}</Text>
             <View style={styles.eventInfo}>
-              <Text>{getTimeFromDate(this.props.event.startAt)} {this.props.event.venue.name}</Text>
-              <Text>{formatPrice(this.props.event.price)}</Text>
+              <Text>{getTimeFromDate(startAt)} {venue.name}</Text>
+              <Text>{formatPrice(price)}</Text>
             </View>
           </View>
         </View>
