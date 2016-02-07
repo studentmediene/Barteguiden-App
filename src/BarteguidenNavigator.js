@@ -13,6 +13,7 @@ const {
   Children,
   TouchableOpacity,
   BackAndroid,
+  Platform
 } = React;
 
 
@@ -52,8 +53,15 @@ const BarteguidenNavigator = React.createClass({
   render() {
     return (
       <Navigator
+        sceneStyle={{paddingTop: Platform.OS === 'ios' ? 64 : 0}}
         initialRoute={{id: 0, title: this.props.title}}
         renderScene={this._renderScene}
+        navigationBar={Platform.OS === 'ios' ?
+          <Navigator.NavigationBar
+            style={styles.navBar}
+            routeMapper={NavigationBarRouteMapper}
+          /> : null
+        }
         ref={(nav) => {
             BackAndroid.addEventListener('hardwareBackPress', () => {
                 if (nav && nav.getCurrentRoutes() && nav.getCurrentRoutes().length > 0) {
