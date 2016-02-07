@@ -9,7 +9,6 @@ import _ from 'lodash';
 
 export default ({events, title}) => (
   <BarteguidenNavigator title={title}>
-    <PromotedEventSwiper events={events}/>
     <EventList events={_.take(events, 10)}/>
   </BarteguidenNavigator>
 );

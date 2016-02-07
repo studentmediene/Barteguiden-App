@@ -11,7 +11,7 @@ import PromotedEventSwiper from './src/components/PromotedEventSwiper';
 import EventList from './src/components/EventList';
 import {logoImage} from './src/constants';
 import _ from 'lodash';
-
+import Home from './src/views/Home';
 
 const {
   AppRegistry,
@@ -40,11 +40,12 @@ class BarteguidenApp extends Component {
         <ToolbarAndroid
           style={styles.toolbar}
           title="Barteguiden"
-          icon={require('./src/img/Icon.png')}
+          logo={require('./src/img/Icon.png')}
+          onIconClicked={() => this.props.navigator.pop()}
+          navIcon={() => require('./src/img/Icon.png')}
           actions={[{title: 'Innstillinger', show: 'always'}]}
           onActionSelected={this.onActionSelected} />
-        <PromotedEventSwiper events={this.state.events}/>
-        <EventList events={_.take(this.state.events, 10)}/>
+        <Home events={this.state.events} title="Home" />
       </View>
     );
   }

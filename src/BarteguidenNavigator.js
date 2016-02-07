@@ -12,6 +12,7 @@ const {
   cloneElement,
   Children,
   TouchableOpacity,
+  BackAndroid,
 } = React;
 
 
@@ -51,15 +52,17 @@ const BarteguidenNavigator = React.createClass({
   render() {
     return (
       <Navigator
-        sceneStyle={{paddingTop: 64}}
         initialRoute={{id: 0, title: this.props.title}}
         renderScene={this._renderScene}
-        navigationBar={
-          <Navigator.NavigationBar
-            style={styles.navBar}
-            routeMapper={NavigationBarRouteMapper}
-          />
-        }
+        ref={(nav) => {
+            BackAndroid.addEventListener('hardwareBackPress', () => {
+                if (nav && nav.getCurrentRoutes() && nav.getCurrentRoutes().length > 0) {
+                    nav.pop();
+                    return true;
+                }
+                return false;
+            });
+        }}
       />
     );
   },
@@ -80,7 +83,8 @@ const BarteguidenNavigator = React.createClass({
         );
     }
   }
-})
+});
+
 
 const styles = StyleSheet.create({
   container: {
