@@ -12,6 +12,7 @@ import EventList from './src/components/EventList';
 import {logoImage} from './src/constants';
 import _ from 'lodash';
 import Home from './src/views/Home';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 const {
   AppRegistry,
@@ -21,12 +22,14 @@ const {
   Component,
 } = React;
 
+
 class BarteguidenApp extends Component {
   constructor() {
     super();
     this.state = {
       events: []
     };
+
   }
 
   async componentDidMount() {
@@ -36,21 +39,32 @@ class BarteguidenApp extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View
+      style={styles.container}>
         <ToolbarAndroid
           style={styles.toolbar}
           title="Barteguiden"
           logo={require('./src/img/Icon.png')}
           onIconClicked={() => this.props.navigator.pop()}
-          navIcon={() => require('./src/img/Icon.png')}
           actions={[{title: 'Innstillinger', show: 'always'}]}
           onActionSelected={this.onActionSelected} />
-        <Home events={this.state.events} title="Home" />
+
+        <ScrollableTabView>
+          <Home events={this.state.events} title="Home" tabLabel="Hva skjer?"/>
+          <View tabLabel="Another tab">
+            <Text>
+              Example content
+            </Text>
+          </View>
+        </ScrollableTabView>
       </View>
     );
   }
 
+
+
   onActionSelected(position) {
+
     if (position === 0) { // index of 'Settings'
     }
   }
@@ -65,6 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e9eaed',
     height: 56,
   },
+
 });
 
 AppRegistry.registerComponent('BarteguidenApp', () => BarteguidenApp);
