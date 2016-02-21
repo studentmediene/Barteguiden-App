@@ -40,18 +40,17 @@ class BarteguidenApp extends Component {
   render() {
     return (
       <View
-      style={styles.view1}>
+      style={styles.container}>
         <ToolbarAndroid
           style={styles.toolbar}
           title="Barteguiden"
           logo={require('./src/img/Icon.png')}
           onIconClicked={() => this.props.navigator.pop()}
-          navIcon={require('./src/img/Icon.png')}
           actions={[{title: 'Innstillinger', show: 'always'}]}
           onActionSelected={this.onActionSelected} />
 
         <ScrollableTabView>
-          <EventList events={_.take(this.state.events, 10)} tabLabel="Arrangementer"/>
+          <Home events={this.state.events} title="Home" tabLabel="Hva skjer?"/>
           <View tabLabel="Another tab">
             <Text>
               Example content

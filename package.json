@@ -6,11 +6,11 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "lodash": "^3.10.1",
-    "moment": "^2.10.6",
-    "react-native": "^0.17.0",
-    "react-native-scrollable-tab-view": "^0.3.5",
-    "react-native-swiper": "^1.4.3"
+    "lodash": "~3.10.1",
+    "moment": "~2.10.6",
+    "react-native": "~0.18.0",
+    "react-native-scrollable-tab-view": "~0.3.5",
+    "react-native-swiper": "~1.4.3"
   },
   "description": "A React Native app for Barteguiden.",
   "main": "index.android.js",
@@ -24,7 +24,7 @@
     "App"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Studentmediene/Barteguiden-App/issues"
   },
