@@ -2,7 +2,8 @@
  * Created by annakastet on 18/11/15.
  */
 import React from 'react-native'
-import {formatDate, formatPrice} from '../utilities';
+import {formatDate, formatPrice, categoryToImage} from '../utilities';
+import {categoryImages} from '../constants';
 
 const {
   StyleSheet,
@@ -28,6 +29,13 @@ class EventDetailsImage extends Component {
             <Text style={styles.subtitle}>{this.props.event.venue.name}</Text>
             <Text style={styles.subtitle}>{formatDate(this.props.event.startAt)}</Text>
             <Text style={styles.subtitle}>{formatPrice(this.props.event.price)}</Text>
+            <View style={styles.iconRow}>
+              <Image
+                style={styles.icon}
+                source={categoryImages[categoryToImage(this.props.event.category)]}>
+              </Image>
+              {this.props.event.isPromoted ? <Image  style={styles.icon} source={ require('../img/promoted_star.png')}></Image>:null}
+            </View>
           </View>
         </View>
       </View>
@@ -50,6 +58,11 @@ const styles = StyleSheet.create({
     flex: 1,
     opacity: 0.5,
   },
+  icon: {
+    resizeMode: Image.resizeMode.contain,
+    flex: 1,
+    opacity: 1,
+  },
   eventContents: {
     margin: 10,
     position: 'absolute',
@@ -64,8 +77,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
   },
+  iconRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
   wrapper: {
-    height: 200,
+    flex: 1,
   },
   imageWrapper: {
     backgroundColor: 'black',
