@@ -1,5 +1,5 @@
 {
-  "name": "barteguiden-app",
+  "name": "BarteguidenApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
   "dependencies": {
     "lodash": "~3.10.1",
     "moment": "~2.10.6",
-    "react-native": "~0.18.0",
+    "react-native": "~0.21.0",
     "react-native-scrollable-tab-view": "~0.3.5",
     "react-native-swiper": "~1.4.3"
   },
