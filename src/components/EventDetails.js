@@ -7,7 +7,7 @@
 import React from 'react-native'
 import {formatDate, formatPrice} from '../utilities';
 import EventDescription from './EventDescription';
-import EventDetailsImage from './EventDetailsImage.js';
+import EventDetailsImage from './EventDetailsImage';
 import {generalBackground} from '../constants';
 
 const {
@@ -27,7 +27,7 @@ class EventDetails extends Component {
         <EventDetailsImage event={this.props.event}/>
         <ScrollView style={styles.scroll}>
           <View style={styles.descriptionContainer}>
-            <EventDescription description={this.props.event.description}/>
+            <EventDescription event={this.props.event}/>
           </View>
         </ScrollView>
       </View>
