@@ -5,6 +5,7 @@
 'use strict';
 
 import React from 'react-native'
+import CalendarButton from './CalendarButton'
 
 const {
   StyleSheet,
@@ -17,8 +18,11 @@ class EventDescription extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.descriptionHeader}>Beskrivelse</Text>
-        <Text>{this.props.description}</Text>
+        <View style={styles.descriptionHeaderAndIcon}>
+          <Text style={styles.descriptionHeader}>Beskrivelse</Text>
+          <CalendarButton event={this.props.event}/>
+        </View>
+        <Text>{this.props.event.description}</Text>
       </View>
     );
   }
@@ -33,6 +37,10 @@ const styles = StyleSheet.create({
   descriptionHeader: {
     fontSize: 18,
     paddingBottom: 5,
+  },
+  descriptionHeaderAndIcon: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 
