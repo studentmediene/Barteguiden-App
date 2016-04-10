@@ -6,6 +6,7 @@
 
 import React from 'react-native'
 import CalendarButton from './CalendarButton'
+import ExternalLink from './ExternalLink';
 
 const {
   StyleSheet,
@@ -23,9 +24,11 @@ class EventDescription extends Component {
           <CalendarButton event={this.props.event}/>
         </View>
         <Text>{this.props.event.description}</Text>
+        <ExternalLink url={this.props.event.eventUrl} linkText={'Link til arrangementet'}/>
       </View>
     );
   }
+
 }
 
 const styles = StyleSheet.create({
