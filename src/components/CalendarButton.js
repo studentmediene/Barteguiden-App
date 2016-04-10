@@ -3,7 +3,7 @@
 import React from 'react-native'
 import moment from 'moment'
 
-var SendIntentAndroid = require('react-native-send-intent');
+var SendIntentAndroid = React.Platform.OS === 'android' ? require('react-native-send-intent') : null;
 
 const {
   StyleSheet,
