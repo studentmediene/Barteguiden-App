@@ -8,6 +8,8 @@ import React from 'react-native'
 import CalendarButton from './CalendarButton'
 import ExternalLink from './ExternalLink';
 
+var HTMLView = require('react-native-htmlview')
+
 const {
   StyleSheet,
   Text,
@@ -23,7 +25,9 @@ class EventDescription extends Component {
           <Text style={styles.descriptionHeader}>Beskrivelse</Text>
           <CalendarButton event={this.props.event}/>
         </View>
-        <Text>{this.props.event.description}</Text>
+        <HTMLView
+          value={this.props.event.description}
+        />
         <ExternalLink url={this.props.event.eventUrl} linkText={'Link til arrangementet'}/>
       </View>
     );
