@@ -19,7 +19,7 @@ class CalendarButton extends Component {
     return (
       <View>
         <TouchableOpacity onPress={this.onClick.bind(this)} style={styles.button}>
-          <Image source={require('../img/categoryDebate.png')}/>{/*Placeholder, should have our own icon for this*/}
+          <Image source={require('../img/calendar.png')}/>{/*Placeholder, should have our own icon for this*/}
         </TouchableOpacity>
       </View>
     );
