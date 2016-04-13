@@ -13,6 +13,7 @@
     "react-native-safari-view": "^0.4.0",
     "react-native-scrollable-tab-view": "~0.3.5",
     "react-native-send-intent": "^1.0.6",
+    "react-native-share": "https://github.com/EstebanFuentealba/react-native-share.git#2730a8b",
     "react-native-swiper": "~1.4.3"
   },
   "description": "A React Native app for Barteguiden.",
