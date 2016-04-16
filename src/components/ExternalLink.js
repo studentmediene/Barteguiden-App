@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
   externalLink: {
     fontSize: 18,
     color: "#0E7AFE",
-    marginTop: 20,
   }
 });
 

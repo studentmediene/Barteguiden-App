@@ -22,15 +22,15 @@ class EventDescription extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.descriptionHeaderAndIcon}>
-          <Text style={styles.descriptionHeader}>Beskrivelse</Text>
-          <CalendarButton event={this.props.event}/>
-          <ShareButton event={this.props.event}/>
-        </View>
+
         <HTMLView
           value={this.props.event.description}
         />
-        <ExternalLink url={this.props.event.eventUrl} linkText={'Link til arrangementet'}/>
+        <View style={styles.descriptionHeaderAndIcon}>
+          <ExternalLink url={this.props.event.eventUrl} linkText={'Link til arrangementet'}/>
+          <CalendarButton event={this.props.event}/>
+          <ShareButton event={this.props.event}/>
+        </View>
       </View>
     );
   }
@@ -49,7 +49,9 @@ const styles = StyleSheet.create({
   },
   descriptionHeaderAndIcon: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginVertical: 10
   },
 });
 
