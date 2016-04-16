@@ -12,7 +12,6 @@ const {
   Component,
   TouchableOpacity,
   Image,
-  Platform,
   Alert,
   } = React;
 
