@@ -7,7 +7,8 @@
 import React from 'react-native'
 import CalendarButton from './CalendarButton'
 import ExternalLink from './ExternalLink';
-import ShareButton from './ShareButton'
+import ShareButton from './ShareButton';
+import MapButton from './MapButton';
 
 var HTMLView = require('react-native-htmlview')
 
@@ -30,6 +31,7 @@ class EventDescription extends Component {
           <ExternalLink url={this.props.event.eventUrl} linkText={'Link til arrangementet'}/>
           <CalendarButton event={this.props.event}/>
           <ShareButton event={this.props.event}/>
+          <MapButton event={this.props.event}/>
         </View>
       </View>
     );
