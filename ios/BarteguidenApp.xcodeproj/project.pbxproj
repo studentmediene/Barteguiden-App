@@ -25,6 +25,7 @@
 		4F30BB5A1C62841300BCCE08 /* libSafariViewManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F30BB591C62840A00BCCE08 /* libSafariViewManager.a */; };
 		4FC9F5EB1CBEC30E00DDB28D /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC9F5E71CBEBA1800DDB28D /* libRNCalendarEvents.a */; };
 		4FE9875A1CC1567B00D1446D /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE987591CC1567B00D1446D /* EventKit.framework */; };
+		4FE9888B1CC3F66C00D1446D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FE9888A1CC3F66C00D1446D /* Ionicons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -151,9 +152,10 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BarteguidenApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		4F30BB541C62840A00BCCE08 /* SafariViewManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SafariViewManager.xcodeproj; path = "../node_modules/react-native-safari-view/SafariViewManager.xcodeproj"; sourceTree = "<group>"; };
-		714B22F5E88340F9ACA23BD4 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShare.a; sourceTree = "<group>"; };
 		4FC9F5D81CBEBA1700DDB28D /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
 		4FE987591CC1567B00D1446D /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		4FE9888A1CC3F66C00D1446D /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		714B22F5E88340F9ACA23BD4 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShare.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -312,6 +314,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4FE9888A1CC3F66C00D1446D /* Ionicons.ttf */,
 				4FC9F5D81CBEBA1700DDB28D /* RNCalendarEvents.xcodeproj */,
 				4F30BB541C62840A00BCCE08 /* SafariViewManager.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -474,12 +477,12 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 4FC9F5D91CBEBA1700DDB28D /* Products */;
+					ProjectRef = 4FC9F5D81CBEBA1700DDB28D /* RNCalendarEvents.xcodeproj */;
+				},
+				{
 					ProductGroup = B36A53511CBEC02400AEF2DE /* Products */;
 					ProjectRef = 06FDEF04AAD34FA6ADE7E2B7 /* RNShare.xcodeproj */;
-                },
-                {
-                    ProductGroup = 4FC9F5D91CBEBA1700DDB28D /* Products */;
-					ProjectRef = 4FC9F5D81CBEBA1700DDB28D /* RNCalendarEvents.xcodeproj */;
 				},
 				{
 					ProductGroup = 4F30BB551C62840A00BCCE08 /* Products */;
@@ -602,6 +605,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				4FE9888B1CC3F66C00D1446D /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

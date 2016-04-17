@@ -12,6 +12,8 @@ export const categoryImages = {
   categoryExhibitions: require('./img/categoryExhibitions.png'),
   categoryPerformances: require('./img/categoryPerformances.png'),
   categoryMusic: require('./img/categoryMusic.png')
-}
+};
 
 export const logoImage = require('./img/Icon.png');
+
+export const actionIconSize = 30;
