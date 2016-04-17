@@ -2,8 +2,6 @@
 
 import React from 'react-native'
 
-var Share = require('react-native-share');
-
 const {
   Linking,
   StyleSheet,
@@ -11,6 +9,7 @@ const {
   Component,
   TouchableOpacity,
   Image,
+  Platform,
   } = React;
 
 class MapButton extends Component {
@@ -25,8 +24,16 @@ class MapButton extends Component {
   }
 
   onClick() {
-    var event = this.props.event;
-    var url = 'geo:' + event.venue.latitude + ','  + event.venue.longitude;
+    let {latitude, longitude, name} = this.props.event.venue;
+    let url;
+
+    if (Platform.OS === 'android') {
+      url = 'geo:' + latitude + ','  + longitude;
+    }
+    else {
+      url = `http://maps.apple.com/?q=${name.split(' ').join('+')}&sll=${latitude},${longitude}&z=10`
+    }
+
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
         Linking.openURL(url);
@@ -34,7 +41,6 @@ class MapButton extends Component {
         console.log('Don\'t know how to open URI: ' + url);
       }
     });
-
   }
 }
 
