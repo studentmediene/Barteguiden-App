@@ -1,11 +1,11 @@
 'use strict';
 
 import React from 'react-native';
-import EventList from '../components/EventList';
 import BarteguidenNavigator from '../BarteguidenNavigator';
+import EventSearchList from '../components/EventSearchList.js';
 
 export default ({events, title}) => (
   <BarteguidenNavigator title={title}>
-    <EventList events={events}/>
+    <EventSearchList events={events}/>
   </BarteguidenNavigator>
 );
