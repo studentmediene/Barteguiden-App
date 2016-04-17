@@ -18,7 +18,7 @@ class ShareButton extends Component {
     return (
       <View>
         <TouchableOpacity onPress={this.onClick.bind(this)} style={styles.button}>
-          <Image source={require('../img/share_button.png')}/>{/*Placeholder, should have our own icon for this*/}
+          <Image source={require('../img/share_button.png')}/>
         </TouchableOpacity>
       </View>
     );
