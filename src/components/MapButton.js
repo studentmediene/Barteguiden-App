@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react-native'
+import ActionButton from './ActionButton';
+
 
 const {
   Linking,
@@ -16,9 +18,7 @@ class MapButton extends Component {
   render() {
     return (
       <View>
-        <TouchableOpacity onPress={this.onClick.bind(this)} style={styles.button}>
-          <Image source={require('../img/map_button.png')}/>{/*Placeholder, should have our own icon for this*/}
-        </TouchableOpacity>
+       <ActionButton onClick={this.onClick.bind(this)} imageSource={require('../img/map_button.png')} styles={styles.button} />
       </View>
     );
   }

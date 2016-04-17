@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react-native'
+import ActionButton from './ActionButton';
+
 
 var Share = require('react-native-share');
 
@@ -17,9 +19,7 @@ class ShareButton extends Component {
   render() {
     return (
       <View>
-        <TouchableOpacity onPress={this.onClick.bind(this)} style={styles.button}>
-          <Image source={require('../img/share_button.png')}/>
-        </TouchableOpacity>
+        <ActionButton onClick={this.onClick.bind(this)} imageSource={require('../img/share_button.png')} styles={styles.button} />
       </View>
     );
   }
