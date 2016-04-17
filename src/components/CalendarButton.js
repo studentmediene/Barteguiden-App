@@ -2,6 +2,7 @@
 
 import React, {NativeAppEventEmitter} from 'react-native'
 import moment from 'moment'
+import ActionButton from './ActionButton';
 
 var SendIntentAndroid = React.Platform.OS === 'android' ? require('react-native-send-intent') : null;
 import RNCalendarEvents from 'react-native-calendar-events';
@@ -20,9 +21,7 @@ class CalendarButton extends Component {
   render() {
     return (
       <View>
-        <TouchableOpacity onPress={this.onClick.bind(this)} style={styles.button}>
-          <Image source={require('../img/calendarIOS.png')}/>
-        </TouchableOpacity>
+          <ActionButton onClick={this.onClick.bind(this)} imageSource={require('../img/calendarIOS.png')} styles={styles.button}/>
       </View>
     );
   }
