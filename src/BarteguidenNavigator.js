@@ -3,6 +3,7 @@
 import React from 'react-native';
 import {iOSBlue} from './constants'
 import EventDetails from './components/EventDetails';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const {
   Navigator,
@@ -28,6 +29,7 @@ const NavigationBarRouteMapper = {
       <TouchableOpacity
         onPress={() => navigator.pop()}
         style={styles.navBarLeftButton}>
+        <Icon name='ios-arrow-back' size={35} color={iOSBlue}/>
         <Text style={[styles.navBarText, styles.navBarButtonText]}>
           {previousRoute.title}
         </Text>
@@ -105,17 +107,21 @@ const styles = StyleSheet.create({
   navBarText: {
     fontSize: 18,
     marginVertical: 10,
+    paddingBottom: 3,
   },
   navBarTitleText: {
     color: 'black',
     fontWeight: '600',
-    marginVertical: 9,
   },
   navBarLeftButton: {
     paddingLeft: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   navBarButtonText: {
     color: iOSBlue,
+    paddingLeft: 10,
   },
 });
 
