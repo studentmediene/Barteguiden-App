@@ -1,13 +1,12 @@
 'use strict';
 
 import React from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const {
-  StyleSheet,
   View,
   Component,
   TouchableOpacity,
-  Image,
   } = React;
 
 class ActionButton extends Component {
@@ -15,7 +14,7 @@ class ActionButton extends Component {
     return (
       <View>
         <TouchableOpacity onPress={this.props.onClick} style={this.props.styles}>
-          <Image source={this.props.imageSource}/>
+          <Icon name={this.props.iconName} size={this.props.iconSize} color={this.props.iconColor}/>
         </TouchableOpacity>
       </View>
     );

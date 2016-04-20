@@ -2,15 +2,14 @@
 
 import React from 'react-native'
 import ActionButton from './ActionButton';
-
+import {actionIconSize, iOSBlue} from '../constants';
+import {getPlatformIcon} from '../utilities';
 
 const {
   Linking,
   StyleSheet,
   View,
   Component,
-  TouchableOpacity,
-  Image,
   Platform,
   } = React;
 
@@ -18,7 +17,8 @@ class MapButton extends Component {
   render() {
     return (
       <View>
-       <ActionButton onClick={this.onClick.bind(this)} imageSource={require('../img/map_button.png')} styles={styles.button} />
+       <ActionButton onClick={this.onClick.bind(this)} iconName={getPlatformIcon('map')}
+                     iconSize={actionIconSize} styles={styles.button} iconColor={iOSBlue}/>
       </View>
     );
   }

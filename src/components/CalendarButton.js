@@ -3,16 +3,19 @@
 import React, {NativeAppEventEmitter} from 'react-native'
 import moment from 'moment'
 import ActionButton from './ActionButton';
+import RNCalendarEvents from 'react-native-calendar-events';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {actionIconSize, iOSBlue} from '../constants';
+import {getPlatformIcon} from '../utilities';
 
 var SendIntentAndroid = React.Platform.OS === 'android' ? require('react-native-send-intent') : null;
-import RNCalendarEvents from 'react-native-calendar-events';
+
+
 
 const {
   StyleSheet,
   View,
   Component,
-  TouchableOpacity,
-  Image,
   Platform,
   Alert,
   } = React;
@@ -21,10 +24,13 @@ class CalendarButton extends Component {
   render() {
     return (
       <View>
-          <ActionButton onClick={this.onClick.bind(this)} imageSource={require('../img/calendarIOS.png')} styles={styles.button}/>
+        <ActionButton iconSize={actionIconSize} onClick={this.onClick.bind(this)}
+                      iconName={getPlatformIcon('calendar')} styles={styles.button} iconColor={iOSBlue}/>
       </View>
     );
   }
+
+
 
   onClick() {
     if(Platform.OS === 'android'){

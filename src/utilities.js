@@ -1,6 +1,7 @@
 'use strict';
 import moment from 'moment';
 import 'moment/locale/nb';
+import {Platform} from 'react-native';
 
 export function sortByDate (event1, event2) {
   return new Date(event1.startAt).getTime() - new Date(event2.startAt).getTime();
@@ -32,4 +33,23 @@ export function categoryToImage(category) {
     return 'category' + prefix + suffix;
   }
   return 'categoryOther';
+}
+
+export function getPlatformIcon(iconName) {
+  const platformIcons = {
+    'calendar': {
+      'ios': 'ios-calendar-outline',
+      'android' : 'ios-calendar'
+    },
+    'share': {
+      'ios' : 'ios-upload-outline',
+      'android' : 'ios-upload'
+    },
+    'map': {
+      'ios' : 'ios-location-outline',
+      'android' : 'ios-location'
+    }
+  };
+
+  return platformIcons[iconName][Platform.OS];
 }
