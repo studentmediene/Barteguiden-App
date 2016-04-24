@@ -1,21 +1,21 @@
 'use strict';
 
-var React = require('react');
-var ReactNative = require('react-native');
+import Icon from 'react-native-vector-icons/Ionicons';
+import {iOSBlue, iOSLightGray} from '../constants';
 
-import {iOSBlue} from '../constants';
-
-var {
-  ActivityIndicatorIOS,
+import React, {
   TextInput,
   StyleSheet,
   View,
-} = ReactNative;
+  Component,
+} from 'react-native';
 
-var SearchBar = React.createClass({
-  render: function() {
+
+class SearchBar extends Component {
+  render() {
     return (
       <View style={styles.searchBar}>
+        <Icon name={'ios-search-strong'} size={25} color={'white'}/>
         <TextInput
           autoCapitalize="none"
           autoCorrect={false}
@@ -24,32 +24,29 @@ var SearchBar = React.createClass({
           onFocus={this.props.onFocus}
           style={styles.searchBarInput}
         />
-        <ActivityIndicatorIOS
-          animating={this.props.isLoading}
-          style={styles.spinner}
-        />
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   searchBar: {
-    padding: 3,
-    paddingLeft: 8,
+    padding: 6,
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomColor: iOSBlue,
     borderBottomWidth: 3,
+    backgroundColor: iOSLightGray,
   },
   searchBarInput: {
     fontSize: 15,
     flex: 1,
     height: 30,
-  },
-  spinner: {
-    width: 30,
+    textAlign: 'center',
+    borderRadius: 7,
+    backgroundColor: 'white',
+    marginLeft: 5,
   },
 });
 
-module.exports = SearchBar;
+export default SearchBar;

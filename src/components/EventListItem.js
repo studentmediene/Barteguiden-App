@@ -2,7 +2,7 @@
 
 import React from 'react-native';
 import {getTimeFromDate, formatPrice, categoryToImage} from '../utilities';
-import {categoryImages} from '../constants';
+import {categoryImages, iOSLightGray} from '../constants';
 
 const {
   StyleSheet,
@@ -26,7 +26,7 @@ class EventListItem extends Component {
           <View style={styles.eventContents}>
             <Text style={styles.eventTitle}>{title}</Text>
             <View style={styles.eventInfo}>
-              <Text>{getTimeFromDate(startAt)} {venue.name}</Text>
+              <Text>{getTimeFromDate(startAt)} {venue.name.trim()}</Text>
               <Text>{formatPrice(price)}</Text>
             </View>
           </View>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'white',
     borderBottomWidth: 1,
-    borderColor: '#AFAFAF',
+    borderColor: iOSLightGray,
   },
   image: {
     height: 25,

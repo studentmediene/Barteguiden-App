@@ -16,8 +16,11 @@ class EventSearchList extends Component {
   }
 
   render() {
-    let events = this.props.events.filter( (event) => event.title.includes(this.state.filter));
-    return (<View>
+    let events = this.props.events.filter( (event) => {
+      return event.title.toLowerCase().includes(this.state.filter);
+    });
+
+    return (<View style={{flex: 1}}>
         <SearchBar onChange={this.updateFilter.bind(this)}/>
         <EventList events={events} navigator={this.props.navigator}/>
       </View>
@@ -25,7 +28,7 @@ class EventSearchList extends Component {
   }
 
   updateFilter(text) {
-    this.setState({filter:text})
+    this.setState({filter:text.toLowerCase()})
   }
 }
 

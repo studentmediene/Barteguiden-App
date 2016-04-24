@@ -8,7 +8,7 @@ import React from 'react-native'
 import {formatDate, formatPrice} from '../utilities';
 import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage';
-import {generalBackground} from '../constants';
+import {backgroundColor} from '../constants';
 
 const {
   StyleSheet,
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   descriptionContainer: {
-    backgroundColor: generalBackground,
+    backgroundColor: backgroundColor,
     flex: 1,
   },
   scroll: {
-    backgroundColor: generalBackground,
+    backgroundColor: backgroundColor,
   }
 });
 

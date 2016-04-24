@@ -1,7 +1,9 @@
 'use strict';
 
 export const iOSBlue = '#0E7AFE';
-export const generalBackground = '#EFEFEF';
+export const iOSGray = '#8E8E93';
+export const backgroundColor = '#EFEFEF';
+export const iOSLightGray = '#AFAFAF';
 
 export const categoryImages = {
   categoryNightlife: require('./img/categoryNightlife.png'),
@@ -17,3 +19,4 @@ export const categoryImages = {
 export const logoImage = require('./img/Icon.png');
 
 export const actionIconSize = 30;
+export const searchButtonSize = 30;

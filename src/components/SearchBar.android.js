@@ -1,47 +1,33 @@
 'use strict';
 
-var React = require('react');
-var ReactNative = require('react-native');
-
 import Icon from 'react-native-vector-icons/Ionicons';
-import {iOSBlue} from '../constants';
+import {iOSBlue, searchButtonSize} from '../constants';
 
-var {
+import React, {
   Image,
   Platform,
-  ProgressBarAndroid,
   TextInput,
   StyleSheet,
   TouchableNativeFeedback,
   View,
-} = ReactNative;
+  Component,
+} from 'react-native';
 
-var IS_RIPPLE_EFFECT_SUPPORTED = Platform.Version >= 21;
-var SEARCH_BUTTON_SIZE = 30;
+const IS_RIPPLE_EFFECT_SUPPORTED = Platform.Version >= 21;
 
-var SearchBar = React.createClass({
-  render: function() {
-    var loadingView;
-    if (this.props.isLoading) {
-      loadingView = (
-        <ProgressBarAndroid
-          styleAttr="Large"
-          style={styles.spinner}
-        />
-      );
-    } else {
-      loadingView = <View style={styles.spinner} />;
-    }
-    var background = IS_RIPPLE_EFFECT_SUPPORTED ?
+class SearchBar extends Component {
+  render() {
+    const background = IS_RIPPLE_EFFECT_SUPPORTED ?
       TouchableNativeFeedback.SelectableBackgroundBorderless() :
       TouchableNativeFeedback.SelectableBackground();
+
     return (
       <View style={styles.searchBar}>
         <TouchableNativeFeedback
             background={background}
             onPress={() => this.refs.input && this.refs.input.focus()}>
           <View>
-            <Icon name={'ios-search-strong'} size={SEARCH_BUTTON_SIZE} color={iOSBlue}/>
+            <Icon name={'ios-search-strong'} size={searchButtonSize} color={iOSBlue}/>
           </View>
         </TouchableNativeFeedback>
         <TextInput
@@ -54,13 +40,12 @@ var SearchBar = React.createClass({
           placeholderTextColor="rgba(0, 0, 0, 0.5)"
           style={styles.searchBarInput}
         />
-        {loadingView}
       </View>
     );
-  },
-});
+  }
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -79,10 +64,6 @@ var styles = StyleSheet.create({
     padding: 0,
     backgroundColor: 'transparent'
   },
-  spinner: {
-    width: 30,
-    height: 30,
-  },
   icon: {
     width: 24,
     height: 24,
@@ -90,4 +71,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = SearchBar;
+export default SearchBar;
