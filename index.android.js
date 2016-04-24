@@ -12,6 +12,7 @@ import EventList from './src/components/EventList';
 import {logoImage} from './src/constants';
 import _ from 'lodash';
 import Home from './src/views/Home';
+import AllEvents from './src/views/AllEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 const {
@@ -51,11 +52,7 @@ class BarteguidenApp extends Component {
 
         <ScrollableTabView>
           <Home events={this.state.events} title="Home" tabLabel="Hva skjer?"/>
-          <View tabLabel="Another tab">
-            <Text>
-              Example content
-            </Text>
-          </View>
+          <AllEvents events={this.state.events} title="All" tabLabel="Alle"/>
         </ScrollableTabView>
       </View>
     );
