@@ -18,12 +18,14 @@ const {
   TouchableOpacity,
   Component,
   ScrollView,
+  Platform,
   } = React;
 
 class EventDetails extends Component {
   render() {
+    let bottomPadding = Platform.OS === "android" ? 0 : 50;
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, {paddingBottom: bottomPadding}]}>
         <EventDetailsImage event={this.props.event}/>
         <ScrollView style={styles.scroll}>
           <View style={styles.descriptionContainer}>
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    paddingBottom: 50,
   },
   descriptionContainer: {
     backgroundColor: backgroundColor,
