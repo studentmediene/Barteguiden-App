@@ -1,10 +1,5 @@
 'use strict';
 
-export const iOSBlue = '#0E7AFE';
-export const iOSGray = '#8E8E93';
-export const backgroundColor = '#EFEFEF';
-export const iOSLightGray = '#AFAFAF';
-
 export const categoryImages = {
   categoryNightlife: require('./img/categoryNightlife.png'),
   categoryDebate: require('./img/categoryDebate.png'),

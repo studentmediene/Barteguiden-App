@@ -1,7 +1,7 @@
 'use strict';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import {iOSBlue, iOSLightGray} from '../constants';
+import {highlightColor, backgroundColor, containerColor} from '../colors';
 
 import React, {
   TextInput,
@@ -34,9 +34,8 @@ var styles = StyleSheet.create({
     padding: 6,
     flexDirection: 'row',
     alignItems: 'center',
-    borderBottomColor: iOSBlue,
-    borderBottomWidth: 3,
-    backgroundColor: iOSLightGray,
+    borderBottomColor: highlightColor,
+    backgroundColor: backgroundColor,
   },
   searchBarInput: {
     fontSize: 15,
@@ -44,7 +43,7 @@ var styles = StyleSheet.create({
     height: 30,
     textAlign: 'center',
     borderRadius: 7,
-    backgroundColor: 'white',
+    backgroundColor: containerColor,
     marginLeft: 5,
   },
 });

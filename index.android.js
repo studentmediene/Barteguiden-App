@@ -14,6 +14,7 @@ import _ from 'lodash';
 import Home from './src/views/Home';
 import AllEvents from './src/views/AllEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
+import {topColor, highlightColor} from './src/colors';
 
 const {
   AppRegistry,
@@ -50,7 +51,9 @@ class BarteguidenApp extends Component {
           actions={[{title: 'Innstillinger', show: 'always'}]}
           onActionSelected={this.onActionSelected} />
 
-        <ScrollableTabView>
+        <ScrollableTabView tabBarUnderlineColor={highlightColor}
+                           tabBarBackgroundColor={topColor}
+                           tabBarActiveTextColor={highlightColor}>
           <Home events={this.state.events} title="Home" tabLabel="Hva skjer?"/>
           <AllEvents events={this.state.events} title="All" tabLabel="Alle"/>
         </ScrollableTabView>
@@ -58,14 +61,10 @@ class BarteguidenApp extends Component {
     );
   }
 
-
-
   onActionSelected(position) {
-
     if (position === 0) { // index of 'Settings'
     }
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   toolbar: {
-    backgroundColor: '#e9eaed',
+    backgroundColor: topColor,
     height: 56,
   },
 

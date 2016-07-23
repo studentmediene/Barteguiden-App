@@ -2,7 +2,7 @@
 
 import React from 'react-native'
 import ActionButton from './ActionButton';
-import {actionIconSize, iOSBlue} from '../constants';
+import {actionIconSize} from '../constants';
 import {getPlatformIcon} from '../utilities';
 
 var Share = require('react-native-share');
@@ -18,7 +18,7 @@ class ShareButton extends Component {
     return (
       <View>
         <ActionButton onClick={this.onClick.bind(this)} iconName={getPlatformIcon('share')}
-                      iconSize={actionIconSize} styles={styles.button} iconColor={iOSBlue}/>
+                      iconSize={actionIconSize} styles={styles.button} iconColor={this.props.color}/>
       </View>
     );
   }

@@ -6,6 +6,7 @@
 
 import React from 'react-native'
 import SafariView from 'react-native-safari-view'
+import {highlightColor} from '../colors';
 
 const {
   StyleSheet,
@@ -54,12 +55,10 @@ class ExternalLink extends Component {
   }
 }
 
-
-
 const styles = StyleSheet.create({
   externalLink: {
     fontSize: 18,
-    color: "#0E7AFE",
+    color: highlightColor,
   }
 });
 

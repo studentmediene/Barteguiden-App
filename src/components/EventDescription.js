@@ -9,6 +9,7 @@ import CalendarButton from './CalendarButton'
 import ExternalLink from './ExternalLink';
 import ShareButton from './ShareButton';
 import MapButton from './MapButton';
+import {highlightColor, containerColor} from '../colors';
 
 var HTMLView = require('react-native-htmlview')
 
@@ -29,9 +30,9 @@ class EventDescription extends Component {
         />
         <View style={styles.descriptionHeaderAndIcon}>
           <ExternalLink url={this.props.event.eventUrl} linkText={'Link til arrangementet'}/>
-          <CalendarButton event={this.props.event}/>
-          <ShareButton event={this.props.event}/>
-          <MapButton event={this.props.event}/>
+          <CalendarButton event={this.props.event} color={highlightColor}/>
+          <ShareButton event={this.props.event} color={highlightColor}/>
+          <MapButton event={this.props.event} color={highlightColor}/>
         </View>
       </View>
     );
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     margin: 10,
     padding: 10,
-    backgroundColor: 'white',
+    backgroundColor: containerColor,
   },
   descriptionHeader: {
     fontSize: 18,

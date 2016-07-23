@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react-native';
-import {iOSBlue} from './constants'
+import {highlightColor} from './colors'
 import EventDetails from './components/EventDetails';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -29,7 +29,7 @@ const NavigationBarRouteMapper = {
       <TouchableOpacity
         onPress={() => navigator.pop()}
         style={styles.navBarLeftButton}>
-        <Icon name='ios-arrow-back' size={35} color={iOSBlue}/>
+        <Icon name='ios-arrow-back' size={35} color={highlightColor}/>
         <Text style={[styles.navBarText, styles.navBarButtonText]}>
           {previousRoute.title}
         </Text>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   navBarButtonText: {
-    color: iOSBlue,
+    color: highlightColor,
     paddingLeft: 10,
   },
 });

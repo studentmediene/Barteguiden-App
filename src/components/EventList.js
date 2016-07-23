@@ -4,7 +4,7 @@ import React from  'react-native'
 import EventListItem from './EventListItem';
 import _ from 'lodash';
 import {formatDate} from '../utilities';
-import {backgroundColor} from '../constants';
+import {backgroundColor, highlightColor} from '../colors';
 
 const {
   StyleSheet,
@@ -88,7 +88,7 @@ var styles = StyleSheet.create({
   },
   headerContainer: {
     borderBottomWidth: 3,
-    borderColor: '#5CCFFF',
+    borderColor: highlightColor,
     backgroundColor: backgroundColor,
   }
 });

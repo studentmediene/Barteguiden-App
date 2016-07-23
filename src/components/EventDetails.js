@@ -8,7 +8,7 @@ import React from 'react-native'
 import {formatDate, formatPrice} from '../utilities';
 import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage';
-import {backgroundColor} from '../constants';
+import {backgroundColor} from '../colors';
 
 const {
   StyleSheet,

@@ -1,7 +1,8 @@
 'use strict';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import {iOSBlue, searchButtonSize} from '../constants';
+import {searchButtonSize} from '../constants';
+import {highlightColor, containerColor} from '../colors';
 
 import React, {
   Image,
@@ -27,7 +28,7 @@ class SearchBar extends Component {
             background={background}
             onPress={() => this.refs.input && this.refs.input.focus()}>
           <View>
-            <Icon name={'ios-search-strong'} size={searchButtonSize} color={iOSBlue}/>
+            <Icon name={'ios-search-strong'} size={searchButtonSize} color={highlightColor}/>
           </View>
         </TouchableNativeFeedback>
         <TextInput
@@ -49,10 +50,10 @@ const styles = StyleSheet.create({
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: containerColor,
     paddingLeft: 10,
     height: 40,
-    borderBottomColor: iOSBlue,
+    borderBottomColor: highlightColor,
     borderBottomWidth: 3,
   },
   searchBarInput: {

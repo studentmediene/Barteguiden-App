@@ -2,7 +2,8 @@
 
 import React from 'react-native';
 import {getTimeFromDate, formatPrice, categoryToImage} from '../utilities';
-import {categoryImages, iOSLightGray} from '../constants';
+import {categoryImages} from '../constants';
+import {separatorColor, containerColor} from '../colors';
 
 const {
   StyleSheet,
@@ -46,9 +47,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: containerColor,
     borderBottomWidth: 1,
-    borderColor: iOSLightGray,
+    borderColor: separatorColor,
   },
   image: {
     height: 25,
