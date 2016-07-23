@@ -11,7 +11,5 @@ export const categoryImages = {
   categoryMusic: require('./img/categoryMusic.png')
 };
 
-export const logoImage = require('./img/Icon.png');
-
 export const actionIconSize = 30;
 export const searchButtonSize = 30;

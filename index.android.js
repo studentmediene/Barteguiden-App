@@ -9,7 +9,6 @@ import ToolbarAndroid from 'ToolbarAndroid';
 import EventStore from './src/EventStore';
 import PromotedEventSwiper from './src/components/PromotedEventSwiper';
 import EventList from './src/components/EventList';
-import {logoImage} from './src/constants';
 import _ from 'lodash';
 import Home from './src/views/Home';
 import AllEvents from './src/views/AllEvents';
@@ -46,7 +45,6 @@ class BarteguidenApp extends Component {
         <ToolbarAndroid
           style={styles.toolbar}
           title="Barteguiden"
-          logo={require('./src/img/Icon.png')}
           onIconClicked={() => this.props.navigator.pop()}
           actions={[{title: 'Innstillinger', show: 'always'}]}
           onActionSelected={this.onActionSelected} />
