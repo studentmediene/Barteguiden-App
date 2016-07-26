@@ -15,7 +15,7 @@ class SearchBar extends Component {
   render() {
     return (
       <View style={styles.searchBar}>
-        <Icon name={'ios-search-strong'} size={25} color={'white'}/>
+        <Icon name={'ios-search'} size={25} color={'white'}/>
         <TextInput
           autoCapitalize="none"
           autoCorrect={false}
