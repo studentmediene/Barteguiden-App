@@ -1,8 +1,8 @@
 'use strict';
 
-import React from 'react-native';
+import React from 'react';
 
-const {View, Text} = React;
+import {View, Text} from 'react-native';
 
 export default () => (
   <View>

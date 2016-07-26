@@ -1,18 +1,13 @@
-/**
- * Barteguiden App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import Swiper from 'react-native-swiper';
 import PromotedEvent from './PromotedEvent';
 
-const {
+import {
   Text,
   View,
-  Component,
-} = React;
+} from 'react-native';
 
 class PromotedEventSwiper extends Component {
 

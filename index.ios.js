@@ -4,16 +4,15 @@
  */
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import EventStore from './src/EventStore';
 import BarteguidenNavigator from './src/BarteguidenNavigator';
 import Views from './src/views/index';
 
-const {
+import {
   TabBarIOS,
-  Component,
   AppRegistry,
-} = React;
+} from 'react-native';
 
 
 class BarteguidenApp extends Component {

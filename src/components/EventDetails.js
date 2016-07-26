@@ -4,22 +4,21 @@
  */
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import {formatDate, formatPrice} from '../utilities';
 import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage';
 import {backgroundColor} from '../colors';
 
-const {
+import {
   StyleSheet,
   Text,
   View,
   Image,
   TouchableOpacity,
-  Component,
   ScrollView,
   Platform,
-  } = React;
+} from 'react-native';
 
 class EventDetails extends Component {
   render() {

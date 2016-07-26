@@ -1,13 +1,13 @@
 'use strict';
 
+import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {highlightColor, backgroundColor, containerColor} from '../colors';
 
-import React, {
+import {
   TextInput,
   StyleSheet,
   View,
-  Component,
 } from 'react-native';
 
 

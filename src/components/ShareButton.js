@@ -1,17 +1,16 @@
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import ActionButton from './ActionButton';
 import {actionIconSize} from '../constants';
 import {getPlatformIcon} from '../utilities';
 
 var Share = require('react-native-share');
 
-const {
+import {
   StyleSheet,
   View,
-  Component,
-  } = React;
+} from 'react-native';
 
 class ShareButton extends Component {
   render() {

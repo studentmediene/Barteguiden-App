@@ -1,17 +1,17 @@
 'use strict';
 
+import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {searchButtonSize} from '../constants';
 import {highlightColor, containerColor} from '../colors';
 
-import React, {
+import {
   Image,
   Platform,
   TextInput,
   StyleSheet,
   TouchableNativeFeedback,
   View,
-  Component,
 } from 'react-native';
 
 const IS_RIPPLE_EFFECT_SUPPORTED = Platform.Version >= 21;

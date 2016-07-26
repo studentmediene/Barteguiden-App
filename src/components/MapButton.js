@@ -1,17 +1,16 @@
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import ActionButton from './ActionButton';
 import {actionIconSize} from '../constants';
 import {getPlatformIcon} from '../utilities';
 
-const {
+import {
   Linking,
   StyleSheet,
   View,
-  Component,
   Platform,
-  } = React;
+} from 'react-native';
 
 class MapButton extends Component {
   render() {

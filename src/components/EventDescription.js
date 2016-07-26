@@ -4,7 +4,7 @@
  */
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import CalendarButton from './CalendarButton'
 import ExternalLink from './ExternalLink';
 import ShareButton from './ShareButton';
@@ -13,12 +13,11 @@ import {highlightColor, containerColor} from '../colors';
 
 var HTMLView = require('react-native-htmlview')
 
-const {
+import {
   StyleSheet,
   Text,
   View,
-  Component,
-  } = React;
+} from 'react-native';
 
 class EventDescription extends Component {
   render() {

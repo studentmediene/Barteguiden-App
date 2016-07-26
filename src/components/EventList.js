@@ -1,18 +1,17 @@
 'use strict';
 
-import React from  'react-native'
+import React, {Component} from 'react';
 import EventListItem from './EventListItem';
 import _ from 'lodash';
 import {formatDate} from '../utilities';
 import {backgroundColor, highlightColor} from '../colors';
 
-const {
+import {
   StyleSheet,
   Text,
   View,
   ListView,
-  Component,
-} = React;
+} from 'react-native';
 
 
 class EventList extends Component {

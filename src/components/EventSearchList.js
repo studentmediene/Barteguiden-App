@@ -1,13 +1,12 @@
 'use strict'
 
-import React from 'react-native';
+import React, {Component} from 'react';
 import SearchBar from './SearchBar';
 import EventList from './EventList';
 
-const {
-  Component,
+import {
   View,
-} = React;
+} from 'react-native';
 
 class EventSearchList extends Component {
   constructor(props){

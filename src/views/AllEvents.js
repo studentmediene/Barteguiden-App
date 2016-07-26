@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react-native';
+import React from 'react';
 import BarteguidenNavigator from '../BarteguidenNavigator';
 import EventSearchList from '../components/EventSearchList.js';
 

@@ -1,13 +1,12 @@
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const {
+import {
   View,
-  Component,
   TouchableOpacity,
-  } = React;
+} from 'react-native';
 
 class ActionButton extends Component {
   render() {
@@ -22,4 +21,3 @@ class ActionButton extends Component {
 }
 
 export default ActionButton;
-
