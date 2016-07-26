@@ -1,4 +1,6 @@
-rootProject.name = 'barteguiden-app'
+rootProject.name = 'BarteguidenApp'
+
+include ':app'
 
 include ':RNSendIntentModule', ':app'
 project(':RNSendIntentModule').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-send-intent/android')
