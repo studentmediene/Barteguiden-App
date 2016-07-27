@@ -1,18 +1,17 @@
 'use strict';
 
-import React from 'react-native';
+import React, {Component} from 'react';
 import {getTimeFromDate, formatPrice, categoryToImage} from '../utilities';
 import {categoryImages} from '../constants';
 import {separatorColor, containerColor} from '../colors';
 
-const {
+import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
   Image,
-  Component,
-} = React;
+} from 'react-native';
 
 class EventListItem extends Component {
   render() {

@@ -1,17 +1,16 @@
 /**
  * Created by annakastet on 18/11/15.
  */
-import React from 'react-native'
+ import React, {Component} from 'react';
 import {formatDate, formatPrice, categoryToImage} from '../utilities';
 import {categoryImages} from '../constants';
 
-const {
+import {
   StyleSheet,
   Text,
   View,
   Image,
-  Component,
-  } = React;
+} from 'react-native';
 
 class EventDetailsImage extends Component {
   render() {

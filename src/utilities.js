@@ -42,12 +42,12 @@ export function getPlatformIcon(iconName) {
       'android' : 'ios-calendar'
     },
     'share': {
-      'ios' : 'ios-upload-outline',
-      'android' : 'ios-upload'
+      'ios' : 'ios-share-outline',
+      'android' : 'ios-share'
     },
     'map': {
-      'ios' : 'ios-location-outline',
-      'android' : 'ios-location'
+      'ios' : 'ios-navigate-outline',
+      'android' : 'ios-navigate'
     }
   };
 

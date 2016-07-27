@@ -1,6 +1,6 @@
 'use strict';
 
-import React, {NativeAppEventEmitter} from 'react-native'
+import React, {Component} from 'react'
 import moment from 'moment'
 import ActionButton from './ActionButton';
 import RNCalendarEvents from 'react-native-calendar-events';
@@ -8,15 +8,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {actionIconSize} from '../constants';
 import {getPlatformIcon} from '../utilities';
 
-var SendIntentAndroid = React.Platform.OS === 'android' ? require('react-native-send-intent') : null;
+var SendIntentAndroid = Platform.OS === 'android' ? require('react-native-send-intent') : null;
 
-const {
+import {
   StyleSheet,
   View,
-  Component,
   Platform,
   Alert,
-  } = React;
+  NativeAppEventEmitter,
+} from 'react-native';
 
 class CalendarButton extends Component {
   render() {

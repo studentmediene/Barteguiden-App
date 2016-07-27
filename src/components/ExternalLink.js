@@ -1,21 +1,16 @@
-/**
- * Barteguiden App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
-import React from 'react-native'
+import React, {Component} from 'react';
 import SafariView from 'react-native-safari-view'
 import {highlightColor} from '../colors';
 
-const {
+import {
   StyleSheet,
   Text,
-  Component,
   TouchableOpacity,
   Platform,
   Linking,
-  } = React;
+} from 'react-native';
 
 class ExternalLink extends Component {
   render() {

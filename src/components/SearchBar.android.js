@@ -1,17 +1,17 @@
 'use strict';
 
+import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {searchButtonSize} from '../constants';
 import {highlightColor, containerColor} from '../colors';
 
-import React, {
+import {
   Image,
   Platform,
   TextInput,
   StyleSheet,
   TouchableNativeFeedback,
   View,
-  Component,
 } from 'react-native';
 
 const IS_RIPPLE_EFFECT_SUPPORTED = Platform.Version >= 21;
@@ -19,16 +19,16 @@ const IS_RIPPLE_EFFECT_SUPPORTED = Platform.Version >= 21;
 class SearchBar extends Component {
   render() {
     const background = IS_RIPPLE_EFFECT_SUPPORTED ?
-      TouchableNativeFeedback.SelectableBackgroundBorderless() :
-      TouchableNativeFeedback.SelectableBackground();
+    TouchableNativeFeedback.SelectableBackgroundBorderless() :
+    TouchableNativeFeedback.SelectableBackground();
 
     return (
       <View style={styles.searchBar}>
         <TouchableNativeFeedback
-            background={background}
-            onPress={() => this.refs.input && this.refs.input.focus()}>
+          background={background}
+          onPress={() => this.refs.input && this.refs.input.focus()}>
           <View>
-            <Icon name={'ios-search-strong'} size={searchButtonSize} color={highlightColor}/>
+            <Icon name={'ios-search'} size={searchButtonSize} color={highlightColor}/>
           </View>
         </TouchableNativeFeedback>
         <TextInput

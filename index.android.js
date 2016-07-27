@@ -4,7 +4,7 @@
  */
 'use strict';
 
-import React from 'react-native';
+import React, {Component} from 'react';
 import ToolbarAndroid from 'ToolbarAndroid';
 import EventStore from './src/EventStore';
 import PromotedEventSwiper from './src/components/PromotedEventSwiper';
@@ -15,13 +15,12 @@ import AllEvents from './src/views/AllEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {topColor, highlightColor} from './src/colors';
 
-const {
+import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-  Component,
-} = React;
+} from 'react-native';
 
 
 class BarteguidenApp extends Component {

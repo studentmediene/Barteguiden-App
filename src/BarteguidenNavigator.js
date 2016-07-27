@@ -1,21 +1,19 @@
 'use strict';
 
-import React from 'react-native';
+import React, {Component, Children, cloneElement} from 'react';
 import {highlightColor} from './colors'
 import EventDetails from './components/EventDetails';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const {
+import {
   Navigator,
   StyleSheet,
   Text,
   View,
-  cloneElement,
-  Children,
   TouchableOpacity,
   BackAndroid,
   Platform
-} = React;
+} from 'react-native';
 
 
 const NavigationBarRouteMapper = {
