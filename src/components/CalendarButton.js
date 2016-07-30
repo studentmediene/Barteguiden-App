@@ -5,7 +5,6 @@ import moment from 'moment'
 import ActionButton from './ActionButton';
 import RNCalendarEvents from 'react-native-calendar-events';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {actionIconSize} from '../constants';
 import {getPlatformIcon} from '../utilities';
 
 var SendIntentAndroid = Platform.OS === 'android' ? require('react-native-send-intent') : null;
@@ -22,8 +21,10 @@ class CalendarButton extends Component {
   render() {
     return (
       <View>
-        <ActionButton iconSize={actionIconSize} onClick={this.onClick.bind(this)}
-                      iconName={getPlatformIcon('calendar')} styles={styles.button} iconColor={this.props.color}/>
+        <ActionButton onClick={this.onClick.bind(this)}
+          iconName={getPlatformIcon('calendar')} styles={styles.button}
+          iconColor={this.props.color}
+          backgroundColor={this.props.backgroundColor}/>
       </View>
     );
   }

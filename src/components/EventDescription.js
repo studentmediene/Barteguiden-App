@@ -29,9 +29,12 @@ class EventDescription extends Component {
         />
         <View style={styles.descriptionHeaderAndIcon}>
           <ExternalLink url={this.props.event.eventUrl} linkText={'Link til arrangementet'}/>
-          <CalendarButton event={this.props.event} color={highlightColor}/>
-          <ShareButton event={this.props.event} color={highlightColor}/>
-          <MapButton event={this.props.event} color={highlightColor}/>
+          <CalendarButton event={this.props.event} color={highlightColor}
+            backgroundColor={containerColor}/>
+          <ShareButton event={this.props.event} color={highlightColor}
+            backgroundColor={containerColor}/>
+          <MapButton event={this.props.event} color={highlightColor}
+            backgroundColor={containerColor}/>
         </View>
       </View>
     );
