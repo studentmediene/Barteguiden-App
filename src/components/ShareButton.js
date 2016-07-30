@@ -25,8 +25,8 @@ class ShareButton extends Component {
   onClick() {
     var event = this.props.event;
     Share.open({
-      share_text: event.title,
-      share_URL: "http://barteguiden.no/arrangement/" + event._id,
+      message: event.title,
+      url: "http://barteguiden.no/arrangement/" + event._id,
       title: "Del arrangement"
     },function(e) {
       console.log(e);
