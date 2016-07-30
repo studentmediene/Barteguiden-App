@@ -15,6 +15,17 @@ export default function events(state = initialState, action = {}) {
         eventsLoadingFailed: false,
         allEvents: action.payload.events.sort(sortByDate),
       });
+    case types.TOGGLE_FAVORITE:
+      return Object.assign({}, state, {
+        allEvents: state.allEvents.map((event) => {
+          if(event._id === action.payload.eventID) {
+            return Object.assign({}, event, {
+              isFavorite: !event.isFavorite,
+            })
+          }
+          return event;
+        })
+      })
     default:
       return state;
   }

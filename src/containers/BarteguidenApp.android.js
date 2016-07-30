@@ -8,6 +8,7 @@ import * as eventActions from '../actions/events';
 import ToolbarAndroid from 'ToolbarAndroid';
 import Home from '../views/Home';
 import AllEvents from '../views/AllEvents';
+import FavoriteEvents from '../views/FavoriteEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {topColor, highlightColor} from '../colors';
 
@@ -43,6 +44,7 @@ class BarteguidenApp extends Component {
           tabBarActiveTextColor={highlightColor}>
           <Home events={this.props.events} title="Home" tabLabel="Hva skjer?"/>
           <AllEvents events={this.props.events} title="All" tabLabel="Alle"/>
+          <FavoriteEvents events={this.props.events} title="Favorites" tabLabel="Favoritter" />
         </ScrollableTabView>
       </View>
     );
