@@ -5,6 +5,9 @@
 'use strict';
 
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import _ from 'lodash';
+
 import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage';
 import ActionToolbar from './ActionToolbar';
@@ -97,4 +100,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EventDetails;
+const mapStateToProps = (state, ownProps) => ({
+  event: _.find(state.events.allEvents, function(event) {
+    return event._id === ownProps.eventID;
+  }),
+});
+
+export default connect(mapStateToProps)(EventDetails);

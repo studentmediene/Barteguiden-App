@@ -86,7 +86,7 @@ const BarteguidenNavigator = React.createClass({
       case 1:
         return (
           <View style={styles.container}>
-            <EventDetails event={route.event}/>
+            <EventDetails eventID={route.event._id}/>
           </View>
         );
     }
