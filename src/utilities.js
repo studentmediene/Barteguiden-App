@@ -39,15 +39,15 @@ export function getPlatformIcon(iconName) {
   const platformIcons = {
     'calendar': {
       'ios': 'ios-calendar-outline',
-      'android' : 'ios-calendar'
+      'android' : 'md-calendar'
     },
     'share': {
       'ios' : 'ios-share-outline',
-      'android' : 'ios-share'
+      'android' : 'md-share'
     },
     'map': {
       'ios' : 'ios-navigate-outline',
-      'android' : 'ios-navigate'
+      'android' : 'md-map'
     }
   };
 
