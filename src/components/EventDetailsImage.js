@@ -2,7 +2,12 @@
  * Created by annakastet on 18/11/15.
  */
  import React, {Component} from 'react';
-import {formatDate, formatPrice, categoryToImage, ageLimitToText} from '../utilities';
+import {
+  formatDate,
+  formatPrice,
+  categoryToImage,
+  ageLimitToText,
+  getTimeFromDate} from '../utilities';
 import {categoryImages} from '../constants';
 
 import {
@@ -26,7 +31,10 @@ class EventDetailsImage extends Component {
           <Text style={styles.title}>{this.props.event.title}</Text>
           <Text style={styles.subtitle}>{this.props.event.venue.name}</Text>
           <View style={styles.eventInfo}>
-            <Text style={styles.subtitle}>{formatDate(this.props.event.startAt)}</Text>
+            <Text style={styles.subtitle}>
+              {formatDate(this.props.event.startAt) + ' '
+              + getTimeFromDate(this.props.event.startAt)}
+            </Text>
             <View style={styles.iconRow}>
               <Text style={StyleSheet.flatten([styles.subtitle, styles.flex1])}>
                 {ageLimitToText(this.props.event.ageLimit)}
