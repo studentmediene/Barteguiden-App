@@ -65,6 +65,7 @@ class EventList extends Component {
       dataSource={this.state.dataSource}
       renderRow={this._renderEvent}
       renderSectionHeader={this._renderSectionHeader}
+      renderHeader={this.props.renderHeader}
       automaticallyAdjustContentInsets={false}
       contentInset={{ bottom: 49 }}
       style={styles.listView}

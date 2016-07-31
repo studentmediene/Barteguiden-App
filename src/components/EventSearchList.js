@@ -11,10 +11,18 @@ class EventSearchList extends Component {
     super(props);
     this.state = { filter: '' };
     this.updateFilter = this.updateFilter.bind(this);
+    this.renderListViewHeader = this.renderListViewHeader.bind(this);
+    this.updateFilter = this.updateFilter.bind(this);
   }
 
   updateFilter(text) {
     this.setState({ filter: text.toLowerCase() });
+  }
+
+  renderListViewHeader() {
+    return (
+      <SearchBar onChange={this.updateFilter} />
+    );
   }
 
   render() {
@@ -24,8 +32,10 @@ class EventSearchList extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <SearchBar onChange={this.updateFilter} />
-        <EventList events={events} navigator={this.props.navigator} />
+        <EventList
+          events={events} navigator={this.props.navigator}
+          renderHeader={this.renderListViewHeader}
+        />
       </View>
     );
   }
