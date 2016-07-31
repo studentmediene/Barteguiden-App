@@ -2,59 +2,66 @@
 
 import React, {Component} from 'react';
 import SafariView from 'react-native-safari-view'
-import {highlightColor} from '../colors';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {separatorColor as iconColor} from '../colors';
 
 import {
-  StyleSheet,
   Text,
   TouchableOpacity,
+  View,
   Platform,
   Linking,
+  StyleSheet,
 } from 'react-native';
 
 class ExternalLink extends Component {
   render() {
-    if(this.props.url) {
+    if(this.props.url || this.props.onPress) {
       return (
-        <TouchableOpacity onPress={this._openInBrowser.bind(this)}>
-          <Text style={styles.externalLink}>{this.props.linkText}</Text>
+        <TouchableOpacity style={this.props.containerStyle}
+          onPress={this.props.onPress ? this.props.onPress
+          : this._openInBrowser.bind(this)}>
+          <View style={styles.centeredInContainer}>
+            <Text style={this.props.linkStyle}>{this.props.linkText}</Text>
+          </View>
+          {this.props.showIcon ?
+            <View style={styles.centeredInContainer}>
+                <Icon size={20} style={styles.iconStyle}
+                  name='ios-arrow-forward' color={iconColor}/>
+            </View>
+            : null
+          }
         </TouchableOpacity>
-      )
+        )
+      }
+      return null;
     }
-    return null;
-  }
 
   _openInBrowser() {
     if(Platform.OS === 'ios') {
-      this._openIOS();
+      SafariView.show({
+        url: this.props.url
+      })
     }
     else {
-      this._openAndroid();
+      Linking.canOpenURL(this.props.url).then(supported => {
+        if (supported) {
+          Linking.openURL(this.props.url);
+        } else {
+          console.log('Can\'t open URI: ' + this.props.url);
+        }
+      });
     }
-  }
-
-  _openIOS() {
-    SafariView.show({
-      url: this.props.url
-    })
-  }
-
-  _openAndroid() {
-    Linking.canOpenURL(this.props.url).then(supported => {
-      if (supported) {
-        Linking.openURL(this.props.url);
-      } else {
-        console.log('Can\'t open URI: ' + this.props.url);
-      }
-    });
   }
 }
 
 const styles = StyleSheet.create({
-  externalLink: {
-    fontSize: 18,
-    color: highlightColor,
+  centeredInContainer: {
+    justifyContent: 'center',
+  },
+  iconStyle: {
+    marginRight: 10,
   }
-});
+})
 
 export default ExternalLink;

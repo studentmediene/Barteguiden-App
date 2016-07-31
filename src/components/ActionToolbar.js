@@ -1,14 +1,15 @@
 'use strict';
 
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import moment from 'moment'
 import ActionButton from './ActionButton';
 import RNCalendarEvents from 'react-native-calendar-events';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {actionIconSize} from '../constants';
 import {getPlatformIcon} from '../utilities';
+import {highlightColor, containerColor, separatorColor} from '../colors';
 
-var SendIntentAndroid = Platform.OS === 'android' ? require('react-native-send-intent') : null;
+var SendIntentAndroid = Platform.OS === 'android' ?
+require('react-native-send-intent') : null;
+var Share = require('react-native-share');
 
 import {
   StyleSheet,
@@ -18,17 +19,29 @@ import {
   NativeAppEventEmitter,
 } from 'react-native';
 
-class CalendarButton extends Component {
+class ActionToolbar extends Component {
   render() {
+    const backgroundIconButtonColor = containerColor;
+    const iconColor = highlightColor;
     return (
-      <View>
-        <ActionButton iconSize={actionIconSize} onClick={this.onClick.bind(this)}
-                      iconName={getPlatformIcon('calendar')} styles={styles.button} iconColor={this.props.color}/>
+      <View style={styles.toolbar}>
+        <ActionButton actionText="Legg til i kalender"
+          backgroundColor={backgroundIconButtonColor}
+          iconName={getPlatformIcon('calendar')}
+          iconColor={iconColor}
+          onPress={this.onCalendarPress.bind(this)}
+        />
+        <ActionButton actionText="Del"
+          backgroundColor={backgroundIconButtonColor}
+          iconName={getPlatformIcon('share')}
+          iconColor={iconColor}
+          onPress={this.onSharePress.bind(this)}
+        />
       </View>
     );
   }
 
-  onClick() {
+  onCalendarPress() {
     if(Platform.OS === 'android'){
       this._addCalendarEventAndroid();
     }
@@ -45,7 +58,7 @@ class CalendarButton extends Component {
       description: event.description,
       startDate: moment(event.startAt).format(dateFormat),
       endDate: ('endAt' in event) ? moment(event.endAt).format(dateFormat)
-        : moment(event.startAt).add(2, 'h').format(dateFormat),
+      : moment(event.startAt).add(2, 'h').format(dateFormat),
       recurrence: 'none',
       location: event.venue.name,
     });
@@ -92,14 +105,27 @@ class CalendarButton extends Component {
     });
   }
 
-  componentWillUnmount () {
-    this.eventEmitter.remove();
+  onSharePress() {
+    var event = this.props.event;
+    Share.open({
+      message: event.title,
+      url: "https://barteguiden.no/arrangement/" + event._id,
+      title: "Del arrangement"
+    },function(e) {
+      console.log(e);
+    });
   }
 }
 
 const styles = StyleSheet.create({
-  button: {
-  },
+  toolbar: {
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  backgroundColor: containerColor,
+  borderBottomWidth: StyleSheet.hairlineWidth,
+  borderColor: separatorColor,
+},
 });
 
-export default CalendarButton;
+export default ActionToolbar;
