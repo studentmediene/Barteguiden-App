@@ -4,18 +4,18 @@ import React, {Component} from 'react';
 import Swiper from 'react-native-swiper';
 import PromotedEvent from './PromotedEvent';
 
-import {
-  Text,
-  View,
-} from 'react-native';
+import {Text, View, Dimensions} from 'react-native';
+
+const height = Dimensions.get('window').height / 3;
 
 class PromotedEventSwiper extends Component {
 
   render() {
-    let promotedEvents = this.props.events.filter(event => event.isPromoted);
+    const promotedEvents = this.props.events.filter(event => event.isPromoted)
+      .slice(0, 10);
     return (
       <Swiper
-        height={200}
+        height={height}
         autoplay={true}
         autoplayTimeout={5}
         dot={<View style={{backgroundColor:'rgba(255,255,255,.5)', width: 5, height: 5,
