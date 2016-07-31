@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import moment from 'moment'
 import ActionButton from './ActionButton';
+import FavoriteButton from './FavoriteButton';
 import RNCalendarEvents from 'react-native-calendar-events';
 import {getPlatformIcon} from '../utilities';
 import {highlightColor, containerColor, separatorColor} from '../colors';
@@ -37,6 +38,7 @@ class ActionToolbar extends Component {
           iconColor={iconColor}
           onPress={this.onSharePress.bind(this)}
         />
+        <FavoriteButton event={this.props.event} />
       </View>
     );
   }

@@ -52,7 +52,15 @@ export function getPlatformIcon(iconName) {
     'map': {
       'ios' : 'ios-navigate-outline',
       'android' : 'md-map'
-    }
+    },
+    'favorite-off': {
+      'ios' : 'ios-heart-outline',
+      'android' : 'md-heart-outline'
+    },
+    'favorite-on': {
+      'ios' : 'ios-heart',
+      'android' : 'md-heart'
+    },
   };
 
   return platformIcons[iconName][Platform.OS];

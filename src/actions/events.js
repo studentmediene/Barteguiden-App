@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import FavoriteStore from '../FavoriteStore';
 
 function eventFetchSuccess(events) {
   return {
@@ -16,6 +17,10 @@ export function fetchEvents() {
     })
     .then(response => response.json())
     .then(json => {
+      let events = json.map((event) => {
+        event.isFavorite = FavoriteStore.isFavorite(event._id);
+        return event;
+      })
       return dispatch(eventFetchSuccess(json));
     })
     .catch(error => {
