@@ -12,10 +12,12 @@ class ActionButton extends Component {
   render() {
     return (
       <View>
-        <Icon.Button style={this.props.styles} onPress={this.props.onClick}
+        <Icon.Button style={this.props.styles} onPress={this.props.onPress}
           name={this.props.iconName} size={actionIconSize}
           color={this.props.iconColor}
-          backgroundColor={this.props.backgroundColor}/>
+          backgroundColor={this.props.backgroundColor}>
+          {this.props.actionText}
+        </Icon.Button>
       </View>
         );
       }
