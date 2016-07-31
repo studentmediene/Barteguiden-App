@@ -35,6 +35,10 @@ export function categoryToImage(category) {
   return 'categoryOther';
 }
 
+export function ageLimitToText(ageLimit) {
+  return ageLimit ? ageLimit + '+' : '';
+}
+
 export function getPlatformIcon(iconName) {
   const platformIcons = {
     'calendar': {

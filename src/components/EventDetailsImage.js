@@ -2,7 +2,7 @@
  * Created by annakastet on 18/11/15.
  */
  import React, {Component} from 'react';
-import {formatDate, formatPrice, categoryToImage} from '../utilities';
+import {formatDate, formatPrice, categoryToImage, ageLimitToText} from '../utilities';
 import {categoryImages} from '../constants';
 
 import {
@@ -24,16 +24,22 @@ class EventDetailsImage extends Component {
         </View>
         <View style={styles.eventContents}>
           <Text style={styles.title}>{this.props.event.title}</Text>
+          <Text style={styles.subtitle}>{this.props.event.venue.name}</Text>
           <View style={styles.eventInfo}>
-            <Text style={styles.subtitle}>{this.props.event.venue.name}</Text>
             <Text style={styles.subtitle}>{formatDate(this.props.event.startAt)}</Text>
-            <Text style={styles.subtitle}>{formatPrice(this.props.event.price)}</Text>
             <View style={styles.iconRow}>
+              <Text style={StyleSheet.flatten([styles.subtitle, styles.flex1])}>
+                {ageLimitToText(this.props.event.ageLimit)}
+              </Text>
               <Image
                 style={styles.icon}
                 source={categoryImages[categoryToImage(this.props.event.category)]}>
               </Image>
-              {this.props.event.isPromoted ? <Image  style={styles.icon} source={ require('../img/promoted_star.png')}></Image>:null}
+
+              <Text style={StyleSheet.flatten([styles.subtitle,
+              styles.flex1, styles.textAlignRight])}>
+                {formatPrice(this.props.event.price)}
+              </Text>
             </View>
           </View>
         </View>
@@ -69,17 +75,20 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    flex: 1
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    justifyContent: 'flex-end',
   },
   eventInfo: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
   },
   iconRow: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
   },
   wrapper: {
     flex: 1,
@@ -87,6 +96,12 @@ const styles = StyleSheet.create({
   imageWrapper: {
     backgroundColor: 'black',
     flex: 1,
+  },
+  flex1: {
+    flex: 1,
+  },
+  textAlignRight: {
+    textAlign: 'right',
   }
 });
 
