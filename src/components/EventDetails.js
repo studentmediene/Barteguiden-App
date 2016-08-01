@@ -4,15 +4,15 @@
  */
 'use strict';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage';
 import ActionToolbar from './ActionToolbar';
 import ExternalLink from './ExternalLink';
-import {backgroundColor, highlightColor, containerColor, separatorColor} from '../colors';
+import { backgroundColor, highlightColor, containerColor, separatorColor } from '../colors';
 
 import {
   StyleSheet,
@@ -25,22 +25,24 @@ import {
 
 class EventDetails extends Component {
   render() {
-    let bottomPadding = Platform.OS === "android" ? 0 : 50;
+    let bottomPadding = Platform.OS === 'android' ? 0 : 50;
     return (
-      <View style={[styles.container, {paddingBottom: bottomPadding}]}>
-        <EventDetailsImage event={this.props.event}/>
+      <View style={[styles.container, { paddingBottom: bottomPadding }]}>
+        <EventDetailsImage event={this.props.event} />
         <ActionToolbar event={this.props.event} />
         <ScrollView style={styles.scroll}>
-          <EventDescription event={this.props.event}/>
+          <EventDescription event={this.props.event} />
           <View style={styles.externalLinkContainer}>
             <ExternalLink linkStyle={styles.externalLink}
               containerStyle={[styles.externalLinkRow, styles.bottomBorder]}
-              showIcon={true} url={this.props.event.eventUrl}
-              linkText={'Besøk nettsiden'} iconStyle={styles.linkIconStyle}/>
+              showIcon url={this.props.event.eventUrl}
+              linkText={'Besøk nettsiden'} iconStyle={styles.linkIconStyle}
+            />
             <ExternalLink linkStyle={styles.externalLink}
-              containerStyle={styles.externalLinkRow} showIcon={true}
+              containerStyle={styles.externalLinkRow} showIcon
               onPress={this.onMapClick.bind(this)} linkText={'Åpne i kart'}
-              iconStyle={styles.linkIconStyle}/>
+              iconStyle={styles.linkIconStyle}
+            />
           </View>
         </ScrollView>
       </View>
@@ -48,14 +50,14 @@ class EventDetails extends Component {
   }
 
   onMapClick() {
-    let {latitude, longitude, name} = this.props.event.venue;
+    let { latitude, longitude, name } = this.props.event.venue;
     let url;
 
     if (Platform.OS === 'android') {
       url = 'geo:0,0?q=' + latitude + ',' + longitude + '(' + name + ')';
     }
     else {
-      url = `http://maps.apple.com/?q=${name.split(' ').join('+')}&sll=${latitude},${longitude}&z=10`
+      url = `http://maps.apple.com/?q=${name.split(' ').join('+')}&sll=${latitude},${longitude}&z=10`;
     }
 
     Linking.canOpenURL(url).then(supported => {
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   scroll: {
-    backgroundColor: backgroundColor,
+    backgroundColor,
   },
   externalLinkContainer: {
     flexDirection: 'column',
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state, ownProps) => ({
-  event: _.find(state.events.allEvents, function(event) {
+  event: _.find(state.events.allEvents, function (event) {
     return event._id === ownProps.eventID;
   }),
 });

@@ -8,7 +8,7 @@ export const categoryImages = {
   categoryOther: require('./img/categoryOther.png'),
   categoryExhibitions: require('./img/categoryExhibitions.png'),
   categoryPerformances: require('./img/categoryPerformances.png'),
-  categoryMusic: require('./img/categoryMusic.png')
+  categoryMusic: require('./img/categoryMusic.png'),
 };
 
 export const actionIconSize = 30;

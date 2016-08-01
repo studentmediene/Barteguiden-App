@@ -3,7 +3,7 @@
 import React from 'react-native';
 import _ from 'lodash';
 
-const STORAGE_KEY = "@AsyncStorage:Favorites";
+const STORAGE_KEY = '@AsyncStorage:Favorites';
 
 const {
   AsyncStorage,
@@ -11,11 +11,11 @@ const {
 
 class FavoriteStore {
   constructor() {
-    this.state = {favorites: []};
+    this.state = { favorites: [] };
   }
 
   async init() {
-    this.state = {favorites: await this._getInitialState()};
+    this.state = { favorites: await this._getInitialState() };
   }
 
   async _getInitialState() {
@@ -35,16 +35,16 @@ class FavoriteStore {
   }
 
   removeFavorite(id) {
-    this._setFavorites(_.without(this.state.favorites, id))
+    this._setFavorites(_.without(this.state.favorites, id));
   }
 
   addFavorite(id) {
-    this._setFavorites(_.union(this.state.favorites, [id]))
+    this._setFavorites(_.union(this.state.favorites, [id]));
   }
 
   async _setFavorites(favorites) {
     try {
-      this.state = {favorites: favorites};
+      this.state = { favorites };
       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
     } catch (error) {
       console.log('AsyncStorage error: ' + error.message);

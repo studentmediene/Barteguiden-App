@@ -1,8 +1,8 @@
 'use strict';
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {highlightColor, backgroundColor, containerColor} from '../colors';
+import { highlightColor, backgroundColor, containerColor } from '../colors';
 
 import {
   TextInput,
@@ -15,7 +15,7 @@ class SearchBar extends Component {
   render() {
     return (
       <View style={styles.searchBar}>
-        <Icon name={'ios-search'} size={25} color={'white'}/>
+        <Icon name={'ios-search'} size={25} color={'white'} />
         <TextInput
           autoCapitalize="none"
           autoCorrect={false}
@@ -35,7 +35,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomColor: highlightColor,
-    backgroundColor: backgroundColor,
+    backgroundColor,
   },
   searchBarInput: {
     fontSize: 15,

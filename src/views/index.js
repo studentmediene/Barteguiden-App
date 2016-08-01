@@ -10,24 +10,24 @@ export default [
     id: 'home',
     title: 'Hva skjer?',
     component: Home,
-    iconUri: 'all'
+    iconUri: 'all',
   },
   {
     id: 'all',
     title: 'Alle',
     component: AllEvents,
-    iconUri: 'all'
+    iconUri: 'all',
   },
   {
     id: 'favorites',
     title: 'Favoritter',
     component: FavoriteEvents,
-    iconUri: 'favorites'
+    iconUri: 'favorites',
   },
   {
     id: 'settings',
     title: 'Innstillinger',
     component: Settings,
-    iconUri: 'settings'
-  }
+    iconUri: 'settings',
+  },
 ];

@@ -1,8 +1,8 @@
 'use strict';
 
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import * as eventActions from '../actions/events';
 import BarteguidenNavigator from '../BarteguidenNavigator';
@@ -34,16 +34,17 @@ class BarteguidenApp extends Component {
             <TabBarIOS.Item
               key={view.id}
               title={view.title}
-              icon={{ uri: view.iconUri, isStatic: true, scale: 2}}
+              icon={{ uri: view.iconUri, isStatic: true, scale: 2 }}
               selected={this.state.selectedTab === view.id}
               onPress={() => {
                 this.setState({
                   selectedTab: view.id,
                 });
-              }}>
-              <RouteComponent title={view.title} events={this.props.events}/>
+              }}
+            >
+              <RouteComponent title={view.title} events={this.props.events} />
             </TabBarIOS.Item>
-          )
+          );
         })}
       </TabBarIOS>
     );

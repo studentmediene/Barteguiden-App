@@ -5,8 +5,8 @@ function eventFetchSuccess(events) {
   return {
     type: types.EVENT_FETCH_SUCCESS,
     payload: {
-      events: events,
-    }
+      events,
+    },
   };
 }
 
@@ -20,12 +20,12 @@ export function fetchEvents() {
       let events = json.map((event) => {
         event.isFavorite = FavoriteStore.isFavorite(event._id);
         return event;
-      })
+      });
       return dispatch(eventFetchSuccess(json));
     })
     .catch(error => {
       console.log(error);
     })
-    .done()
-  }
+    .done();
+  };
 }

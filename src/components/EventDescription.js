@@ -4,10 +4,10 @@
  */
 'use strict';
 
-import React, {Component} from 'react';
-import {backgroundColor} from '../colors';
+import React, { Component } from 'react';
+import { backgroundColor } from '../colors';
 
-var HTMLView = require('react-native-htmlview')
+var HTMLView = require('react-native-htmlview');
 
 import {
   StyleSheet,
@@ -19,7 +19,8 @@ class EventDescription extends Component {
     return (
       <View style={styles.container}>
         <HTMLView
-          value={this.props.event.description}/>
+          value={this.props.event.description}
+        />
       </View>
     );
   }
@@ -28,8 +29,8 @@ class EventDescription extends Component {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: backgroundColor,
-  }
+    backgroundColor,
+  },
 });
 
 export default EventDescription;

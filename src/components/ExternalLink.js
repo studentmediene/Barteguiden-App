@@ -1,9 +1,9 @@
 'use strict';
 
-import React, {Component} from 'react';
-import SafariView from 'react-native-safari-view'
+import React, { Component } from 'react';
+import SafariView from 'react-native-safari-view';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {separatorColor as iconColor} from '../colors';
+import { separatorColor as iconColor } from '../colors';
 
 import {
   Text,
@@ -16,32 +16,34 @@ import {
 
 class ExternalLink extends Component {
   render() {
-    if(this.props.url || this.props.onPress) {
+    if (this.props.url || this.props.onPress) {
       return (
         <TouchableOpacity style={this.props.containerStyle}
           onPress={this.props.onPress ? this.props.onPress
-          : this._openInBrowser.bind(this)}>
+          : this._openInBrowser.bind(this)}
+        >
           <View style={styles.centeredInContainer}>
             <Text style={this.props.linkStyle}>{this.props.linkText}</Text>
           </View>
           {this.props.showIcon ?
             <View style={styles.centeredInContainer}>
                 <Icon size={20} style={styles.iconStyle}
-                  name='ios-arrow-forward' color={iconColor}/>
+                  name="ios-arrow-forward" color={iconColor}
+                />
             </View>
             : null
           }
         </TouchableOpacity>
-        )
-      }
-      return null;
+        );
     }
+    return null;
+  }
 
   _openInBrowser() {
-    if(Platform.OS === 'ios') {
+    if (Platform.OS === 'ios') {
       SafariView.show({
-        url: this.props.url
-      })
+        url: this.props.url,
+      });
     }
     else {
       Linking.canOpenURL(this.props.url).then(supported => {
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     marginRight: 10,
-  }
-})
+  },
+});
 
 export default ExternalLink;

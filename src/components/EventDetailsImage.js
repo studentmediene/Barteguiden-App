@@ -1,30 +1,31 @@
 /**
  * Created by annakastet on 18/11/15.
  */
- import React, {Component} from 'react';
-import {
+ import React, { Component } from 'react';
+ import {
   formatDate,
   formatPrice,
   categoryToImage,
   ageLimitToText,
-  getTimeFromDate} from '../utilities';
-import {categoryImages} from '../constants';
+  getTimeFromDate } from '../utilities';
+ import { categoryImages } from '../constants';
 
-import {
+ import {
   StyleSheet,
   Text,
   View,
   Image,
 } from 'react-native';
 
-class EventDetailsImage extends Component {
-  render() {
-    return (
+ class EventDetailsImage extends Component {
+   render() {
+     return (
       <View style={styles.wrapper}>
         <View style={styles.imageWrapper}>
           <Image
             style={styles.image}
-            source={{uri: this.props.event.imageUrl}}>
+            source={{ uri: this.props.event.imageUrl }}
+          >
           </Image>
         </View>
         <View style={styles.eventContents}>
@@ -41,7 +42,8 @@ class EventDetailsImage extends Component {
               </Text>
               <Image
                 style={styles.icon}
-                source={categoryImages[categoryToImage(this.props.event.category)]}>
+                source={categoryImages[categoryToImage(this.props.event.category)]}
+              >
               </Image>
 
               <Text style={StyleSheet.flatten([styles.subtitle,
@@ -52,65 +54,65 @@ class EventDetailsImage extends Component {
           </View>
         </View>
       </View>
-    )}
+    ); }
 }
 
-const styles = StyleSheet.create({
-  title: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    color: '#fff',
-    fontSize: 15,
-    fontWeight: 'bold',
-  },
-  image: {
-    resizeMode: Image.resizeMode.cover,
-    flex: 1,
-    opacity: 0.5,
-  },
-  icon: {
-    resizeMode: Image.resizeMode.contain,
-    flex: 1,
-    opacity: 1,
-  },
-  eventContents: {
-    margin: 10,
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    justifyContent: 'flex-end',
-  },
-  eventInfo: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  },
-  iconRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  wrapper: {
-    flex: 1,
-  },
-  imageWrapper: {
-    backgroundColor: 'black',
-    flex: 1,
-  },
-  flex1: {
-    flex: 1,
-  },
-  textAlignRight: {
-    textAlign: 'right',
-  }
-});
+ const styles = StyleSheet.create({
+   title: {
+     color: '#fff',
+     fontSize: 30,
+     fontWeight: 'bold',
+   },
+   subtitle: {
+     color: '#fff',
+     fontSize: 15,
+     fontWeight: 'bold',
+   },
+   image: {
+     resizeMode: Image.resizeMode.cover,
+     flex: 1,
+     opacity: 0.5,
+   },
+   icon: {
+     resizeMode: Image.resizeMode.contain,
+     flex: 1,
+     opacity: 1,
+   },
+   eventContents: {
+     margin: 10,
+     position: 'absolute',
+     top: 0,
+     bottom: 0,
+     left: 0,
+     right: 0,
+     flex: 1,
+     flexDirection: 'column',
+     alignItems: 'stretch',
+     justifyContent: 'flex-end',
+   },
+   eventInfo: {
+     flex: 1,
+     flexDirection: 'column',
+     justifyContent: 'space-between',
+   },
+   iconRow: {
+     flexDirection: 'row',
+     justifyContent: 'space-around',
+     alignItems: 'center',
+   },
+   wrapper: {
+     flex: 1,
+   },
+   imageWrapper: {
+     backgroundColor: 'black',
+     flex: 1,
+   },
+   flex1: {
+     flex: 1,
+   },
+   textAlignRight: {
+     textAlign: 'right',
+   },
+ });
 
-export default EventDetailsImage;
+ export default EventDetailsImage;
