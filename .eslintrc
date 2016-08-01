@@ -1,5 +1,19 @@
 {
   "parser": "babel-eslint",
   "extends": ["airbnb"],
-  "plugins": ["react"]
+  "plugins": ["react"],
+  "rules": {
+    "no-underscore-dangle": 0,
+    "no-use-before-define": 0,
+    "react/prop-types": [0],
+    "new-cap": 0,
+    "jsx-quotes": [2, "prefer-single"],
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ios.js", ".android.js"]
+      }
+    }
+  },
 }
