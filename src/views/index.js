@@ -1,5 +1,3 @@
-'use strict';
-
 import AllEvents from './AllEvents';
 import FavoriteEvents from './FavoriteEvents';
 import Home from './Home';

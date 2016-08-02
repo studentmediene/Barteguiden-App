@@ -1,12 +1,9 @@
-'use strict';
-
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { searchButtonSize } from '../constants';
 import { highlightColor, containerColor } from '../colors';
 
 import {
-  Image,
   Platform,
   TextInput,
   StyleSheet,
@@ -33,13 +30,13 @@ class SearchBar extends Component {
           </View>
         </TouchableNativeFeedback>
         <TextInput
-          ref="input"
-          autoCapitalize="none"
+          ref='input'
+          autoCapitalize='none'
           autoCorrect={false}
           autoFocus={false}
           onChangeText={this.props.onChange}
-          placeholder="Søk"
-          placeholderTextColor="rgba(0, 0, 0, 0.5)"
+          placeholder='Søk'
+          placeholderTextColor='rgba(0, 0, 0, 0.5)'
           style={styles.searchBarInput}
         />
       </View>

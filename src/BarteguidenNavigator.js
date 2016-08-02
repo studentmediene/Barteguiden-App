@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component, Children, cloneElement } from 'react';
 import { highlightColor } from './colors';
 import EventDetails from './components/EventDetails';
@@ -22,13 +20,13 @@ const NavigationBarRouteMapper = {
       return null;
     }
 
-    let previousRoute = navState.routeStack[index - 1];
+    const previousRoute = navState.routeStack[index - 1];
     return (
       <TouchableOpacity
         onPress={() => navigator.pop()}
         style={styles.navBarLeftButton}
       >
-        <Icon name="ios-arrow-back" size={35} color={highlightColor} />
+        <Icon name='ios-arrow-back' size={35} color={highlightColor} />
         <Text style={[styles.navBarText, styles.navBarButtonText]}>
           {previousRoute.title}
         </Text>
@@ -36,11 +34,11 @@ const NavigationBarRouteMapper = {
     );
   },
 
-  RightButton(route, navigator, index, navState) {
+  RightButton() {
     return null;
   },
 
-  Title(route, navigator, index, navState) {
+  Title(route) {
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
         {route.title}
@@ -50,7 +48,33 @@ const NavigationBarRouteMapper = {
 
 };
 
-const BarteguidenNavigator = React.createClass({
+class BarteguidenNavigator extends Component {
+  constructor() {
+    super();
+    this._renderScene = this._renderScene.bind(this);
+  }
+
+  _renderScene(route, navigator) {
+    let children = Children.map(this.props.children, (element) =>
+      cloneElement(element, { navigator })
+    );
+
+    switch (route.id) {
+      case 0:
+        return <View style={styles.container}>{children}</View>;
+      case 1:
+        return (
+          <View style={styles.container}>
+            <EventDetails eventID={route.event._id} />
+          </View>
+        );
+      default:
+        return (
+          <View />
+        );
+    }
+  }
+
   render() {
     return (
       <Navigator
@@ -74,26 +98,8 @@ const BarteguidenNavigator = React.createClass({
         }}
       />
     );
-  },
-
-  _renderScene(route, navigator) {
-    let children = Children.map(this.props.children, (element) =>
-      cloneElement(element, { navigator })
-    );
-
-    switch (route.id) {
-      case 0:
-        return <View style={styles.container}>{children}</View>;
-      case 1:
-        return (
-          <View style={styles.container}>
-            <EventDetails eventID={route.event._id} />
-          </View>
-        );
-    }
-  },
-});
-
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

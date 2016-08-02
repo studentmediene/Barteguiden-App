@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import { getTimeFromDate, formatPrice, categoryToImage } from '../utilities';
 import { categoryImages } from '../constants';
@@ -14,10 +12,26 @@ import {
 } from 'react-native';
 
 class EventListItem extends Component {
+  constructor() {
+    super();
+    this._onPressEvent = this._onPressEvent.bind(this);
+  }
+
+  _onPressEvent() {
+    if (this.props.navigator !== undefined) {
+      this.props.navigator.push({
+        id: 1, title: 'Detaljer',
+        event: this.props.event,
+      });
+    }
+  }
+
   render() {
     const { category, title, venue, price, startAt } = this.props.event;
     return (
-      <TouchableOpacity onPress={this._onPressEvent.bind(this)} style={styles.onTouch}>
+      <TouchableOpacity
+        onPress={this._onPressEvent} style={styles.onTouch}
+      >
         <View style={styles.container}>
           <Image
             style={styles.image}
@@ -33,12 +47,6 @@ class EventListItem extends Component {
         </View>
       </TouchableOpacity>
     );
-  }
-
-  _onPressEvent(event: Object) {
-    if (this.props.navigator !== undefined) {
-      this.props.navigator.push({ id: 1, title: 'Detaljer', event: this.props.event });
-    }
   }
 }
 

@@ -1,11 +1,8 @@
-'use strict';
-
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as eventActions from '../actions/events';
-import BarteguidenNavigator from '../BarteguidenNavigator';
 import Views from '../views/index';
 
 import {

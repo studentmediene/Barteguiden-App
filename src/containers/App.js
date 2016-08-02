@@ -11,7 +11,7 @@ import BarteguidenApp from './BarteguidenApp';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(reducer);
 
-export default class App extends Component {
+export default class App extends Component { // eslint-disable-line
   render() {
     return (
       <Provider store={store}>

@@ -11,21 +11,19 @@ function eventFetchSuccess(events) {
 }
 
 export function fetchEvents() {
-  return dispatch => {
-    return fetch('http://barteguiden.no/api/events', {
+  return dispatch => (
+    fetch('http://barteguiden.no/api/events', {
       method: 'get',
     })
     .then(response => response.json())
     .then(json => {
-      let events = json.map((event) => {
-        event.isFavorite = FavoriteStore.isFavorite(event._id);
-        return event;
+      const events = json.map(event => {
+        const e = event;
+        e.isFavorite = FavoriteStore.isFavorite(event._id);
+        return e;
       });
-      return dispatch(eventFetchSuccess(json));
+      return dispatch(eventFetchSuccess(events));
     })
-    .catch(error => {
-      console.log(error);
-    })
-    .done();
-  };
+    .done()
+  );
 }

@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import EventList from '../components/EventList';
 import PromotedEventSwiper from '../components/PromotedEventSwiper';

@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 import _ from 'lodash';
 
@@ -19,19 +17,19 @@ class FavoriteStore {
   }
 
   async _getInitialState() {
-    try {
-      let favorites = await AsyncStorage.getItem(STORAGE_KEY);
-      if (favorites != null) {
-        return await JSON.parse(favorites);
-      }
-    }
-    catch (error) {
+    const favorites = await AsyncStorage.getItem(STORAGE_KEY);
+    if (favorites != null) {
+      return await JSON.parse(favorites);
     }
     return await [];
   }
 
   toggleFavorite(id) {
-    this.isFavorite(id) ? this.removeFavorite(id) : this.addFavorite(id);
+    if (this.isFavorite(id)) {
+      this.removeFavorite(id);
+    } else {
+      this.addFavorite(id);
+    }
   }
 
   removeFavorite(id) {
@@ -43,21 +41,17 @@ class FavoriteStore {
   }
 
   async _setFavorites(favorites) {
-    try {
-      this.state = { favorites };
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-    } catch (error) {
-      console.log('AsyncStorage error: ' + error.message);
-    }
+    this.state = { favorites };
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
   }
 
   isFavorite(id) {
-    return _.indexOf(this.state.favorites, id) != -1;
+    return _.indexOf(this.state.favorites, id) !== -1;
   }
 }
 
 // Make FavoriteStore work like a singleton
-let favStore;
+let favStore; // eslint-disable-line
 if (!favStore) {
   favStore = new FavoriteStore();
   favStore.init();

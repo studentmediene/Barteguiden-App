@@ -1,6 +1,4 @@
-'use strict';
-
-import React, { Component } from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { highlightColor, backgroundColor, containerColor } from '../colors';
 
@@ -11,25 +9,25 @@ import {
 } from 'react-native';
 
 
-class SearchBar extends Component {
-  render() {
-    return (
-      <View style={styles.searchBar}>
-        <Icon name={'ios-search'} size={25} color={'white'} />
-        <TextInput
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={this.props.onChange}
-          placeholder="Søk"
-          onFocus={this.props.onFocus}
-          style={styles.searchBarInput}
-        />
-      </View>
-    );
-  }
-}
+const SearchBar = (props) => (
+  (
+  <View
+    style={styles.searchBar}
+  >
+    <Icon name={'ios-search'} size={25} color={'white'} />
+    <TextInput
+      autoCapitalize='none'
+      autoCorrect={false}
+      onChangeText={props.onChange}
+      placeholder='Søk'
+      onFocus={props.onFocus}
+      style={styles.searchBarInput}
+    />
+  </View>
+  )
+);
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   searchBar: {
     padding: 6,
     flexDirection: 'row',

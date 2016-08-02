@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import EventListItem from './EventListItem';
 import _ from 'lodash';
@@ -39,9 +37,9 @@ class EventList extends Component {
   }
 
   _updateDataSource(events) {
-    let newDataBlob = _.groupBy(events, (event) => {
-      return formatDate(event.startAt);
-    });
+    const newDataBlob = _.groupBy(events, (event) => (
+      formatDate(event.startAt)
+    ));
 
     this.setState({
       dataSource: this.state.dataSource.cloneWithRowsAndSections(newDataBlob),
@@ -50,7 +48,15 @@ class EventList extends Component {
 
   _renderEvent(event) {
     return (
-        <EventListItem navigator={this.props.navigator} event={event} />
+      <EventListItem navigator={this.props.navigator} event={event} />
+    );
+  }
+
+  _renderSectionHeader(sectionData, sectionID) {
+    return (
+      <View style={styles.headerContainer}>
+        <Text style={styles.sectionHeader}>{sectionID}</Text>
+      </View>
     );
   }
 
@@ -64,23 +70,14 @@ class EventList extends Component {
       style={styles.listView}
     />);
   }
-
-  _renderSectionHeader(sectionData, sectionID) {
-    return (
-      <View style={styles.headerContainer}>
-        <Text style={styles.sectionHeader}>{sectionID}</Text>
-      </View>
-    );
-  }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listView: {
     backgroundColor,
   },
   sectionHeader: {
     marginLeft: 10,
-    // marginTop: 10,
     fontSize: 16,
     color: 'black',
     fontWeight: '600',
