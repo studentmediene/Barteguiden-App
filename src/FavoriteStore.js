@@ -1,9 +1,7 @@
-'use strict';
-
 import React from 'react-native';
 import _ from 'lodash';
 
-const STORAGE_KEY = "@AsyncStorage:Favorites";
+const STORAGE_KEY = '@AsyncStorage:Favorites';
 
 const {
   AsyncStorage,
@@ -11,53 +9,49 @@ const {
 
 class FavoriteStore {
   constructor() {
-    this.state = {favorites: []};
+    this.state = { favorites: [] };
   }
 
   async init() {
-    this.state = {favorites: await this._getInitialState()};
+    this.state = { favorites: await this._getInitialState() };
   }
 
   async _getInitialState() {
-    try {
-      let favorites = await AsyncStorage.getItem(STORAGE_KEY);
-      if (favorites != null) {
-        return await JSON.parse(favorites);
-      }
-    }
-    catch (error) {
+    const favorites = await AsyncStorage.getItem(STORAGE_KEY);
+    if (favorites != null) {
+      return await JSON.parse(favorites);
     }
     return await [];
   }
 
   toggleFavorite(id) {
-    this.isFavorite(id) ? this.removeFavorite(id) : this.addFavorite(id);
-  }
-
-  removeFavorite(id) {
-    this._setFavorites(_.without(this.state.favorites, id))
-  }
-
-  addFavorite(id) {
-    this._setFavorites(_.union(this.state.favorites, [id]))
-  }
-
-  async _setFavorites(favorites) {
-    try {
-      this.state = {favorites: favorites};
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-    } catch (error) {
-      console.log('AsyncStorage error: ' + error.message);
+    if (this.isFavorite(id)) {
+      this.removeFavorite(id);
+    } else {
+      this.addFavorite(id);
     }
   }
 
+  removeFavorite(id) {
+    this._setFavorites(_.without(this.state.favorites, id));
+  }
+
+  addFavorite(id) {
+    this._setFavorites(_.union(this.state.favorites, [id]));
+  }
+
+  async _setFavorites(favorites) {
+    this.state = { favorites };
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
+  }
+
   isFavorite(id) {
-    return _.indexOf(this.state.favorites, id) != -1;
+    return _.indexOf(this.state.favorites, id) !== -1;
   }
 }
 
 // Make FavoriteStore work like a singleton
-let favStore;
+let favStore; // eslint-disable-line
 if (!favStore) {
   favStore = new FavoriteStore();
   favStore.init();

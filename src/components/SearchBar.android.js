@@ -1,12 +1,9 @@
-'use strict';
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {searchButtonSize} from '../constants';
-import {highlightColor, containerColor} from '../colors';
+import { searchButtonSize } from '../constants';
+import { highlightColor, containerColor } from '../colors';
 
 import {
-  Image,
   Platform,
   TextInput,
   StyleSheet,
@@ -26,19 +23,20 @@ class SearchBar extends Component {
       <View style={styles.searchBar}>
         <TouchableNativeFeedback
           background={background}
-          onPress={() => this.refs.input && this.refs.input.focus()}>
+          onPress={() => this.refs.input && this.refs.input.focus()}
+        >
           <View>
-            <Icon name={'ios-search'} size={searchButtonSize} color={highlightColor}/>
+            <Icon name={'ios-search'} size={searchButtonSize} color={highlightColor} />
           </View>
         </TouchableNativeFeedback>
         <TextInput
-          ref="input"
-          autoCapitalize="none"
+          ref='input'
+          autoCapitalize='none'
           autoCorrect={false}
           autoFocus={false}
           onChangeText={this.props.onChange}
-          placeholder="Søk"
-          placeholderTextColor="rgba(0, 0, 0, 0.5)"
+          placeholder='Søk'
+          placeholderTextColor='rgba(0, 0, 0, 0.5)'
           style={styles.searchBarInput}
         />
       </View>
@@ -63,7 +61,7 @@ const styles = StyleSheet.create({
     height: 30,
     paddingLeft: 5,
     padding: 0,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   icon: {
     width: 24,

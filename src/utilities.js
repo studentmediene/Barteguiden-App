@@ -1,21 +1,20 @@
-'use strict';
 import moment from 'moment';
 import 'moment/locale/nb';
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
-export function sortByDate (event1, event2) {
+export function sortByDate(event1, event2) {
   return new Date(event1.startAt).getTime() - new Date(event2.startAt).getTime();
 }
 
-export function formatDate (date) {
-    return moment(new Date(date)).calendar(null, {
-        sameDay: '[I dag]',
-        nextDay: '[I morgen]',
-        nextWeek: 'dddd Do MMMM YYYY',
-        lastDay: 'dddd Do MMMM YYYY',
-        lastWeek: 'dddd Do MMMM YYYY',
-        sameElse: 'dddd Do MMMM YYYY'
-    });
+export function formatDate(date) {
+  return moment(new Date(date)).calendar(null, {
+    sameDay: '[I dag]',
+    nextDay: '[I morgen]',
+    nextWeek: 'dddd Do MMMM YYYY',
+    lastDay: 'dddd Do MMMM YYYY',
+    lastWeek: 'dddd Do MMMM YYYY',
+    sameElse: 'dddd Do MMMM YYYY',
+  });
 }
 
 export function getTimeFromDate(date) {
@@ -23,43 +22,43 @@ export function getTimeFromDate(date) {
 }
 
 export function formatPrice(price) {
-  return !price ? 'Gratis' : 'Fra ' + price + ' kr';
+  return !price ? 'Gratis' : `Fra ${price} kr`;
 }
 
 export function categoryToImage(category) {
   if (category) {
-    var prefix = category.charAt(0);
-    var suffix = category.substr(1).toLowerCase();
-    return 'category' + prefix + suffix;
+    const prefix = category.charAt(0);
+    const suffix = category.substr(1).toLowerCase();
+    return `category${prefix}${suffix}`;
   }
   return 'categoryOther';
 }
 
 export function ageLimitToText(ageLimit) {
-  return ageLimit ? ageLimit + '+' : '';
+  return ageLimit ? `${ageLimit}+` : '';
 }
 
 export function getPlatformIcon(iconName) {
   const platformIcons = {
-    'calendar': {
-      'ios': 'ios-calendar-outline',
-      'android' : 'md-calendar'
+    calendar: {
+      ios: 'ios-calendar-outline',
+      android: 'md-calendar',
     },
-    'share': {
-      'ios' : 'ios-share-outline',
-      'android' : 'md-share'
+    share: {
+      ios: 'ios-share-outline',
+      android: 'md-share',
     },
-    'map': {
-      'ios' : 'ios-navigate-outline',
-      'android' : 'md-map'
+    map: {
+      ios: 'ios-navigate-outline',
+      android: 'md-map',
     },
-    'favorite-off': {
-      'ios' : 'ios-heart-outline',
-      'android' : 'md-heart-outline'
+    favoriteOff: {
+      ios: 'ios-heart-outline',
+      android: 'md-heart-outline',
     },
-    'favorite-on': {
-      'ios' : 'ios-heart',
-      'android' : 'md-heart'
+    favoriteOn: {
+      ios: 'ios-heart',
+      android: 'md-heart',
     },
   };
 

@@ -1,14 +1,11 @@
-/**
- * Created by annakastet on 18/11/15.
- */
- import React, {Component} from 'react';
+import React from 'react';
 import {
   formatDate,
   formatPrice,
   categoryToImage,
   ageLimitToText,
-  getTimeFromDate} from '../utilities';
-import {categoryImages} from '../constants';
+  getTimeFromDate } from '../utilities';
+import { categoryImages } from '../constants';
 
 import {
   StyleSheet,
@@ -17,43 +14,41 @@ import {
   Image,
 } from 'react-native';
 
-class EventDetailsImage extends Component {
-  render() {
-    return (
-      <View style={styles.wrapper}>
-        <View style={styles.imageWrapper}>
+const EventDetailsImage = (props) => (
+  <View style={styles.wrapper}>
+    <View style={styles.imageWrapper}>
+      <Image
+        style={styles.image}
+        source={{ uri: props.event.imageUrl }}
+      />
+    </View>
+    <View style={styles.eventContents}>
+      <Text style={styles.title}>{props.event.title}</Text>
+      <Text style={styles.subtitle}>{props.event.venue.name}</Text>
+      <View style={styles.eventInfo}>
+        <Text style={styles.subtitle}>
+          {formatDate(props.event.startAt)} {getTimeFromDate(props.event.startAt)}
+        </Text>
+        <View style={styles.iconRow}>
+          <Text style={StyleSheet.flatten([styles.subtitle, styles.flex1])}>
+            {ageLimitToText(props.event.ageLimit)}
+          </Text>
           <Image
-            style={styles.image}
-            source={{uri: this.props.event.imageUrl}}>
-          </Image>
-        </View>
-        <View style={styles.eventContents}>
-          <Text style={styles.title}>{this.props.event.title}</Text>
-          <Text style={styles.subtitle}>{this.props.event.venue.name}</Text>
-          <View style={styles.eventInfo}>
-            <Text style={styles.subtitle}>
-              {formatDate(this.props.event.startAt) + ' '
-              + getTimeFromDate(this.props.event.startAt)}
-            </Text>
-            <View style={styles.iconRow}>
-              <Text style={StyleSheet.flatten([styles.subtitle, styles.flex1])}>
-                {ageLimitToText(this.props.event.ageLimit)}
-              </Text>
-              <Image
-                style={styles.icon}
-                source={categoryImages[categoryToImage(this.props.event.category)]}>
-              </Image>
+            style={styles.icon}
+            source={categoryImages[categoryToImage(props.event.category)]}
+          />
 
-              <Text style={StyleSheet.flatten([styles.subtitle,
-              styles.flex1, styles.textAlignRight])}>
-                {formatPrice(this.props.event.price)}
-              </Text>
-            </View>
-          </View>
+          <Text
+            style={StyleSheet.flatten([styles.subtitle,
+            styles.flex1, styles.textAlignRight])}
+          >
+            {formatPrice(props.event.price)}
+          </Text>
         </View>
       </View>
-    )}
-}
+    </View>
+  </View>
+);
 
 const styles = StyleSheet.create({
   title: {
@@ -110,7 +105,7 @@ const styles = StyleSheet.create({
   },
   textAlignRight: {
     textAlign: 'right',
-  }
+  },
 });
 
 export default EventDetailsImage;

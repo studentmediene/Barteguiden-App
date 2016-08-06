@@ -1,5 +1,5 @@
 import * as types from '../actions/actionTypes';
-import {sortByDate} from '../utilities';
+import { sortByDate } from '../utilities';
 
 const initialState = {
   allEvents: [],
@@ -18,14 +18,14 @@ export default function events(state = initialState, action = {}) {
     case types.TOGGLE_FAVORITE:
       return Object.assign({}, state, {
         allEvents: state.allEvents.map((event) => {
-          if(event._id === action.payload.eventID) {
+          if (event._id === action.payload.eventID) {
             return Object.assign({}, event, {
               isFavorite: !event.isFavorite,
-            })
+            });
           }
           return event;
-        })
-      })
+        }),
+      });
     default:
       return state;
   }

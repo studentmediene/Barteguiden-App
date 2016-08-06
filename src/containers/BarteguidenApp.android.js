@@ -1,58 +1,55 @@
-'use strict';
-
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import * as eventActions from '../actions/events';
-import ToolbarAndroid from 'ToolbarAndroid';
 import Home from '../views/Home';
 import AllEvents from '../views/AllEvents';
 import FavoriteEvents from '../views/FavoriteEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import {topColor, highlightColor} from '../colors';
+import { topColor, highlightColor } from '../colors';
 
 import {
+  ToolbarAndroid,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 
 
 class BarteguidenApp extends Component {
-  constructor() {
-    super();
-  }
-
   async componentDidMount() {
     this.props.actions.fetchEvents();
-  }
-
-  render() {
-    return (
-      <View
-        style={styles.container}>
-        <ToolbarAndroid
-          style={styles.toolbar}
-          title="Barteguiden"
-          onIconClicked={() => this.props.navigator.pop()}
-          actions={[{title: 'Innstillinger', show: 'always'}]}
-          onActionSelected={this.onActionSelected} />
-
-        <ScrollableTabView tabBarUnderlineColor={highlightColor}
-          tabBarBackgroundColor={topColor}
-          tabBarActiveTextColor={highlightColor}>
-          <Home events={this.props.events} title="Home" tabLabel="Hva skjer?"/>
-          <AllEvents events={this.props.events} title="All" tabLabel="Alle"/>
-          <FavoriteEvents events={this.props.events} title="Favorites" tabLabel="Favoritter" />
-        </ScrollableTabView>
-      </View>
-    );
   }
 
   onActionSelected(position) {
     if (position === 0) { // index of 'Settings'
     }
+  }
+
+  render() {
+    return (
+      <View
+        style={styles.container}
+      >
+        <ToolbarAndroid
+          style={styles.toolbar}
+          title='Barteguiden'
+          onIconClicked={() => this.props.navigator.pop()}
+          actions={[{ title: 'Innstillinger', show: 'always' }]}
+          onActionSelected={this.onActionSelected}
+        />
+
+        <ScrollableTabView
+          tabBarUnderlineColor={highlightColor}
+          tabBarBackgroundColor={topColor}
+          tabBarActiveTextColor={highlightColor}
+        >
+          <Home events={this.props.events} title='Home' tabLabel='Hva skjer?' />
+          <AllEvents events={this.props.events} title='All' tabLabel='Alle' />
+          <FavoriteEvents events={this.props.events} title='Favorites' tabLabel='Favoritter' />
+        </ScrollableTabView>
+      </View>
+    );
   }
 }
 

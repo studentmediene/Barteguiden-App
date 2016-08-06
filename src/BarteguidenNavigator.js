@@ -1,7 +1,5 @@
-'use strict';
-
-import React, {Component, Children, cloneElement} from 'react';
-import {highlightColor} from './colors'
+import React, { Component, Children, cloneElement } from 'react';
+import { highlightColor } from './colors';
 import EventDetails from './components/EventDetails';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -12,7 +10,7 @@ import {
   View,
   TouchableOpacity,
   BackAndroid,
-  Platform
+  Platform,
 } from 'react-native';
 
 
@@ -22,12 +20,13 @@ const NavigationBarRouteMapper = {
       return null;
     }
 
-    let previousRoute = navState.routeStack[index - 1];
+    const previousRoute = navState.routeStack[index - 1];
     return (
       <TouchableOpacity
         onPress={() => navigator.pop()}
-        style={styles.navBarLeftButton}>
-        <Icon name='ios-arrow-back' size={35} color={highlightColor}/>
+        style={styles.navBarLeftButton}
+      >
+        <Icon name='ios-arrow-back' size={35} color={highlightColor} />
         <Text style={[styles.navBarText, styles.navBarButtonText]}>
           {previousRoute.title}
         </Text>
@@ -35,26 +34,52 @@ const NavigationBarRouteMapper = {
     );
   },
 
-  RightButton(route, navigator, index, navState) {
+  RightButton() {
     return null;
   },
 
-  Title(route, navigator, index, navState) {
+  Title(route) {
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
         {route.title}
       </Text>
     );
-  }
+  },
 
 };
 
-const BarteguidenNavigator = React.createClass({
+class BarteguidenNavigator extends Component {
+  constructor() {
+    super();
+    this._renderScene = this._renderScene.bind(this);
+  }
+
+  _renderScene(route, navigator) {
+    let children = Children.map(this.props.children, (element) =>
+      cloneElement(element, { navigator })
+    );
+
+    switch (route.id) {
+      case 0:
+        return <View style={styles.container}>{children}</View>;
+      case 1:
+        return (
+          <View style={styles.container}>
+            <EventDetails eventID={route.event._id} />
+          </View>
+        );
+      default:
+        return (
+          <View />
+        );
+    }
+  }
+
   render() {
     return (
       <Navigator
-        sceneStyle={{paddingTop: Platform.OS === 'ios' ? 64 : 0}}
-        initialRoute={{id: 0, title: this.props.title}}
+        sceneStyle={{ paddingTop: Platform.OS === 'ios' ? 64 : 0 }}
+        initialRoute={{ id: 0, title: this.props.title }}
         renderScene={this._renderScene}
         navigationBar={Platform.OS === 'ios' ?
           <Navigator.NavigationBar
@@ -63,36 +88,18 @@ const BarteguidenNavigator = React.createClass({
           /> : null
         }
         ref={(nav) => {
-            BackAndroid.addEventListener('hardwareBackPress', () => {
-                if (nav && nav.getCurrentRoutes() && nav.getCurrentRoutes().length > 0) {
-                    nav.pop();
-                    return true;
-                }
-                return false;
-            });
+          BackAndroid.addEventListener('hardwareBackPress', () => {
+            if (nav && nav.getCurrentRoutes() && nav.getCurrentRoutes().length > 0) {
+              nav.pop();
+              return true;
+            }
+            return false;
+          });
         }}
       />
     );
-  },
-
-  _renderScene(route, navigator) {
-    let children = Children.map(this.props.children, (element) =>
-      cloneElement(element, {navigator: navigator})
-    );
-
-    switch(route.id) {
-      case 0:
-        return <View style={styles.container}>{children}</View>
-      case 1:
-        return (
-          <View style={styles.container}>
-            <EventDetails eventID={route.event._id}/>
-          </View>
-        );
-    }
   }
-});
-
+}
 
 const styles = StyleSheet.create({
   container: {

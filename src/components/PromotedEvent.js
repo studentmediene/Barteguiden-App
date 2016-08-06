@@ -1,36 +1,35 @@
-'use strict';
-
-import React, {Component} from 'react';
-import { StyleSheet } from 'react-native';
+import React, { Component } from 'react';
 import EventDetailsImage from './EventDetailsImage';
 
 import {
-  Text,
-  View,
-  Image,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 
 
 class PromotedEvent extends Component {
+  constructor() {
+    super();
+    this._onPressEvent = this._onPressEvent.bind(this);
+  }
+
+  _onPressEvent() {
+    this.props.navigator.push({ id: 1, title: 'Detaljer', event: this.props.promoted });
+  }
 
   render() {
     return (
-      <TouchableOpacity style={styles.wrapper} onPress={this._onPressEvent.bind(this)}>
-        <EventDetailsImage event={this.props.promoted}/>
+      <TouchableOpacity style={styles.wrapper} onPress={this._onPressEvent}>
+        <EventDetailsImage event={this.props.promoted} />
       </TouchableOpacity>
-    )
-  }
-
-  _onPressEvent(event) {
-    this.props.navigator.push({id: 1, title:'Detaljer', event: this.props.promoted});
+    );
   }
 }
 
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-  }
+  },
 });
 
 export default PromotedEvent;
