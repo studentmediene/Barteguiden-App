@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import EventListItem from './EventListItem';
 import _ from 'lodash';
 import { formatDate } from '../utilities';
@@ -9,6 +10,7 @@ import {
   Text,
   View,
   ListView,
+  ActivityIndicator,
 } from 'react-native';
 
 
@@ -61,6 +63,11 @@ class EventList extends Component {
   }
 
   render() {
+    if (this.props.eventsLoading) {
+      return (
+        <ActivityIndicator />
+      );
+    }
     return (<ListView
       dataSource={this.state.dataSource}
       renderRow={this._renderEvent}
@@ -89,4 +96,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EventList;
+const mapStateToProps = state => ({
+  eventsLoading: state.events.eventsLoading,
+});
+
+export default connect(mapStateToProps)(EventList);

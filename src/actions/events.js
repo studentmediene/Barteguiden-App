@@ -1,6 +1,12 @@
 import * as types from './actionTypes';
 import FavoriteStore from '../FavoriteStore';
 
+function eventFetchRequest() {
+  return {
+    type: types.EVENT_FETCH_REQUEST,
+  };
+}
+
 function eventFetchSuccess(events) {
   return {
     type: types.EVENT_FETCH_SUCCESS,
@@ -11,7 +17,8 @@ function eventFetchSuccess(events) {
 }
 
 export function fetchEvents() {
-  return dispatch => (
+  return dispatch => {
+    dispatch(eventFetchRequest());
     fetch('http://barteguiden.no/api/events', {
       method: 'get',
     })
@@ -24,6 +31,6 @@ export function fetchEvents() {
       });
       return dispatch(eventFetchSuccess(events));
     })
-    .done()
-  );
+    .done();
+  };
 }

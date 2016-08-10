@@ -9,6 +9,11 @@ const initialState = {
 
 export default function events(state = initialState, action = {}) {
   switch (action.type) {
+    case types.EVENT_FETCH_REQUEST:
+      return Object.assign({}, state, {
+        eventsLoading: true,
+        eventsLoadingFailed: false,
+      });
     case types.EVENT_FETCH_SUCCESS:
       return Object.assign({}, state, {
         eventsLoading: false,
