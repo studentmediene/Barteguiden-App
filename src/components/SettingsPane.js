@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
-import { highlightColor, containerColor } from '../colors';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as favoriteActions from '../actions/favorites';
+
+import { containerColor, separatorColor } from '../colors';
 
 import {
   StyleSheet,
   Text,
   View,
-  Linking,
+  TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 class AboutPane extends Component {
-  _openLink(url) {
-    Linking.openURL(url);
+  handle = () => {
+    Alert.alert(
+      'Fjern alle favoritter',
+      'Sikker?',
+      [
+        { text: 'Avbryt', style: 'cancel' },
+        { text: 'Slett', onPress: () => this.props.actions.clearFavoriteEvents(),
+        style: 'destructive' },
+      ]
+    );
   }
 
   render() {
@@ -18,9 +31,12 @@ class AboutPane extends Component {
       <View>
         <Text style={styles.h1}>Innstillinger</Text>
         <View style={styles.container}>
-          <Text style={styles.paragraph}>
-            Settings here
-          </Text>
+          <TouchableOpacity
+            onPress={this.handle}
+            style={styles.setting}
+          >
+            <Text style={styles.settingText}>Fjern alle favoritter</Text>
+          </TouchableOpacity>
         </View>
       </View>
       );
@@ -30,22 +46,27 @@ class AboutPane extends Component {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
-    padding: 10,
     flex: 1,
     flexDirection: 'column',
     backgroundColor: containerColor,
+    borderColor: separatorColor,
+    borderWidth: StyleSheet.hairlineWidth,
   },
   h1: {
     fontSize: 16,
     color: 'black',
     marginLeft: 10,
   },
-  link: {
-    color: highlightColor,
+  setting: {
+    padding: 13,
   },
-  paragraph: {
-    marginBottom: 10,
+  settingText: {
+    fontSize: 16,
   },
 });
 
-export default AboutPane;
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(favoriteActions, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(AboutPane);

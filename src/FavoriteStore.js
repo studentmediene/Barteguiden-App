@@ -40,6 +40,11 @@ class FavoriteStore {
     this._setFavorites(_.union(this.state.favorites, [id]));
   }
 
+  clearFavorites() {
+    this.state = { favorites: [] };
+    AsyncStorage.removeItem(STORAGE_KEY);
+  }
+
   async _setFavorites(favorites) {
     this.state = { favorites };
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
