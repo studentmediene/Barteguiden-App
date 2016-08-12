@@ -45,8 +45,13 @@ class EventListItem extends Component {
           <View style={styles.eventContents}>
             <Text style={styles.eventTitle}>{title}</Text>
             <View style={styles.eventInfo}>
-              <Text>{getTimeFromDate(startAt)} {venue.name.trim()}</Text>
-              <Text>{formatPrice(price)}</Text>
+              <Text
+                style={[styles.secondaryInfo, styles.venue]} ellipsizeMode='tail'
+                numberOfLines={1}
+              >
+                {getTimeFromDate(startAt)} {venue.name.trim()}
+              </Text>
+              <Text style={[styles.secondaryInfo, styles.price]}>{formatPrice(price)}</Text>
             </View>
           </View>
         </View>
@@ -84,6 +89,13 @@ const styles = StyleSheet.create({
   },
   secondaryInfo: {
     fontSize: normalize(14),
+  },
+  price: {
+    textAlign: 'right',
+    flex: 1.5,
+  },
+  venue: {
+    flex: 5,
   },
   onTouch: {
   },

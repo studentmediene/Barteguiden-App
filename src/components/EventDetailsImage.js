@@ -25,8 +25,10 @@ const EventDetailsImage = (props) => (
       />
     </View>
     <View style={styles.eventContents}>
-      <Text style={styles.title}>{props.event.title}</Text>
-      <Text style={styles.subtitle}>{props.event.venue.name}</Text>
+      <Text style={styles.title} ellipsizeMode='tail' numberOfLines={2}>
+        {props.event.title}
+      </Text>
+      <Text style={styles.subtitle}>{props.event.venue.name.trim()}</Text>
       <View style={styles.eventInfo}>
         <Text style={styles.subtitle}>
           {formatDate(props.event.startAt)} {getTimeFromDate(props.event.startAt)}
