@@ -1,9 +1,11 @@
 import React from 'react';
+
 import {
   formatDate,
   formatPrice,
   categoryToImage,
   ageLimitToText,
+  normalize,
   getTimeFromDate } from '../utilities';
 import { categoryImages } from '../constants';
 
@@ -53,12 +55,12 @@ const EventDetailsImage = (props) => (
 const styles = StyleSheet.create({
   title: {
     color: '#fff',
-    fontSize: 30,
+    fontSize: normalize(26),
     fontWeight: 'bold',
   },
   subtitle: {
     color: '#fff',
-    fontSize: 15,
+    fontSize: normalize(15),
     fontWeight: 'bold',
   },
   image: {

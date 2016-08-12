@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { getTimeFromDate, formatPrice, categoryToImage } from '../utilities';
+
+import {
+  getTimeFromDate,
+  formatPrice,
+  categoryToImage,
+  normalize } from '../utilities';
 import { categoryImages } from '../constants';
 import { separatorColor, containerColor } from '../colors';
 
@@ -65,7 +70,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   eventTitle: {
-    fontSize: 18,
+    fontSize: normalize(18),
   },
   eventContents: {
     flex: 1,
@@ -76,6 +81,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  secondaryInfo: {
+    fontSize: normalize(14),
   },
   onTouch: {
   },
