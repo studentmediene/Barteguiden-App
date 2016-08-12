@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'stretch',
     justifyContent: 'flex-end',
+    paddingBottom: 5,
   },
   eventInfo: {
     flex: 1,

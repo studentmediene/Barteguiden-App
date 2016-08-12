@@ -15,15 +15,15 @@ const PromotedEventSwiper = (props) => {
       autoplayTimeout={5}
       dot={
         <View
-          style={{ backgroundColor: 'rgba(255,255,255,.5)', width: 5, height: 5,
+          style={{ backgroundColor: 'rgba(255,255,255,.5)', width: 3, height: 3,
             borderRadius: 4, marginLeft: 3, marginRight: 3,
-          marginTop: 3, marginBottom: 3, bottom: -15 }}
+          marginTop: 3, marginBottom: 3, bottom: -22 }}
         />}
       activeDot={
         <View
-          style={{ backgroundColor: '#fff', width: 8, height: 8,
+          style={{ backgroundColor: '#fff', width: 6, height: 6,
             borderRadius: 4, marginLeft: 3, marginRight: 3,
-          marginTop: 3, marginBottom: 3, bottom: -15 }}
+          marginTop: 3, marginBottom: 3, bottom: -22 }}
         />}
     >
       {promotedEvents.map(promoted => (
