@@ -5,6 +5,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.burnweb.rnsendintent.RNSendIntentPackage;
 import cl.json.RNSharePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +39,8 @@ public class MainActivity extends ReactActivity {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
             new RNSendIntentPackage(),
-            new RNSharePackage()
+            new RNSharePackage(),
+            new VectorIconsPackage()
         );
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component, Children, cloneElement } from 'react';
 import { highlightColor } from './colors';
 import EventDetails from './components/EventDetails';
+import Settings from './views/Settings';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
@@ -67,6 +68,10 @@ class BarteguidenNavigator extends Component {
           <View style={styles.container}>
             <EventDetails eventID={route.event._id} />
           </View>
+        );
+      case 3:
+        return (
+          <Settings />
         );
       default:
         return (
