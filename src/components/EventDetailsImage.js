@@ -1,9 +1,11 @@
 import React from 'react';
+
 import {
   formatDate,
   formatPrice,
   categoryToImage,
   ageLimitToText,
+  normalize,
   getTimeFromDate } from '../utilities';
 import { categoryImages } from '../constants';
 
@@ -23,8 +25,10 @@ const EventDetailsImage = (props) => (
       />
     </View>
     <View style={styles.eventContents}>
-      <Text style={styles.title}>{props.event.title}</Text>
-      <Text style={styles.subtitle}>{props.event.venue.name}</Text>
+      <Text style={styles.title} ellipsizeMode='tail' numberOfLines={2}>
+        {props.event.title}
+      </Text>
+      <Text style={styles.subtitle}>{props.event.venue.name.trim()}</Text>
       <View style={styles.eventInfo}>
         <Text style={styles.subtitle}>
           {formatDate(props.event.startAt)} {getTimeFromDate(props.event.startAt)}
@@ -53,12 +57,12 @@ const EventDetailsImage = (props) => (
 const styles = StyleSheet.create({
   title: {
     color: '#fff',
-    fontSize: 30,
+    fontSize: normalize(26),
     fontWeight: 'bold',
   },
   subtitle: {
     color: '#fff',
-    fontSize: 15,
+    fontSize: normalize(15),
     fontWeight: 'bold',
   },
   image: {

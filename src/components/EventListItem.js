@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { getTimeFromDate, formatPrice, categoryToImage } from '../utilities';
+
+import {
+  getTimeFromDate,
+  formatPrice,
+  categoryToImage,
+  normalize } from '../utilities';
 import { categoryImages } from '../constants';
 import { separatorColor, containerColor } from '../colors';
 
@@ -40,8 +45,13 @@ class EventListItem extends Component {
           <View style={styles.eventContents}>
             <Text style={styles.eventTitle}>{title}</Text>
             <View style={styles.eventInfo}>
-              <Text>{getTimeFromDate(startAt)} {venue.name.trim()}</Text>
-              <Text>{formatPrice(price)}</Text>
+              <Text
+                style={[styles.secondaryInfo, styles.venue]} ellipsizeMode='tail'
+                numberOfLines={1}
+              >
+                {getTimeFromDate(startAt)} {venue.name.trim()}
+              </Text>
+              <Text style={[styles.secondaryInfo, styles.price]}>{formatPrice(price)}</Text>
             </View>
           </View>
         </View>
@@ -65,7 +75,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   eventTitle: {
-    fontSize: 18,
+    fontSize: normalize(18),
   },
   eventContents: {
     flex: 1,
@@ -76,6 +86,16 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  secondaryInfo: {
+    fontSize: normalize(14),
+  },
+  price: {
+    textAlign: 'right',
+    flex: 1.5,
+  },
+  venue: {
+    flex: 5,
   },
   onTouch: {
   },

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventListItem from './EventListItem';
 import _ from 'lodash';
-import { formatDate } from '../utilities';
+import { formatDate, normalize } from '../utilities';
 import { backgroundColor, highlightColor } from '../colors';
 
 import {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     marginLeft: 10,
-    fontSize: 16,
+    fontSize: normalize(16),
     color: 'black',
     fontWeight: '600',
   },

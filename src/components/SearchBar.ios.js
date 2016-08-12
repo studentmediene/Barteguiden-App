@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { highlightColor, backgroundColor, containerColor } from '../colors';
+import { normalize } from '../utilities';
 
 import {
   TextInput,
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor,
   },
   searchBarInput: {
-    fontSize: 15,
+    fontSize: normalize(15),
     flex: 1,
     height: 30,
     textAlign: 'center',

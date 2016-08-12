@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { searchButtonSize } from '../constants';
 import { highlightColor, containerColor } from '../colors';
+import { normalize } from '../utilities';
 
 import {
   Platform,
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   },
   searchBarInput: {
     flex: 1,
-    fontSize: 16,
+    fontSize: normalize(16),
     color: 'black',
     height: 30,
     paddingLeft: 5,
