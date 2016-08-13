@@ -35,7 +35,7 @@ export function categoryToImage(category) {
 }
 
 export function ageLimitToText(ageLimit) {
-  return ageLimit ? `${ageLimit}+` : '';
+  return ageLimit === 0 || ageLimit ? `${ageLimit}+` : '';
 }
 
 export function getPlatformIcon(iconName) {

@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   price: {
     textAlign: 'right',
-    flex: 1.5,
+    flex: 2,
   },
   venue: {
     flex: 5,

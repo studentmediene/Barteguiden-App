@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     borderBottomWidth: 3,
+    padding: 2,
     borderColor: highlightColor,
     backgroundColor,
   },
