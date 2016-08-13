@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventListItem from './EventListItem';
+import EmptyErrorList from './EmptyListMessages';
 import _ from 'lodash';
 import { formatDate, normalize } from '../utilities';
 import { backgroundColor, highlightColor } from '../colors';
@@ -65,7 +66,13 @@ class EventList extends Component {
   render() {
     if (this.props.eventsLoading) {
       return (
-        <ActivityIndicator />
+        <View style={styles.listView}>
+          <ActivityIndicator style={styles.activityIndicator} />
+        </View>
+      );
+    } else if (this.props.eventsLoadingFailed) {
+      return (
+        <EmptyErrorList />
       );
     } else if (this.props.emptyListMessage && this.props.events.length === 0) {
       const EmptyListMessage = this.props.emptyListMessage;
@@ -88,6 +95,10 @@ class EventList extends Component {
 const styles = StyleSheet.create({
   listView: {
     backgroundColor,
+    flex: 1,
+  },
+  activityIndicator: {
+    paddingTop: 20,
   },
   sectionHeader: {
     marginLeft: 10,
@@ -105,6 +116,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
   eventsLoading: state.events.eventsLoading,
+  eventsLoadingFailed: state.events.eventsLoadingFailed,
 });
 
 export default connect(mapStateToProps)(EventList);

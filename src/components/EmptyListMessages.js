@@ -1,8 +1,13 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as eventActions from '../actions/events';
 import { View, Text, StyleSheet } from 'react-native';
-import { backgroundColor, favoriteColor } from '../colors';
+import { backgroundColor, favoriteColor, highlightColor } from '../colors';
 import { actionIconSize } from '../constants';
 import { getPlatformIcon } from '../utilities';
+import ActionButton from './ActionButton';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const EmptyFavoriteList = () => (
@@ -30,6 +35,21 @@ export const EmptyEventList = () => (
   </View>
 );
 
+const EmptyErrorList = (props) => (
+  <View style={styles.container}>
+    <Text style={styles.text}>Noe gikk galt.</Text>
+    <View style={styles.helpIcons}>
+      <ActionButton
+        actionText={'Prøv igjen'}
+        backgroundColor={backgroundColor}
+        iconName={getPlatformIcon('refresh')}
+        iconColor={highlightColor}
+        onPress={() => props.actions.fetchEvents()}
+      />
+    </View>
+  </View>
+);
+
 const styles = StyleSheet.create({
   arrow: {
     marginHorizontal: 10,
@@ -50,3 +70,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(eventActions, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(EmptyErrorList);

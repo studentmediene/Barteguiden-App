@@ -20,6 +20,12 @@ export default function events(state = initialState, action = {}) {
         eventsLoadingFailed: false,
         allEvents: action.payload.events.sort(sortByDate),
       });
+    case types.EVENT_FETCH_FAILURE:
+      return Object.assign({}, state, {
+        eventsLoading: false,
+        eventsLoadingFailed: true,
+        allEvents: [],
+      });
     case types.TOGGLE_FAVORITE:
       return Object.assign({}, state, {
         allEvents: state.allEvents.map((event) => {
