@@ -16,6 +16,15 @@ function eventFetchSuccess(events) {
   };
 }
 
+function eventFetchFailure(error) {
+  return {
+    type: types.EVENT_FETCH_FAILURE,
+    payload: {
+      error,
+    },
+  };
+}
+
 export function fetchEvents() {
   return dispatch => {
     dispatch(eventFetchRequest());
@@ -30,6 +39,9 @@ export function fetchEvents() {
         return e;
       });
       return dispatch(eventFetchSuccess(events));
+    })
+    .catch(error => {
+      dispatch(eventFetchFailure(error));
     })
     .done();
   };

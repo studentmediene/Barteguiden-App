@@ -60,6 +60,10 @@ export function getPlatformIcon(iconName) {
       ios: 'ios-heart',
       android: 'md-heart',
     },
+    refresh: {
+      ios: 'ios-refresh',
+      android: 'md-refresh',
+    },
   };
 
   return platformIcons[iconName][Platform.OS];
