@@ -67,6 +67,11 @@ class EventList extends Component {
       return (
         <ActivityIndicator />
       );
+    } else if (this.props.emptyListMessage && this.props.events.length === 0) {
+      const EmptyListMessage = this.props.emptyListMessage;
+      return (
+        <EmptyListMessage />
+      );
     }
     return (<ListView
       dataSource={this.state.dataSource}
