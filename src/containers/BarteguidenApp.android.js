@@ -8,6 +8,7 @@ import AllEvents from '../views/AllEvents';
 import FavoriteEvents from '../views/FavoriteEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { topColor, highlightColor } from '../colors';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
   ToolbarAndroid,
@@ -21,8 +22,9 @@ class BarteguidenApp extends Component {
     this.props.actions.fetchEvents();
   }
 
-  onActionSelected(position) {
+  onActionSelected = (position) => {
     if (position === 0) { // index of 'Settings'
+      this.props.navigator.push({ id: 3 });
     }
   }
 
@@ -31,14 +33,13 @@ class BarteguidenApp extends Component {
       <View
         style={styles.container}
       >
-        <ToolbarAndroid
+        <Icon.ToolbarAndroid
           style={styles.toolbar}
           title='Barteguiden'
           onIconClicked={() => this.props.navigator.pop()}
-          actions={[{ title: 'Innstillinger', show: 'always' }]}
+          actions={[{ title: 'Innstillinger', show: 'always', iconName: 'md-more' }]}
           onActionSelected={this.onActionSelected}
         />
-
         <ScrollableTabView
           tabBarUnderlineColor={highlightColor}
           tabBarBackgroundColor={topColor}

@@ -31,6 +31,14 @@ export default function events(state = initialState, action = {}) {
           return event;
         }),
       });
+    case types.CLEAR_FAVORITES:
+      return Object.assign({}, state, {
+        allEvents: state.allEvents.map((event) => (
+          Object.assign({}, event, {
+            isFavorite: false,
+          })
+        )),
+      });
     default:
       return state;
   }

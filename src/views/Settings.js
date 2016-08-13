@@ -1,9 +1,9 @@
 import React from 'react';
+import BarteguidenNavigator from '../BarteguidenNavigator';
+import SettingsView from '../components/SettingsView';
 
-import { View, Text } from 'react-native';
-
-export default () => (
-  <View>
-    <Text>Hello Settings</Text>
-  </View>
+export default ({ title }) => (
+  <BarteguidenNavigator title={title}>
+    <SettingsView />
+  </BarteguidenNavigator>
 );
