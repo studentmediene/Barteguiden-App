@@ -29,6 +29,7 @@ class EventSearchList extends Component {
     let events = this.props.events.filter((event) => (
       event.title.toLowerCase().includes(this.state.filter)
     ));
+    const EmptyListMessage = this.props.emptyListMessage;
 
     return (
       <View style={{ flex: 1 }}>
@@ -36,6 +37,7 @@ class EventSearchList extends Component {
           events={events} navigator={this.props.navigator}
           renderHeader={this.renderListViewHeader}
         />
+        {events.length > 0 ? null : <EmptyListMessage />}
       </View>
     );
   }
