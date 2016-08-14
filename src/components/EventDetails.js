@@ -27,7 +27,7 @@ class EventDetails extends Component {
     let url;
 
     if (Platform.OS === 'android') {
-      url = 'geo:0,0?q=${latitude},${longitude}(${name})';
+      url = `geo:0,0?q=${latitude},${longitude}(${name})`;
     } else {
       url = `http://maps.apple.com/?q=${name.split(' ').join('+')}&sll=${latitude},${longitude}&z=10`;
     }

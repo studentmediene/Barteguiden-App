@@ -59,7 +59,7 @@ class ActionToolbar extends Component {
     const event = this.props.event;
     Share.open({
       message: event.title,
-      url: 'https://barteguiden.no/arrangement/${event._id}',
+      url: `https://barteguiden.no/arrangement/${event._id}`,
       title: 'Del arrangement',
     });
   }
