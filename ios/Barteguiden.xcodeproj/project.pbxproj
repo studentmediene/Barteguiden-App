@@ -12,7 +12,7 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* BarteguidenAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BarteguidenAppTests.m */; };
+		00E356F31AD99517003FC87E /* BarteguidenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BarteguidenTests.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -22,11 +22,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		4F0D1A4C1D48004900F79BE0 /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0D1A4A1D48001700F79BE0 /* libRNCalendarEvents.a */; };
-		4F0D1A4E1D48009F00F79BE0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0D1A4D1D48009F00F79BE0 /* EventKit.framework */; };
-		4F0D1A551D48013300F79BE0 /* libSafariViewManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0D1A541D48012C00F79BE0 /* libSafariViewManager.a */; };
-		4FBDA7C21D47EB0D00366E63 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDA7C11D47EB0D00366E63 /* Ionicons.ttf */; };
-		4FBDA7C91D47FF6300366E63 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBDA7C81D47FEA300366E63 /* libRNShare.a */; };
+		4F3581071D60E225003EC3C0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3581061D60E225003EC3C0 /* EventKit.framework */; };
+		4F4742D21D60E37D00794D2E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4742D11D60E37D00794D2E /* Ionicons.ttf */; };
+		4FBAC6CE1D60E52A000B73A3 /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBAC6CD1D60E51B000B73A3 /* libRNCalendarEvents.a */; };
+		4FBAC6D51D60E5A5000B73A3 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBAC6D41D60E5A0000B73A3 /* libRNShare.a */; };
+		4FBAC6DC1D60E5BB000B73A3 /* libSafariViewManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBAC6DB1D60E5B5000B73A3 /* libSafariViewManager.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = BarteguidenApp;
+			remoteInfo = Barteguiden;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -94,26 +94,26 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
-		4F0D1A491D48001700F79BE0 /* PBXContainerItemProxy */ = {
+		4FBAC6CC1D60E51B000B73A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4F0D1A3B1D48001700F79BE0 /* RNCalendarEvents.xcodeproj */;
+			containerPortal = 4FBAC6BE1D60E51B000B73A3 /* RNCalendarEvents.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BEC43C6A1C723089001221C6;
 			remoteInfo = RNCalendarEvents;
 		};
-		4F0D1A531D48012C00F79BE0 /* PBXContainerItemProxy */ = {
+		4FBAC6D31D60E5A0000B73A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4F0D1A4F1D48012C00F79BE0 /* SafariViewManager.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = SafariViewManager;
-		};
-		4FBDA7C71D47FEA300366E63 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4FBDA7C31D47FEA300366E63 /* RNShare.xcodeproj */;
+			containerPortal = 4FBAC6CF1D60E5A0000B73A3 /* RNShare.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNShare;
+		};
+		4FBAC6DA1D60E5B5000B73A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FBAC6D61D60E5B5000B73A3 /* SafariViewManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = SafariViewManager;
 		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -138,24 +138,24 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* BarteguidenAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarteguidenAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* BarteguidenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarteguidenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* BarteguidenAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarteguidenAppTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* BarteguidenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarteguidenTests.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* BarteguidenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarteguidenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BarteguidenApp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BarteguidenApp/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Barteguiden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barteguiden.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Barteguiden/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Barteguiden/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BarteguidenApp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BarteguidenApp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BarteguidenApp/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Barteguiden/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Barteguiden/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Barteguiden/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		4F0D1A3B1D48001700F79BE0 /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
-		4F0D1A4D1D48009F00F79BE0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
-		4F0D1A4F1D48012C00F79BE0 /* SafariViewManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SafariViewManager.xcodeproj; path = "../node_modules/react-native-safari-view/SafariViewManager.xcodeproj"; sourceTree = "<group>"; };
-		4FBDA7C11D47EB0D00366E63 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		4FBDA7C31D47FEA300366E63 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
+		4F3581061D60E225003EC3C0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		4F4742D11D60E37D00794D2E /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		4FBAC6BE1D60E51B000B73A3 /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
+		4FBAC6CF1D60E5A0000B73A3 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
+		4FBAC6D61D60E5B5000B73A3 /* SafariViewManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SafariViewManager.xcodeproj; path = "../node_modules/react-native-safari-view/SafariViewManager.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,10 +173,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F0D1A551D48013300F79BE0 /* libSafariViewManager.a in Frameworks */,
-				4F0D1A4E1D48009F00F79BE0 /* EventKit.framework in Frameworks */,
-				4F0D1A4C1D48004900F79BE0 /* libRNCalendarEvents.a in Frameworks */,
-				4FBDA7C91D47FF6300366E63 /* libRNShare.a in Frameworks */,
+				4FBAC6DC1D60E5BB000B73A3 /* libSafariViewManager.a in Frameworks */,
+				4FBAC6D51D60E5A5000B73A3 /* libRNShare.a in Frameworks */,
+				4FBAC6CE1D60E52A000B73A3 /* libRNCalendarEvents.a in Frameworks */,
+				4F3581071D60E225003EC3C0 /* EventKit.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -233,13 +233,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E356EF1AD99517003FC87E /* BarteguidenAppTests */ = {
+		00E356EF1AD99517003FC87E /* BarteguidenTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* BarteguidenAppTests.m */,
+				00E356F21AD99517003FC87E /* BarteguidenTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = BarteguidenAppTests;
+			path = BarteguidenTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -266,7 +266,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* BarteguidenApp */ = {
+		13B07FAE1A68108700A75B9A /* Barteguiden */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -277,7 +277,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = BarteguidenApp;
+			name = Barteguiden;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -288,26 +288,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4F0D1A3C1D48001700F79BE0 /* Products */ = {
+		4FBAC6BF1D60E51B000B73A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F0D1A4A1D48001700F79BE0 /* libRNCalendarEvents.a */,
+				4FBAC6CD1D60E51B000B73A3 /* libRNCalendarEvents.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4F0D1A501D48012C00F79BE0 /* Products */ = {
+		4FBAC6D01D60E5A0000B73A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F0D1A541D48012C00F79BE0 /* libSafariViewManager.a */,
+				4FBAC6D41D60E5A0000B73A3 /* libRNShare.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4FBDA7C41D47FEA300366E63 /* Products */ = {
+		4FBAC6D71D60E5B5000B73A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FBDA7C81D47FEA300366E63 /* libRNShare.a */,
+				4FBAC6DB1D60E5B5000B73A3 /* libSafariViewManager.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,10 +323,10 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				4F0D1A4F1D48012C00F79BE0 /* SafariViewManager.xcodeproj */,
-				4F0D1A3B1D48001700F79BE0 /* RNCalendarEvents.xcodeproj */,
-				4FBDA7C31D47FEA300366E63 /* RNShare.xcodeproj */,
-				4FBDA7C11D47EB0D00366E63 /* Ionicons.ttf */,
+				4FBAC6D61D60E5B5000B73A3 /* SafariViewManager.xcodeproj */,
+				4FBAC6CF1D60E5A0000B73A3 /* RNShare.xcodeproj */,
+				4FBAC6BE1D60E51B000B73A3 /* RNCalendarEvents.xcodeproj */,
+				4F4742D11D60E37D00794D2E /* Ionicons.ttf */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -352,10 +352,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				4F0D1A4D1D48009F00F79BE0 /* EventKit.framework */,
-				13B07FAE1A68108700A75B9A /* BarteguidenApp */,
+				4F3581061D60E225003EC3C0 /* EventKit.framework */,
+				13B07FAE1A68108700A75B9A /* Barteguiden */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* BarteguidenAppTests */,
+				00E356EF1AD99517003FC87E /* BarteguidenTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 			);
 			indentWidth = 2;
@@ -365,8 +365,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BarteguidenApp.app */,
-				00E356EE1AD99517003FC87E /* BarteguidenAppTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Barteguiden.app */,
+				00E356EE1AD99517003FC87E /* BarteguidenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,9 +374,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* BarteguidenAppTests */ = {
+		00E356ED1AD99517003FC87E /* BarteguidenTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BarteguidenAppTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BarteguidenTests" */;
 			buildPhases = (
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
@@ -387,14 +387,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = BarteguidenAppTests;
-			productName = BarteguidenAppTests;
-			productReference = 00E356EE1AD99517003FC87E /* BarteguidenAppTests.xctest */;
+			name = BarteguidenTests;
+			productName = BarteguidenTests;
+			productReference = 00E356EE1AD99517003FC87E /* BarteguidenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* BarteguidenApp */ = {
+		13B07F861A680F5B00A75B9A /* Barteguiden */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BarteguidenApp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Barteguiden" */;
 			buildPhases = (
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -405,9 +405,9 @@
 			);
 			dependencies = (
 			);
-			name = BarteguidenApp;
+			name = Barteguiden;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* BarteguidenApp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Barteguiden.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -425,7 +425,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BarteguidenApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Barteguiden" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -478,22 +478,22 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = 4F0D1A3C1D48001700F79BE0 /* Products */;
-					ProjectRef = 4F0D1A3B1D48001700F79BE0 /* RNCalendarEvents.xcodeproj */;
+					ProductGroup = 4FBAC6BF1D60E51B000B73A3 /* Products */;
+					ProjectRef = 4FBAC6BE1D60E51B000B73A3 /* RNCalendarEvents.xcodeproj */;
 				},
 				{
-					ProductGroup = 4FBDA7C41D47FEA300366E63 /* Products */;
-					ProjectRef = 4FBDA7C31D47FEA300366E63 /* RNShare.xcodeproj */;
+					ProductGroup = 4FBAC6D01D60E5A0000B73A3 /* Products */;
+					ProjectRef = 4FBAC6CF1D60E5A0000B73A3 /* RNShare.xcodeproj */;
 				},
 				{
-					ProductGroup = 4F0D1A501D48012C00F79BE0 /* Products */;
-					ProjectRef = 4F0D1A4F1D48012C00F79BE0 /* SafariViewManager.xcodeproj */;
+					ProductGroup = 4FBAC6D71D60E5B5000B73A3 /* Products */;
+					ProjectRef = 4FBAC6D61D60E5B5000B73A3 /* SafariViewManager.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* BarteguidenApp */,
-				00E356ED1AD99517003FC87E /* BarteguidenAppTests */,
+				13B07F861A680F5B00A75B9A /* Barteguiden */,
+				00E356ED1AD99517003FC87E /* BarteguidenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -555,25 +555,25 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4F0D1A4A1D48001700F79BE0 /* libRNCalendarEvents.a */ = {
+		4FBAC6CD1D60E51B000B73A3 /* libRNCalendarEvents.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNCalendarEvents.a;
-			remoteRef = 4F0D1A491D48001700F79BE0 /* PBXContainerItemProxy */;
+			remoteRef = 4FBAC6CC1D60E51B000B73A3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4F0D1A541D48012C00F79BE0 /* libSafariViewManager.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSafariViewManager.a;
-			remoteRef = 4F0D1A531D48012C00F79BE0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4FBDA7C81D47FEA300366E63 /* libRNShare.a */ = {
+		4FBAC6D41D60E5A0000B73A3 /* libRNShare.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNShare.a;
-			remoteRef = 4FBDA7C71D47FEA300366E63 /* PBXContainerItemProxy */;
+			remoteRef = 4FBAC6D31D60E5A0000B73A3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FBAC6DB1D60E5B5000B73A3 /* libSafariViewManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSafariViewManager.a;
+			remoteRef = 4FBAC6DA1D60E5B5000B73A3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
@@ -606,7 +606,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				4FBDA7C21D47EB0D00366E63 /* Ionicons.ttf in Resources */,
+				4F4742D21D60E37D00794D2E /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,7 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* BarteguidenAppTests.m in Sources */,
+				00E356F31AD99517003FC87E /* BarteguidenTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,7 +652,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* BarteguidenApp */;
+			target = 13B07F861A680F5B00A75B9A /* Barteguiden */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -664,7 +664,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = BarteguidenApp;
+			path = Barteguiden;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -678,12 +678,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BarteguidenAppTests/Info.plist;
+				INFOPLIST_FILE = BarteguidenTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarteguidenApp.app/BarteguidenApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barteguiden.app/Barteguiden";
 			};
 			name = Debug;
 		};
@@ -692,12 +692,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = BarteguidenAppTests/Info.plist;
+				INFOPLIST_FILE = BarteguidenTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BarteguidenApp.app/BarteguidenApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barteguiden.app/Barteguiden";
 			};
 			name = Release;
 		};
@@ -711,14 +711,14 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				INFOPLIST_FILE = BarteguidenApp/Info.plist;
+				INFOPLIST_FILE = Barteguiden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = BarteguidenApp;
+				PRODUCT_NAME = Barteguiden;
 			};
 			name = Debug;
 		};
@@ -731,14 +731,14 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				INFOPLIST_FILE = BarteguidenApp/Info.plist;
+				INFOPLIST_FILE = Barteguiden/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = BarteguidenApp;
+				PRODUCT_NAME = Barteguiden;
 			};
 			name = Release;
 		};
@@ -832,7 +832,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BarteguidenAppTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BarteguidenTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -841,7 +841,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BarteguidenApp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Barteguiden" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -850,7 +850,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BarteguidenApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Barteguiden" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

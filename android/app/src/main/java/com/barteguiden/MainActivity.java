@@ -1,11 +1,11 @@
-package com.barteguidenapp;
+package com.barteguiden;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.burnweb.rnsendintent.RNSendIntentPackage;
-import cl.json.RNSharePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import cl.json.RNSharePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +18,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "BarteguidenApp";
+        return "Barteguiden";
     }
 
     /**
@@ -39,8 +39,8 @@ public class MainActivity extends ReactActivity {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
             new RNSendIntentPackage(),
-            new RNSharePackage(),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new RNSharePackage()
         );
     }
 }
