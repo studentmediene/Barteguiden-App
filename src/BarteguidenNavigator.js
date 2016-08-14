@@ -53,9 +53,21 @@ class BarteguidenNavigator extends Component {
   constructor() {
     super();
     this._renderScene = this._renderScene.bind(this);
+    this.navigator = undefined;
+  }
+
+  componentWillMount() {
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
+        this.navigator.pop();
+        return true;
+      }
+      return false;
+    });
   }
 
   _renderScene(route, navigator) {
+    this.navigator = navigator;
     let children = Children.map(this.props.children, (element) =>
       cloneElement(element, { navigator })
     );
@@ -92,15 +104,6 @@ class BarteguidenNavigator extends Component {
             routeMapper={NavigationBarRouteMapper}
           /> : null
         }
-        ref={(nav) => {
-          BackAndroid.addEventListener('hardwareBackPress', () => {
-            if (nav && nav.getCurrentRoutes() && nav.getCurrentRoutes().length > 0) {
-              nav.pop();
-              return true;
-            }
-            return false;
-          });
-        }}
       />
     );
   }
