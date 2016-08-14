@@ -18,7 +18,7 @@ import {
 
 
 class BarteguidenApp extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.actions.fetchEvents();
   }
 
