@@ -28,7 +28,7 @@ function eventFetchFailure(error) {
 export function fetchEvents() {
   return dispatch => {
     dispatch(eventFetchRequest());
-    fetch('http://barteguiden.no/api/events', {
+    fetch('https://barteguiden.no/api/events', {
       method: 'get',
     })
     .then(response => response.json())
