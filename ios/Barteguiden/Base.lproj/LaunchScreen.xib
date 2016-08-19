@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -12,31 +13,75 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by React Native" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Studentmediene i Trondheim AS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="439" width="441" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barteguiden" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                    <rect key="frame" x="20" y="138" width="441" height="46"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="BcV-a9-sSi">
+                    <rect key="frame" x="195" y="218" width="91" height="91"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="BcV-a9-sSi" secondAttribute="height" multiplier="1:1" id="0nM-dd-Lk3"/>
+                        <constraint firstAttribute="width" constant="91" id="bWT-3Z-8js"/>
+                        <constraint firstAttribute="height" constant="91" id="kIv-dg-UZ0"/>
+                        <constraint firstAttribute="height" constant="91" id="mT3-4c-Lxf"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0nM-dd-Lk3"/>
+                            <exclude reference="mT3-4c-Lxf"/>
+                        </mask>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="9V5-XM-Ave"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="M88-c3-QsY"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="34" id="Tdd-zb-59N"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bTs-Bv-KEj"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="c0C-Gf-y2a"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="34" id="cc3-vs-150"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="91:480" id="g95-Wu-87A"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="top" id="sMc-vp-xFt"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="height" secondItem="kId-c2-rCX" secondAttribute="height" id="t7v-2W-aRx"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="v3o-h1-2V7"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="91:480" id="z1A-38-RyC"/>
+                <constraint firstItem="BcV-a9-sSi" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="zep-qg-eLB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="9V5-XM-Ave"/>
+                    <exclude reference="M88-c3-QsY"/>
+                    <exclude reference="Tdd-zb-59N"/>
+                    <exclude reference="c0C-Gf-y2a"/>
+                    <exclude reference="g95-Wu-87A"/>
+                    <exclude reference="sMc-vp-xFt"/>
+                    <exclude reference="t7v-2W-aRx"/>
+                    <exclude reference="v3o-h1-2V7"/>
+                    <exclude reference="z1A-38-RyC"/>
+                    <exclude reference="zep-qg-eLB"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="Logo" width="300" height="300"/>
+    </resources>
 </document>
