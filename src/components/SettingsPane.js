@@ -20,8 +20,9 @@ class AboutPane extends Component {
       'Sikker?',
       [
         { text: 'Avbryt', style: 'cancel' },
-        { text: 'Slett', onPress: () => this.props.actions.clearFavoriteEvents(),
-        style: 'destructive' },
+        { text: 'Slett',
+          onPress: () => this.props.actions.clearFavoriteEvents(),
+          style: 'destructive' },
       ]
     );
   }
