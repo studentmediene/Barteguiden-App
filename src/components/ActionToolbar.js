@@ -19,13 +19,7 @@ import {
 } from 'react-native';
 
 class ActionToolbar extends Component {
-  constructor() {
-    super();
-    this.onCalendarPress = this.onCalendarPress.bind(this);
-    this.onSharePress = this.onSharePress.bind(this);
-  }
-
-  componentWillMount() {
+  static addCalendarListeners() {
     this.eventEmitter = NativeAppEventEmitter.addListener('eventSaveSuccess', () => {
       Alert.alert(
         'Hendelsen ble lagt til i kalenderen',
@@ -47,7 +41,11 @@ class ActionToolbar extends Component {
     });
   }
 
-  onCalendarPress() {
+  static removeCalendarListeners() {
+    this.eventEmitter.remove();
+  }
+
+  onCalendarPress = () => {
     if (Platform.OS === 'android') {
       this._addCalendarEventAndroid();
     } else {
@@ -55,7 +53,7 @@ class ActionToolbar extends Component {
     }
   }
 
-  onSharePress() {
+  onSharePress = () => {
     const event = this.props.event;
     Share.open({
       message: event.title,
@@ -80,20 +78,18 @@ class ActionToolbar extends Component {
 
   _addCalendarEventIOS() {
     RNCalendarEvents.authorizeEventStore(() => {
-      // Authorize
-    });
+      // Set end date to two hours ahead if not specified
+      let endDate = this.props.event.endAt;
+      if (!endDate) {
+        endDate = moment(this.props.event.startAt).add(2, 'hours');
+      }
 
-    // Set end date to two hours ahead if not specified
-    let endDate = this.props.event.endAt;
-    if (!endDate) {
-      endDate = moment(this.props.event.startAt).add(2, 'hours');
-    }
-
-    RNCalendarEvents.saveEvent(this.props.event.title, {
-      location: this.props.event.venue.name,
-      notes: this.props.event.description,
-      startDate: this.props.event.startAt,
-      endDate,
+      RNCalendarEvents.saveEvent(this.props.event.title, {
+        location: this.props.event.venue.name,
+        notes: this.props.event.description,
+        startDate: this.props.event.startAt,
+        endDate,
+      });
     });
   }
 

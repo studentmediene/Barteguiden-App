@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import * as eventActions from '../actions/events';
 import Views from '../views/index';
+import ActionToolbar from '../components/ActionToolbar';
 
 import {
   TabBarIOS,
@@ -18,8 +19,16 @@ class BarteguidenApp extends Component {
     };
   }
 
+  componentWillMount() {
+    ActionToolbar.addCalendarListeners();
+  }
+
   componentDidMount() {
     this.props.actions.fetchEvents();
+  }
+
+  componentWillUnmount() {
+    ActionToolbar.removeCalendarListeners();
   }
 
   render() {
