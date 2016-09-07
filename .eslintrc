@@ -8,6 +8,10 @@
     "react/prop-types": [0],
     "new-cap": 0,
     "jsx-quotes": [2, "prefer-single"],
+    "react/jsx-filename-extension": 0,
+    "import/imports-first": 0,
+    "import/prefer-default-export": 0,
+    "react/no-string-refs": 1
   },
   "settings": {
     "import/resolver": {
@@ -16,4 +20,7 @@
       }
     }
   },
+  "globals": {
+    "fetch": true
+  }
 }

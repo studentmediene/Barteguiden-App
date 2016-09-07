@@ -25,7 +25,8 @@ class EventListItem extends Component {
   _onPressEvent() {
     if (this.props.navigator !== undefined) {
       this.props.navigator.push({
-        id: 1, title: 'Detaljer',
+        id: 1,
+        title: 'Detaljer',
         event: this.props.event,
       });
     }

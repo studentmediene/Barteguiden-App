@@ -11,7 +11,6 @@ import { topColor, highlightColor } from '../colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
-  ToolbarAndroid,
   StyleSheet,
   View,
 } from 'react-native';
