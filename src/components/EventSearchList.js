@@ -7,11 +7,8 @@ import {
 } from 'react-native';
 
 class EventSearchList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { filter: '' };
-    this.updateFilter = this.updateFilter.bind(this);
-  }
+
+  state = { filter: '' };
 
   updateFilter = (text) => {
     this.setState({ filter: text.toLowerCase() });

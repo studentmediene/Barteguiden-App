@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 class FavoriteButton extends Component {
+
   onPress = () => {
     this.props.actions.toggleFavoriteEvent(this.props.event);
   };

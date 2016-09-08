@@ -16,16 +16,14 @@ import {
 
 
 class EventList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
-        sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
-      }),
-      loaded: false,
-    };
-  }
+
+  state = {
+    dataSource: new ListView.DataSource({
+      rowHasChanged: (row1, row2) => row1 !== row2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+    }),
+    loaded: false,
+  };
 
   componentWillMount() {
     if (this.props.events) {

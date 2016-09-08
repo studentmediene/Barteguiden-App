@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 class ExternalLink extends Component {
+
   _openInBrowser = () => {
     if (Platform.OS === 'ios') {
       SafariView.show({

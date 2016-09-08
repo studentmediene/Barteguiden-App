@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 
 class EventDetails extends Component {
+
   onMapClick = () => {
     const { latitude, longitude, name } = this.props.event.venue;
     let url;

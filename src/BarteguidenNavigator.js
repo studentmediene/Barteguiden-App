@@ -50,10 +50,6 @@ const NavigationBarRouteMapper = {
 };
 
 class BarteguidenNavigator extends Component {
-  constructor() {
-    super();
-    this.navigator = undefined;
-  }
 
   componentWillMount() {
     BackAndroid.addEventListener('hardwareBackPress', () => {
@@ -64,6 +60,8 @@ class BarteguidenNavigator extends Component {
       return false;
     });
   }
+
+  navigator = undefined;
 
   _renderScene = (route, navigator) => {
     this.navigator = navigator;
