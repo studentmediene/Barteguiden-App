@@ -52,7 +52,6 @@ const NavigationBarRouteMapper = {
 class BarteguidenNavigator extends Component {
   constructor() {
     super();
-    this._renderScene = this._renderScene.bind(this);
     this.navigator = undefined;
   }
 
@@ -66,7 +65,7 @@ class BarteguidenNavigator extends Component {
     });
   }
 
-  _renderScene(route, navigator) {
+  _renderScene = (route, navigator) => {
     this.navigator = navigator;
     const children = Children.map(this.props.children, element =>
       cloneElement(element, { navigator })
@@ -90,7 +89,7 @@ class BarteguidenNavigator extends Component {
           <View />
         );
     }
-  }
+  };
 
   render() {
     return (

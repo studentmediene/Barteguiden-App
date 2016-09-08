@@ -11,19 +11,15 @@ class EventSearchList extends Component {
     super(props);
     this.state = { filter: '' };
     this.updateFilter = this.updateFilter.bind(this);
-    this.renderListViewHeader = this.renderListViewHeader.bind(this);
-    this.updateFilter = this.updateFilter.bind(this);
   }
 
-  updateFilter(text) {
+  updateFilter = (text) => {
     this.setState({ filter: text.toLowerCase() });
-  }
+  };
 
-  renderListViewHeader() {
-    return (
-      <SearchBar onChange={this.updateFilter} />
-    );
-  }
+  renderListViewHeader = () => (
+    <SearchBar onChange={this.updateFilter} />
+  );
 
   render() {
     const events = this.props.events.filter(event => (

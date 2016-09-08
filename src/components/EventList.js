@@ -18,8 +18,6 @@ import {
 class EventList extends Component {
   constructor() {
     super();
-    this._updateDataSource = this._updateDataSource.bind(this);
-    this._renderEvent = this._renderEvent.bind(this);
     this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
@@ -39,7 +37,7 @@ class EventList extends Component {
     this._updateDataSource(props.events);
   }
 
-  _updateDataSource(events) {
+  _updateDataSource = (events) => {
     const newDataBlob = _.groupBy(events, event => (
       formatDate(event.startAt)
     ));
@@ -47,13 +45,11 @@ class EventList extends Component {
     this.setState({
       dataSource: this.state.dataSource.cloneWithRowsAndSections(newDataBlob),
     });
-  }
+  };
 
-  _renderEvent(event) {
-    return (
-      <EventListItem navigator={this.props.navigator} event={event} />
-    );
-  }
+  _renderEvent = event => (
+    <EventListItem navigator={this.props.navigator} event={event} />
+  );
 
   _renderSectionHeader(sectionData, sectionID) {
     return (

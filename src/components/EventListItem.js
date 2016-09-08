@@ -17,12 +17,7 @@ import {
 } from 'react-native';
 
 class EventListItem extends Component {
-  constructor() {
-    super();
-    this._onPressEvent = this._onPressEvent.bind(this);
-  }
-
-  _onPressEvent() {
+  _onPressEvent = () => {
     if (this.props.navigator !== undefined) {
       this.props.navigator.push({
         id: 1,
@@ -30,7 +25,7 @@ class EventListItem extends Component {
         event: this.props.event,
       });
     }
-  }
+  };
 
   render() {
     const { category, title, venue, price, startAt } = this.props.event;

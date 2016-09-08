@@ -17,12 +17,7 @@ import {
 } from 'react-native';
 
 class EventDetails extends Component {
-  constructor() {
-    super();
-    this.onMapClick = this.onMapClick.bind(this);
-  }
-
-  onMapClick() {
+  onMapClick = () => {
     const { latitude, longitude, name } = this.props.event.venue;
     let url;
 
@@ -37,7 +32,7 @@ class EventDetails extends Component {
         Linking.openURL(url);
       }
     });
-  }
+  };
 
   render() {
     const bottomPadding = Platform.OS === 'android' ? 0 : 50;

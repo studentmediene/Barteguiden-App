@@ -12,14 +12,9 @@ import {
 } from 'react-native';
 
 class FavoriteButton extends Component {
-  constructor() {
-    super();
-    this.onPress = this.onPress.bind(this);
-  }
-
-  onPress() {
+  onPress = () => {
     this.props.actions.toggleFavoriteEvent(this.props.event);
-  }
+  };
 
   _getFavoriteIcon() {
     if (this.props.event.isFavorite) {

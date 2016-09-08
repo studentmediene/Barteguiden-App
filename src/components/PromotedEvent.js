@@ -8,14 +8,9 @@ import {
 
 
 class PromotedEvent extends Component {
-  constructor() {
-    super();
-    this._onPressEvent = this._onPressEvent.bind(this);
-  }
-
-  _onPressEvent() {
+  _onPressEvent = () => {
     this.props.navigator.push({ id: 1, title: 'Detaljer', event: this.props.promoted });
-  }
+  };
 
   render() {
     return (
