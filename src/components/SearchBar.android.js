@@ -24,14 +24,14 @@ class SearchBar extends Component {
       <View style={styles.searchBar}>
         <TouchableNativeFeedback
           background={background}
-          onPress={() => this.refs.input && this.refs.input.focus()}
+          onPress={() => this._input && this._input.focus()}
         >
           <View>
             <Icon name={'ios-search'} size={searchButtonSize} color={highlightColor} />
           </View>
         </TouchableNativeFeedback>
         <TextInput
-          ref='input'
+          ref={(input) => (this._input = input)}
           autoCapitalize='none'
           autoCorrect={false}
           autoFocus={false}

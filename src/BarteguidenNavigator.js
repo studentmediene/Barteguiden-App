@@ -68,7 +68,7 @@ class BarteguidenNavigator extends Component {
 
   _renderScene(route, navigator) {
     this.navigator = navigator;
-    let children = Children.map(this.props.children, (element) =>
+    const children = Children.map(this.props.children, (element) =>
       cloneElement(element, { navigator })
     );
 
