@@ -26,7 +26,7 @@ class EventSearchList extends Component {
   }
 
   render() {
-    const events = this.props.events.filter((event) => (
+    const events = this.props.events.filter(event => (
       event.title.toLowerCase().includes(this.state.filter)
     ));
     const EmptyListMessage = this.props.emptyListMessage;

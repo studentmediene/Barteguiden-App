@@ -35,7 +35,7 @@ export const EmptyEventList = () => (
   </View>
 );
 
-const EmptyErrorList = (props) => (
+const EmptyErrorList = props => (
   <View style={styles.container}>
     <Text style={styles.text}>Noe gikk galt.</Text>
     <View style={styles.helpIcons}>

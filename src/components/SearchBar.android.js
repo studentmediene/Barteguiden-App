@@ -31,7 +31,7 @@ class SearchBar extends Component {
           </View>
         </TouchableNativeFeedback>
         <TextInput
-          ref={(input) => (this._input = input)}
+          ref={input => (this._input = input)}
           autoCapitalize='none'
           autoCorrect={false}
           autoFocus={false}

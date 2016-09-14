@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 
-const SearchBar = (props) => (
+const SearchBar = props => (
   (
   <View
     style={styles.searchBar}

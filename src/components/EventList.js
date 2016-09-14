@@ -40,7 +40,7 @@ class EventList extends Component {
   }
 
   _updateDataSource(events) {
-    const newDataBlob = _.groupBy(events, (event) => (
+    const newDataBlob = _.groupBy(events, event => (
       formatDate(event.startAt)
     ));
 

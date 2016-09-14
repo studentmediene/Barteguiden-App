@@ -16,7 +16,7 @@ import {
   Image,
 } from 'react-native';
 
-const EventDetailsImage = (props) => (
+const EventDetailsImage = props => (
   <View style={styles.wrapper}>
     <View style={styles.imageWrapper}>
       <Image

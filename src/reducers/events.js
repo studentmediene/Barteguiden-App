@@ -39,7 +39,7 @@ export default function events(state = initialState, action = {}) {
       });
     case types.CLEAR_FAVORITES:
       return Object.assign({}, state, {
-        allEvents: state.allEvents.map((event) => (
+        allEvents: state.allEvents.map(event => (
           Object.assign({}, event, {
             isFavorite: false,
           })

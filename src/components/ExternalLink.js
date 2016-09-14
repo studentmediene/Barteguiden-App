@@ -23,7 +23,7 @@ class ExternalLink extends Component {
         url: this.props.url,
       });
     } else {
-      Linking.canOpenURL(this.props.url).then(supported => {
+      Linking.canOpenURL(this.props.url).then((supported) => {
         if (supported) {
           Linking.openURL(this.props.url);
         }

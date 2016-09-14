@@ -32,7 +32,7 @@ class EventDetails extends Component {
       url = `http://maps.apple.com/?q=${name.split(' ').join('+')}&sll=${latitude},${longitude}&z=10`;
     }
 
-    Linking.canOpenURL(url).then(supported => {
+    Linking.canOpenURL(url).then((supported) => {
       if (supported) {
         Linking.openURL(url);
       }
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state, ownProps) => ({
-  event: _.find(state.events.allEvents, (event) => (
+  event: _.find(state.events.allEvents, event => (
     event._id === ownProps.eventID
   )),
 });

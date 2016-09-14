@@ -17,14 +17,14 @@ function clearFavorites() {
 }
 
 export function toggleFavoriteEvent(event) {
-  return dispatch => {
+  return (dispatch) => {
     FavoriteStore.toggleFavorite(event._id);
     dispatch(toggleFavorite(event._id));
   };
 }
 
 export function clearFavoriteEvents() {
-  return dispatch => {
+  return (dispatch) => {
     FavoriteStore.clearFavorites();
     dispatch(clearFavorites());
   };

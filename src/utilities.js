@@ -70,4 +70,6 @@ export function getPlatformIcon(iconName) {
 }
 
 const scale = Dimensions.get('window').width / 375;
-export const normalize = (size: number) => Math.round(scale * size);
+export const normalize = (size: number) => {
+  Math.round(scale * size);
+};
