@@ -8,9 +8,8 @@ const {
   } = React;
 
 class FavoriteStore {
-  constructor() {
-    this.state = { favorites: [] };
-  }
+
+  state = { favorites: [] };
 
   async init() {
     this.state = { favorites: await this._getInitialState() };

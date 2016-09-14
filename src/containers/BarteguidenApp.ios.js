@@ -12,12 +12,10 @@ import {
 
 
 class BarteguidenApp extends Component {
-  constructor() {
-    super();
-    this.state = {
-      selectedTab: 'home',
-    };
-  }
+
+  state = {
+    selectedTab: 'home',
+  };
 
   componentWillMount() {
     ActionToolbar.addCalendarListeners();

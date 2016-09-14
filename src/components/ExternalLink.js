@@ -13,11 +13,8 @@ import {
 } from 'react-native';
 
 class ExternalLink extends Component {
-  constructor() {
-    super();
-    this._openInBrowser = this._openInBrowser.bind(this);
-  }
-  _openInBrowser() {
+
+  _openInBrowser = () => {
     if (Platform.OS === 'ios') {
       SafariView.show({
         url: this.props.url,
@@ -29,7 +26,7 @@ class ExternalLink extends Component {
         }
       });
     }
-  }
+  };
 
   render() {
     if (this.props.url || this.props.onPress) {
