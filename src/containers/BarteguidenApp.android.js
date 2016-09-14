@@ -40,7 +40,7 @@ class BarteguidenApp extends Component {
           onActionSelected={this.onActionSelected}
         />
         <ScrollableTabView
-          tabBarUnderlineColor={highlightColor}
+          tabBarUnderlineStyle={{ backgroundColor: highlightColor }}
           tabBarBackgroundColor={topColor}
           tabBarActiveTextColor={highlightColor}
         >

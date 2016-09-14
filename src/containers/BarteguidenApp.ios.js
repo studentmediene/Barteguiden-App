@@ -35,7 +35,7 @@ class BarteguidenApp extends Component {
     return (
       <TabBarIOS>
         {Views.map((view) => {
-          let RouteComponent = view.component;
+          const RouteComponent = view.component;
           return (
             <TabBarIOS.Item
               key={view.id}
