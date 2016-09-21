@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "lodash": "4.15.0",
-    "moment": "2.15.0",
+    "moment": "2.15.1",
     "react": "15.2.1",
     "react-native": "0.31.0",
     "react-native-calendar-events": "0.1.6",
