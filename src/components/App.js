@@ -12,6 +12,12 @@ import reducer from '../reducers/index';
 import ApplicationTabs from './ApplicationTabs';
 import ApplicationCardStack from './ApplicationCardStack';
 
+const PushNotification = require('react-native-push-notification');
+
+PushNotification.configure({
+  onNotification: () => {},
+});
+
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 const store = createStoreWithMiddleware(reducer, undefined, autoRehydrate());
