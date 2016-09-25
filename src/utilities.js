@@ -64,9 +64,25 @@ export function getPlatformIcon(iconName) {
       ios: 'ios-refresh',
       android: 'md-refresh',
     },
+    checkedBox: {
+      ios: 'ios-checkbox',
+      android: 'md-checkbox',
+    },
+    uncheckedBox: {
+      ios: 'ios-square',
+      android: 'md-square',
+    },
   };
 
   return platformIcons[iconName][Platform.OS];
+}
+
+export function getNotificationForEvent(event) {
+  return {
+    message: 'Arrangementet '.concat(event.title).concat(' begynner om en time'),
+    date: moment(event.startAt).clone().subtract(1, 'h').toDate(),
+    id: parseInt(event._id.substring(event._id.length - 6), 16).toString(),
+  };
 }
 
 const scale = Dimensions.get('window').width / 375;

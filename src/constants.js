@@ -13,4 +13,5 @@ export const categoryImages = {
 /* eslint-enable global-require */
 
 export const actionIconSize = 30;
+export const checkboxSize = 30;
 export const searchButtonSize = 30;

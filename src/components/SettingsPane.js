@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as favoriteActions from '../actions/favorites';
+import PushNotification from 'react-native-push-notification';
+import _ from 'lodash';
 
-import { containerColor, separatorColor } from '../colors';
+import ActionCheckBox from './ActionCheckBox';
+import * as favoriteActions from '../actions/favorites';
+import { containerColor, separatorColor, highlightColor } from '../colors';
+import { getPlatformIcon, getNotificationForEvent } from '../utilities';
 
 import {
   StyleSheet,
@@ -14,6 +18,15 @@ import {
 } from 'react-native';
 
 class AboutPane extends Component {
+  constructor(props) {
+    super(props);
+    PushNotification.configure({
+      onNotification: (notification) => {
+        this.props.actions.removeScheduledNotification(notification);
+      },
+    });
+  }
+
   handle = () => {
     Alert.alert(
       'Fjern alle favoritter',
@@ -25,6 +38,32 @@ class AboutPane extends Component {
           style: 'destructive' },
       ]
     );
+  }
+
+  _onCheck() {
+    if (!this.props.checkBoxStatus) {
+      for (let i = 0; i < this.props.favoriteEvents.length; i += 1) {
+        const evid = this.props.favoriteEvents[i];
+        const a = _.findIndex(this.props.allEvents, event =>
+           event._id === evid
+        );
+        if (a !== -1) {
+          const notification = getNotificationForEvent(this.props.allEvents[a]);
+          PushNotification.localNotificationSchedule(notification);
+          this.props.actions.addScheduledNotification(notification);
+        }
+      }
+    } else {
+      for (let i = 0; i < this.props.scheduledNotifications.length; i += 1) {
+        if (this.props.scheduledNotifications[i].id !== undefined) {
+          PushNotification.cancelLocalNotifications({
+            id: this.props.scheduledNotifications[i].id,
+          });
+        }
+      }
+      this.props.actions.clearScheduledNotifications();
+    }
+    this.props.actions.setNotifyBeforeFavoriteStart(!this.props.checkBoxStatus);
   }
 
   render() {
@@ -39,8 +78,19 @@ class AboutPane extends Component {
             <Text style={styles.settingText}>Fjern alle favoritter</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.container}>
+          <ActionCheckBox
+            actionText='Si ifra før et favorittarrangement starter'
+            checked={this.props.checkBoxStatus}
+            onChange={() => this._onCheck()}
+            checkedImage={getPlatformIcon('checkedBox')}
+            iconColor={highlightColor}
+            backgroundColor={containerColor}
+            uncheckedImage={getPlatformIcon('uncheckedBox')}
+          />
+        </View>
       </View>
-      );
+    );
   }
 }
 
@@ -70,4 +120,11 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(favoriteActions, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(AboutPane);
+const mapStateToProps = state => ({
+  checkBoxStatus: state.events.settings.notifyBeforeFavoriteStart,
+  scheduledNotifications: state.events.scheduledNotifications,
+  favoriteEvents: state.events.favoriteEvents,
+  allEvents: state.events.allEvents,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPane);
