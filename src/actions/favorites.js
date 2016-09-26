@@ -1,5 +1,4 @@
 import { TOGGLE_FAVORITE, CLEAR_FAVORITES } from './actionTypes';
-import FavoriteStore from '../FavoriteStore';
 
 function toggleFavorite(eventID) {
   return {
@@ -18,14 +17,12 @@ function clearFavorites() {
 
 export function toggleFavoriteEvent(event) {
   return (dispatch) => {
-    FavoriteStore.toggleFavorite(event._id);
     dispatch(toggleFavorite(event._id));
   };
 }
 
 export function clearFavoriteEvents() {
   return (dispatch) => {
-    FavoriteStore.clearFavorites();
     dispatch(clearFavorites());
   };
 }
