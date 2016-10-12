@@ -45,7 +45,7 @@ class EventListItem extends Component {
                 style={[styles.secondaryInfo, styles.venue]} ellipsizeMode='tail'
                 numberOfLines={1}
               >
-                {getTimeFromDate(startAt)} {venue.name.trim()}
+                {getTimeFromDate(startAt)} {venue && venue.name ? venue.name.trim() : null}
               </Text>
               <Text style={[styles.secondaryInfo, styles.price]}>{formatPrice(price)}</Text>
             </View>
