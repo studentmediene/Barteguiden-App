@@ -24,8 +24,6 @@ class BarteguidenApp extends Component {
   onActionSelected = (position) => {
     if (position === 0) { // index of 'Settings'
       this.props.navigator.push({ id: 3 });
-    } else {
-      this.props.navigator.push({ id: 4 });
     }
   }
 

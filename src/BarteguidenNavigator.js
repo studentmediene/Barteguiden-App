@@ -83,10 +83,6 @@ class BarteguidenNavigator extends Component {
         return (
           <Settings />
         );
-      case 4:
-        return (
-          <Filter />
-        );
       default:
         return (
           <View />
