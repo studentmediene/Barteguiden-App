@@ -4,36 +4,20 @@ import _ from 'lodash';
 
 import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage';
-import ActionToolbar from './ActionToolbar';
+import ActionToolbar from  './ActionToolbar';
 import ExternalLink from './ExternalLink';
-import { backgroundColor, separatorColor, containerColor } from '../colors';
+import { backgroundColor, separatorColor, favoriteColor, containerColor } from '../colors';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { getPlatformIcon, normalize } from '../utilities';
 
 import {
   StyleSheet,
   View,
-  Linking,
   ScrollView,
   Platform,
 } from 'react-native';
 
 class EventDetails extends Component {
-
-  onMapClick = () => {
-    const { latitude, longitude, name } = this.props.event.venue;
-    let url;
-
-    if (Platform.OS === 'android') {
-      url = `geo:0,0?q=${latitude},${longitude}(${name})`;
-    } else {
-      url = `http://maps.apple.com/?q=${name.split(' ').join('+')}&sll=${latitude},${longitude}&z=10`;
-    }
-
-    Linking.canOpenURL(url).then((supported) => {
-      if (supported) {
-        Linking.openURL(url);
-      }
-    });
-  };
 
   render() {
     const bottomPadding = Platform.OS === 'android' ? 0 : 50;
@@ -42,6 +26,16 @@ class EventDetails extends Component {
         <EventDetailsImage event={this.props.event} />
         <ActionToolbar event={this.props.event} />
         <ScrollView style={styles.scroll}>
+          <View>
+            {this.props.event.isPromoted ?
+              <View style={styles.promotion}>
+                <Icon
+                  name={getPlatformIcon('star')}
+                  size={30} color={favoriteColor}
+                />
+                <Text style={styles.promoted}> Denne hendelsen er anbefalt </Text>
+              </View> : null}
+          </View> : null}
           <EventDescription event={this.props.event} />
           <View style={styles.externalLinkContainer}>
             <ExternalLink
@@ -93,12 +87,22 @@ const styles = StyleSheet.create({
     borderColor: separatorColor,
     borderWidth: StyleSheet.hairlineWidth,
   },
+  promotion: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  promoted: {
+    fontSize: normalize(20),
+    alignSelf: 'center',
+  },
+
 });
 
 const mapStateToProps = (state, ownProps) => ({
   event: _.find(state.events.allEvents, event => (
-    event._id === ownProps.eventID
-  )),
+     event._id === ownProps.eventID
+   )),
 });
 
 export default connect(mapStateToProps)(EventDetails);

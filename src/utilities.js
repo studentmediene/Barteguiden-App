@@ -64,6 +64,13 @@ export function getPlatformIcon(iconName) {
       ios: 'ios-refresh',
       android: 'md-refresh',
     },
+
+    star: {
+      ios: 'ios-star',
+      android: 'md-start',
+    },
+    ios: 'ios-star',
+    android: 'md-star',
   };
 
   return platformIcons[iconName][Platform.OS];

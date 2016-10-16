@@ -24,6 +24,8 @@ class BarteguidenApp extends Component {
   onActionSelected = (position) => {
     if (position === 0) { // index of 'Settings'
       this.props.navigator.push({ id: 3 });
+    } else {
+      this.props.navigator.push({ id: 4 });
     }
   }
 
@@ -36,7 +38,10 @@ class BarteguidenApp extends Component {
           style={styles.toolbar}
           title='Barteguiden'
           onIconClicked={() => this.props.navigator.pop()}
-          actions={[{ title: 'Innstillinger', show: 'always', iconName: 'md-more' }]}
+          actions={[
+            { title: 'Innstillinger', show: 'always', iconName: 'md-settings' },
+            { title: 'Filtrer', show: 'always', showWithText: true,  }
+          ]}
           onActionSelected={this.onActionSelected}
         />
         <ScrollableTabView

@@ -3,6 +3,7 @@ import { highlightColor } from './colors';
 import EventDetails from './components/EventDetails';
 import Settings from './views/Settings';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Filter from './components/Filter';
 
 import {
   Navigator,
@@ -81,6 +82,10 @@ class BarteguidenNavigator extends Component {
       case 3:
         return (
           <Settings />
+        );
+      case 4:
+        return (
+          <Filter />
         );
       default:
         return (
