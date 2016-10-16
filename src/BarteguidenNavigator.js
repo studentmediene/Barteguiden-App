@@ -3,7 +3,6 @@ import { highlightColor } from './colors';
 import EventDetails from './components/EventDetails';
 import Settings from './views/Settings';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Filter from './components/Filter';
 
 import {
   Navigator,

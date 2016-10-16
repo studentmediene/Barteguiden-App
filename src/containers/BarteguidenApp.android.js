@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
 import * as eventActions from '../actions/events';
 import Home from '../views/Home';
 import AllEvents from '../views/AllEvents';
