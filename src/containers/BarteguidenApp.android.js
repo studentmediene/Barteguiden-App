@@ -8,6 +8,7 @@ import FavoriteEvents from '../views/FavoriteEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { topColor, highlightColor } from '../colors';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Filter from '../components/Filter.js';
 
 import {
   StyleSheet,
@@ -23,6 +24,8 @@ class BarteguidenApp extends Component {
   onActionSelected = (position) => {
     if (position === 0) { // index of 'Settings'
       this.props.navigator.push({ id: 3 });
+    }else if(position === 1){
+      this.setState = {modalVisible: true}; 
     }
   }
 
