@@ -77,10 +77,14 @@ export function getPlatformIcon(iconName) {
   return platformIcons[iconName][Platform.OS];
 }
 
+function getPlatformNotificationDate(startAt) {
+  return Platform.OS === 'ios' ? startAt.toISOString() : startAt;
+}
+
 export function getNotificationForEvent(event) {
   return {
     message: 'Arrangementet '.concat(event.title).concat(' begynner om en time'),
-    date: moment(event.startAt).clone().subtract(1, 'h').toDate(),
+    date: getPlatformNotificationDate(moment(event.startAt).clone().subtract(1, 'h').toDate()),
     id: parseInt(event._id.substring(event._id.length - 6), 16).toString(),
   };
 }
