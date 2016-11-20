@@ -7,6 +7,7 @@ const initialState = {
   eventsLoading: false,
   eventsLoadingFailed: false,
   favoriteEvents: [],
+  filteredEvents: [],
 };
 
 export default function events(state = initialState, action = {}) {
@@ -21,6 +22,18 @@ export default function events(state = initialState, action = {}) {
         eventsLoading: false,
         eventsLoadingFailed: false,
         allEvents: action.payload.events.sort(sortByDate).map(
+          (event) => {
+            if (_.includes(state.favoriteEvents, event._id)) {
+              return Object.assign({}, event, {
+                isFavorite: true,
+              });
+            }
+            return Object.assign({}, event, {
+              isFavorite: false,
+            });
+          }
+        ),
+        filteredEvents: action.payload.events.sort(sortByDate).map(
           (event) => {
             if (_.includes(state.favoriteEvents, event._id)) {
               return Object.assign({}, event, {

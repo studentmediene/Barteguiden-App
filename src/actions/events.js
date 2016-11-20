@@ -41,3 +41,12 @@ export function fetchEvents() {
     .done();
   };
 }
+
+export function filterEvents(categories) {
+  return {
+    type: types.FILTER_EVENTS,
+    payload: {
+      categories,
+    },
+  };
+}

@@ -64,6 +64,14 @@ export function getPlatformIcon(iconName) {
       ios: 'ios-refresh',
       android: 'md-refresh',
     },
+    checkedBox: {
+      ios: 'ios-checkbox',
+      android: 'md-checkbox',
+    },
+    uncheckedBox: {
+      ios: 'ios-square',
+      android: 'md-square',
+    },
   };
 
   return platformIcons[iconName][Platform.OS];

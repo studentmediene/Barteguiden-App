@@ -24,4 +24,5 @@ export const categoryElements = [
 ];
 
 export const actionIconSize = 30;
+export const checkboxSize = 30;
 export const searchButtonSize = 30;
