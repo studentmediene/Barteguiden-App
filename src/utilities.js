@@ -85,11 +85,18 @@ function getPlatformNotificationDate(startAt) {
   return Platform.OS === 'ios' ? startAt.toISOString() : startAt;
 }
 
+function getEventNotificationID(id) {
+  return parseInt(id.substring(id.length - 6), 16).toString();
+}
+
 export function getNotificationForEvent(event) {
   return {
     message: 'Arrangementet '.concat(event.title).concat(' begynner om en time'),
     date: getPlatformNotificationDate(moment(event.startAt).clone().subtract(1, 'h').toDate()),
-    id: parseInt(event._id.substring(event._id.length - 6), 16).toString(),
+    id: getEventNotificationID(event._id), // Android
+    userInfo: {
+      id: getEventNotificationID(event._id), // iOS
+    },
   };
 }
 
