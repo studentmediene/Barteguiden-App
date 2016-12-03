@@ -11,12 +11,6 @@ import reducer from '../reducers/index';
 import BarteguidenApp from './BarteguidenApp';
 import BarteguidenNavigator from '../BarteguidenNavigator';
 
-const PushNotification = require('react-native-push-notification');
-
-PushNotification.configure({
-  onNotification: () => {},
-});
-
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 const store = createStoreWithMiddleware(reducer, undefined, autoRehydrate());

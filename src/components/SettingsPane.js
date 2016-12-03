@@ -24,6 +24,7 @@ class AboutPane extends Component {
       onNotification: (notification) => {
         this.props.actions.removeScheduledNotification(notification);
       },
+      requestPermissions: false,
     });
   }
 
@@ -40,8 +41,17 @@ class AboutPane extends Component {
     );
   }
 
+  _requestNotificationPermissions = () => {
+    PushNotification.checkPermissions((permissions) => {
+      if (!permissions.alert) {
+        PushNotification.requestPermissions();
+      }
+    });
+  }
+
   _onCheck() {
     if (!this.props.checkBoxStatus) {
+      this._requestNotificationPermissions();
       for (let i = 0; i < this.props.favoriteEvents.length; i += 1) {
         const evid = this.props.favoriteEvents[i];
         const a = _.findIndex(this.props.allEvents, event =>
