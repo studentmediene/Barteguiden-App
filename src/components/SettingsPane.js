@@ -57,7 +57,7 @@ class AboutPane extends Component {
         const a = _.findIndex(this.props.allEvents, event =>
            event._id === evid
         );
-        if (a !== -1) {
+        if (a !== -1 && this.props.allEvents[a].startAt > Date.now()) {
           const notification = getNotificationForEvent(this.props.allEvents[a]);
           PushNotification.localNotificationSchedule(notification);
           this.props.actions.addScheduledNotification(notification);
