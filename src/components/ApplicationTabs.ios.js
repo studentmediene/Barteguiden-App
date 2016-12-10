@@ -3,11 +3,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as eventActions from '../actions/events';
+import { jumpToTab, popNavRoute } from '../actions/navigation';
+
 import ActionToolbar from '../components/ActionToolbar';
-import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
-
-const { jumpTo, popRoute } = navigationActions;
-
 import ApplicationCardStack from './ApplicationCardStack';
 
 import {
@@ -30,9 +28,9 @@ class ApplicationTabs extends Component {
 
   _onTabNavigate(key) {
     if (this.props.cardStackNavigation.index === 1) {
-      this.props.dispatch(popRoute(this.props.cardStackNavigation.key));
+      this.props.dispatch(popNavRoute(this.props.cardStackNavigation.key));
     }
-    this.props.dispatch(jumpTo(key, this.props.tabNavigation.key));
+    this.props.dispatch(jumpToTab(key, this.props.tabNavigation.key));
   }
 
   render() {

@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import EventDetailsImage from './EventDetailsImage';
-import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
-import globalRoutes from '../routes';
-
-const { pushRoute } = navigationActions;
+import { pushNavRoute } from '../actions/navigation';
 
 import {
   TouchableOpacity,
@@ -15,10 +12,9 @@ import {
 class PromotedEvent extends Component {
 
   _onPressEvent = () => {
-    const route = globalRoutes[1];
-    route.event = this.props.promoted;
-    this.props.dispatch(pushRoute(
-      route, 'cardstack'));
+    const routeProp = { event: this.props.promoted };
+    this.props.dispatch(pushNavRoute(
+      1, 'cardstack', routeProp));
   };
 
   render() {

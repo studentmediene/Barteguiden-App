@@ -3,18 +3,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as eventActions from '../actions/events';
-import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
+import { jumpToTab } from '../actions/navigation';
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import { topColor, highlightColor } from '../colors';
-
-const { jumpTo } = navigationActions;
 
 import {
   StyleSheet,
   View,
 } from 'react-native';
-
 
 class ApplicationTabs extends Component {
   componentDidMount() {
@@ -43,7 +40,7 @@ class ApplicationTabs extends Component {
           tabBarUnderlineStyle={{ backgroundColor: highlightColor }}
           tabBarBackgroundColor={topColor}
           tabBarActiveTextColor={highlightColor}
-          onChangeTab={tab => dispatch(jumpTo(tab.i, navigation.key))}
+          onChangeTab={tab => dispatch(jumpToTab(tab.i, navigation.key))}
           initialPage={this.props.navigation.index}
         >
           {tabs}

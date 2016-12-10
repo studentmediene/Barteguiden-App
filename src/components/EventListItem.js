@@ -8,10 +8,8 @@ import {
   normalize } from '../utilities';
 import { categoryImages } from '../constants';
 import { separatorColor, containerColor } from '../colors';
-import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
-import globalRoutes from '../routes';
 
-const { pushRoute } = navigationActions;
+import { pushNavRoute } from '../actions/navigation';
 
 import {
   StyleSheet,
@@ -23,10 +21,9 @@ import {
 
 class EventListItem extends Component {
   _onPressEvent = () => {
-    const route = globalRoutes[1];
-    route.event = this.props.event;
-    this.props.dispatch(pushRoute(
-      route, 'cardstack'));
+    const routeProp = { event: this.props.event };
+    this.props.dispatch(pushNavRoute(
+      1, 'cardstack', routeProp));
   };
 
   render() {

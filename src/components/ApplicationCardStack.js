@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-
-import { topColor } from '../colors';
-import globalRoutes from '../routes';
-import EventDetails from './EventDetails';
-import Settings from '../views/Settings';
-
-import Icon from 'react-native-vector-icons/Ionicons';
-import { actions } from 'react-native-navigation-redux-helpers';
 import { connect } from 'react-redux';
 
+import { topColor } from '../colors';
+
+import { popNavRoute, pushNavRoute } from '../actions/navigation';
+
+import EventDetails from './EventDetails';
+import Settings from '../views/Settings';
+import Icon from 'react-native-vector-icons/Ionicons';
 import ApplicationTabs from './ApplicationTabs';
 
 import {
@@ -24,17 +23,12 @@ const {
   Header: NavigationHeader,
 } = NavigationExperimental;
 
-const {
-  popRoute,
-  pushRoute,
-} = actions;
-
 class ApplicationCardStack extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
     BackAndroid.addEventListener('hardwareBackPress', () => {
       if (this.props.cardStackNavigation.routes.length > 1) {
-        dispatch(popRoute(this.props.cardStackNavigation.key));
+        dispatch(popNavRoute(this.props.cardStackNavigation.key));
         return true;
       }
       return false;
@@ -47,7 +41,7 @@ class ApplicationCardStack extends Component {
       style={styles.navBar}
       renderTitleComponent={this._renderHeaderTitle}
       renderRightComponent={this._renderHeaderRightComponent}
-      onNavigateBack={() => this.props.dispatch(popRoute(this.props.cardStackNavigation.key))}
+      onNavigateBack={() => this.props.dispatch(popNavRoute(this.props.cardStackNavigation.key))}
     />
   )
 
@@ -70,7 +64,7 @@ class ApplicationCardStack extends Component {
     if (Platform.OS === 'android') {
       return (
         <TouchableOpacity
-          onPress={() => dispatch(pushRoute(globalRoutes[2], 'cardstack'))}
+          onPress={() => dispatch(pushNavRoute(2, 'cardstack'))}
           style={styles.settingsIcon}
         >
           <Icon name='md-settings' size={30} color='black' />
