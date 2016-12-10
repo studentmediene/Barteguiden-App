@@ -72,6 +72,14 @@ export function getPlatformIcon(iconName) {
       ios: 'ios-square',
       android: 'md-square',
     },
+    checkmark: {
+      ios: 'ios-checkmark-outline',
+      android: 'md-checkmark',
+    },
+    close: {
+      ios: 'ios-close-outline',
+      android: 'md-close',
+    },
   };
 
   return platformIcons[iconName][Platform.OS];

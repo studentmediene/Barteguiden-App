@@ -1,33 +1,27 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import ActionCheckBox from '../components/ActionCheckBox';
-import ActionButton from '../components/ActionButton';
+import Filter from '../components/Filter';
 
 import * as eventActions from '../actions/events';
 import Home from '../views/Home';
 import AllEvents from '../views/AllEvents';
 import FavoriteEvents from '../views/FavoriteEvents';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import { topColor, highlightColor, containerColor, backgroundIconButtonColor, iconColor } from '../colors';
+import { topColor, highlightColor } from '../colors';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { categoryElements } from '../constants';
-import { getPlatformIcon } from '../utilities';
 import _ from 'lodash';
 
 import {
   StyleSheet,
   View,
-  Modal,
-  Image,
 } from 'react-native';
 
 
 class BarteguidenApp extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalVisible: false, categoryCheck: [] };
-    this.onFilterSubmit = this.onFilterSubmit.bind(this);
+    this.state = { modalVisible: false };
   }
 
   componentDidMount() {
@@ -42,73 +36,32 @@ class BarteguidenApp extends Component {
     }
   }
 
-  onCategoryCheck(categoryName) {
-    const temp = this.state.categoryCheck;
-    if (this.state.categoryCheck.includes(categoryName)) {
-      temp.splice(temp.indexOf(categoryName), 1);
-    }
-    else {
-      temp.push(categoryName);
-    }
-    this.setState({ categoryCheck: temp });
-  }
-
-  onFilterSubmit() {
-    this.props.actions.filterEvents(this.state.categoryCheck);
+  onFilterSubmit = (categoryCheck) => {
+    this.props.actions.filterEvents(categoryCheck);
     this.setState({ modalVisible: false });
   }
 
-  setModalVisible(visible) {
+  setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
 
   render() {
-    const categories = categoryElements.map((obj) => {
-      return (
-        <View key={obj.name} style={{ flexDirection: 'row' }}>
-          <ActionCheckBox
-            actionText={obj.name}
-            checked={this.state.categoryCheck.includes(obj.id)}
-            onChange={() => this.onCategoryCheck(obj.id)}
-            checkedImage={getPlatformIcon('checkedBox')}
-            iconColor={highlightColor}
-            backgroundColor={containerColor}
-            uncheckedImage={getPlatformIcon('uncheckedBox')}
-          />
-          <Image source={obj.imgUrl} />
-        </View>
-        );
+    const filteredEvents = _.filter(this.props.events, (event) => {
+      if (_.includes(this.props.filteredCategories, event.category)) {
+        return event;
+      }
+      return null;
     });
-
-    const filteredEvents =  _.filter(this.props.events, (event) => {
-        if (_.includes(this.props.filteredCategories, event.category)) {
-          return event;
-        }
-        return null;
-      });
 
     return (
       <View
         style={styles.container}
       >
-        <Modal
-          animationType={'slide'}
-          style={{ height: 20 }}
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => this.setModalVisible(false)}
-        >
-          <View>
-            {categories}
-          </View>
-          <ActionButton
-            iconName={getPlatformIcon('refresh')}
-            actionText={'Submit'}
-            backgroundColor={backgroundIconButtonColor}
-            iconColor={iconColor}
-            onPress={this.onFilterSubmit}
-          />
-        </Modal>
+        <Filter
+          modalVisible={this.state.modalVisible}
+          setModalVisible={this.setModalVisible}
+          onFilterSubmit={this.onFilterSubmit}
+        />
         <Icon.ToolbarAndroid
           style={styles.toolbar}
           title='Barteguiden'
