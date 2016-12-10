@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import {
   getTimeFromDate,
@@ -7,6 +8,10 @@ import {
   normalize } from '../utilities';
 import { categoryImages } from '../constants';
 import { separatorColor, containerColor } from '../colors';
+import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
+import globalRoutes from '../routes';
+
+const { pushRoute } = navigationActions;
 
 import {
   StyleSheet,
@@ -18,13 +23,10 @@ import {
 
 class EventListItem extends Component {
   _onPressEvent = () => {
-    if (this.props.navigator !== undefined) {
-      this.props.navigator.push({
-        id: 1,
-        title: 'Detaljer',
-        event: this.props.event,
-      });
-    }
+    const route = globalRoutes[1];
+    route.event = this.props.event;
+    this.props.dispatch(pushRoute(
+      route, 'cardstack'));
   };
 
   render() {
@@ -97,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EventListItem;
+export default connect()(EventListItem);

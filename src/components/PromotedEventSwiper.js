@@ -42,7 +42,7 @@ const PromotedEventSwiper = (props) => {
         >
           {promotedEvents.map(promoted => (
             <PromotedEvent
-              navigator={props.navigator} key={promoted._id}
+              key={promoted._id}
               promoted={promoted}
             />
             ))

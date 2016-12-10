@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import EventDetailsImage from './EventDetailsImage';
+import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
+import globalRoutes from '../routes';
+
+const { pushRoute } = navigationActions;
 
 import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 
-
 class PromotedEvent extends Component {
 
   _onPressEvent = () => {
-    this.props.navigator.push({ id: 1, title: 'Detaljer', event: this.props.promoted });
+    const route = globalRoutes[1];
+    route.event = this.props.promoted;
+    this.props.dispatch(pushRoute(
+      route, 'cardstack'));
   };
 
   render() {
@@ -28,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PromotedEvent;
+export default connect()(PromotedEvent);

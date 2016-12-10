@@ -6,20 +6,12 @@ import { backgroundColor, topColor } from '../colors';
 import {
   StyleSheet,
   ScrollView,
-  Platform,
   View,
-  ToolbarAndroid,
 } from 'react-native';
 
 
 const SettingsView = () => (
   <View style={styles.container}>
-    {Platform.OS === 'android' ?
-      <ToolbarAndroid
-        style={styles.toolbar}
-        title='Barteguiden'
-      />
-    : null}
     <ScrollView style={styles.container}>
       <SettingsPane />
       <AboutPane />

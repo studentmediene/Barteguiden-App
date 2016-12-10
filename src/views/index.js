@@ -5,27 +5,31 @@ import Settings from './Settings';
 
 export default [
   {
-    id: 'home',
+    key: 'home',
     title: 'Hva skjer?',
     component: Home,
     iconUri: 'all',
+    isAndroidTab: true,
   },
   {
-    id: 'all',
+    key: 'all',
     title: 'Alle',
     component: AllEvents,
     iconUri: 'all',
+    isAndroidTab: true,
   },
   {
-    id: 'favorites',
+    key: 'favorites',
     title: 'Favoritter',
     component: FavoriteEvents,
     iconUri: 'favorites',
+    isAndroidTab: true,
   },
   {
-    id: 'settings',
+    key: 'settings',
     title: 'Innstillinger',
     component: Settings,
     iconUri: 'settings',
+    isAndroidTab: false,
   },
 ];

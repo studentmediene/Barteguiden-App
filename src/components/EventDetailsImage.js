@@ -59,11 +59,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: normalize(26),
     fontWeight: 'bold',
+    backgroundColor: 'transparent',
   },
   subtitle: {
     color: '#fff',
     fontSize: normalize(15),
     fontWeight: 'bold',
+    backgroundColor: 'transparent',
   },
   image: {
     resizeMode: Image.resizeMode.cover,
@@ -92,6 +94,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
+    backgroundColor: 'transparent',
   },
   iconRow: {
     flexDirection: 'row',
