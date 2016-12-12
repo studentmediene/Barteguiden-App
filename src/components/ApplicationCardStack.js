@@ -43,7 +43,6 @@ class ApplicationCardStack extends Component {
       renderTitleComponent={this._renderHeaderTitle}
       renderRightComponent={this._renderHeaderRightComponent}
       renderLeftComponent={this._renderHeaderLeftComponent}
-      onNavigateBack={() => this.props.dispatch(popNavRoute(this.props.cardStackNavigation.key))}
     />
   )
 
@@ -111,6 +110,7 @@ class ApplicationCardStack extends Component {
         navigationState={this.props.cardStackNavigation}
         renderHeader={this._renderHeader}
         renderScene={this._renderScene}
+        onNavigateBack={() => this.props.dispatch(popNavRoute('cardstack'))}
       />
     );
   }
