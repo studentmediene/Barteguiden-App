@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { topColor } from '../colors';
+import { getPlatformIcon } from '../utilities';
 
 import { popNavRoute, pushNavRoute } from '../actions/navigation';
 
@@ -41,6 +42,7 @@ class ApplicationCardStack extends Component {
       style={styles.navBar}
       renderTitleComponent={this._renderHeaderTitle}
       renderRightComponent={this._renderHeaderRightComponent}
+      renderLeftComponent={this._renderHeaderLeftComponent}
       onNavigateBack={() => this.props.dispatch(popNavRoute(this.props.cardStackNavigation.key))}
     />
   )
@@ -59,15 +61,30 @@ class ApplicationCardStack extends Component {
     return null;
   }
 
+  _renderHeaderLeftComponent = (props) => {
+    const { dispatch } = this.props;
+    if (props.scene.index !== 0) {
+      return (
+        <TouchableOpacity
+          onPress={() => dispatch(popNavRoute('cardstack'))}
+          style={styles.buttonContainer}
+        >
+          <Icon name={getPlatformIcon('arrowBack')} size={24} color='black' style={styles.navBarIcon} />
+        </TouchableOpacity>
+      );
+    }
+    return null;
+  }
+
   _renderHeaderRightComponent = () => {
     const { dispatch } = this.props;
     if (Platform.OS === 'android') {
       return (
         <TouchableOpacity
           onPress={() => dispatch(pushNavRoute(2, 'cardstack'))}
-          style={styles.settingsIcon}
+          style={styles.buttonContainer}
         >
-          <Icon name='md-settings' size={30} color='black' />
+          <Icon name='md-settings' size={30} color='black' style={styles.navBarIcon} />
         </TouchableOpacity>
       );
     }
@@ -104,11 +121,14 @@ const styles = StyleSheet.create({
     backgroundColor: topColor,
     elevation: 0,
   },
-  settingsIcon: {
+  buttonContainer: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 10,
+    justifyContent: 'center',
+  },
+  navBarIcon: {
+    margin: Platform.OS === 'ios' ? 10 : 16,
   },
 });
 

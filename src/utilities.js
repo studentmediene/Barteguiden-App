@@ -40,6 +40,10 @@ export function ageLimitToText(ageLimit) {
 
 export function getPlatformIcon(iconName) {
   const platformIcons = {
+    arrowBack: {
+      ios: 'ios-arrow-back',
+      android: 'md-arrow-back',
+    },
     calendar: {
       ios: 'ios-calendar-outline',
       android: 'md-calendar',
