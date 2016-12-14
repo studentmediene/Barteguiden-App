@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import EventDetailsImage from './EventDetailsImage';
+import { pushNavRoute } from '../actions/navigation';
 
 import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 
-
 class PromotedEvent extends Component {
 
   _onPressEvent = () => {
-    this.props.navigator.push({ id: 1, title: 'Detaljer', event: this.props.promoted });
+    const routeProp = { event: this.props.promoted };
+    this.props.dispatch(pushNavRoute(
+      1, 'cardstack', routeProp));
   };
 
   render() {
@@ -28,4 +32,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PromotedEvent;
+export default connect()(PromotedEvent);

@@ -27,7 +27,7 @@ class EventSearchList extends Component {
     return (
       <View style={{ flex: 1 }}>
         <EventList
-          events={events} navigator={this.props.navigator}
+          events={events}
           renderHeader={this.renderListViewHeader}
         />
         {events.length > 0 ? null : <EmptyListMessage />}

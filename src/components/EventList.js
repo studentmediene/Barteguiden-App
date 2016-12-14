@@ -46,7 +46,7 @@ class EventList extends Component {
   };
 
   _renderEvent = event => (
-    <EventListItem navigator={this.props.navigator} event={event} />
+    <EventListItem event={event} />
   );
 
   _renderSectionHeader(sectionData, sectionID) {
