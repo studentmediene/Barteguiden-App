@@ -104,8 +104,10 @@ const styles = StyleSheet.create({
   onTouch: {
   },
   promotion: {
-    marginLeft: -22,
-    bottom: 1,
+    left: -30,
+    bottom: -5,
+    backgroundColor: 'transparent',
+    marginRight: -20,
   },
 });
 
