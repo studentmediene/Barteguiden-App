@@ -6,9 +6,10 @@ import {
   View,
 } from 'react-native';
 
+
 class EventSearchList extends Component {
 
-  state = { filter: '' };
+  state = { filter: '', categoryFilter: '' };
 
   updateFilter = (text) => {
     this.setState({ filter: text.toLowerCase() });

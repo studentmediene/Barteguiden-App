@@ -9,3 +9,4 @@ export const containerColor = 'white';
 export const separatorColor = iOSLightGray;
 export const topColor = 'white';
 export const favoriteColor = barteguidenRed;
+export const iconColor = 'white';

@@ -12,6 +12,17 @@ export const categoryImages = {
 };
 /* eslint-enable global-require */
 
+export const categoryElements = [
+   { name: 'Debatter', id: 'DEBATE', imgUrl: categoryImages.categoryDebate },
+   { name: 'Utstillinger', id: 'EXHIBITIONS', imgUrl: categoryImages.categoryExhibitions },
+   { name: 'Musikk', id: 'MUSIC', imgUrl: categoryImages.categoryMusic },
+   { name: 'Uteliv', id: 'NIGHTLIFE', imgUrl: categoryImages.categoryNightlife },
+   { name: 'Forestillinger', id: 'PERFORMANCES', imgUrl: categoryImages.categoryPerformances },
+   { name: 'Presentasjoner', id: 'PRESENTATIONS', imgUrl: categoryImages.categoryPresentations },
+   { name: 'Sport', id: 'SPORT', imgUrl: categoryImages.categorySport },
+   { name: 'Andre', id: 'OTHER', imgUrl: categoryImages.categoryOther },
+];
+
 export const actionIconSize = 30;
 export const checkboxSize = 30;
 export const searchButtonSize = 30;
