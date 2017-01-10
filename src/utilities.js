@@ -72,9 +72,36 @@ export function getPlatformIcon(iconName) {
       ios: 'ios-star',
       android: 'md-star',
     },
+    checkedBox: {
+      ios: 'ios-checkbox',
+      android: 'md-checkbox',
+    },
+    uncheckedBox: {
+      ios: 'ios-square',
+      android: 'md-square',
+    },
   };
 
   return platformIcons[iconName][Platform.OS];
+}
+
+function getPlatformNotificationDate(startAt) {
+  return Platform.OS === 'ios' ? startAt.toISOString() : startAt;
+}
+
+function getEventNotificationID(id) {
+  return parseInt(id.substring(id.length - 6), 16).toString();
+}
+
+export function getNotificationForEvent(event) {
+  return {
+    message: 'Arrangementet '.concat(event.title).concat(' begynner om en time'),
+    date: getPlatformNotificationDate(moment(event.startAt).clone().subtract(1, 'h').toDate()),
+    id: getEventNotificationID(event._id), // Android
+    userInfo: {
+      id: getEventNotificationID(event._id), // iOS
+    },
+  };
 }
 
 const scale = Dimensions.get('window').width / 375;

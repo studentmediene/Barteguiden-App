@@ -12,6 +12,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.burnweb.rnsendintent.RNSendIntentPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import cl.json.RNSharePackage;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +31,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new RNSendIntentPackage(),
           new VectorIconsPackage(),
-          new RNSharePackage()
+          new RNSharePackage(),
+          new ReactNativePushNotificationPackage()
       );
     }
   };
