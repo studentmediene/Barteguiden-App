@@ -6,20 +6,22 @@ import { getPlatformIcon } from '../utilities';
 import { highlightColor, containerColor, backgroundIconButtonColor, favoriteColor, iconColor } from '../colors';
 import {
   View,
-  Modal,
   Image,
   Text,
 } from 'react-native';
+import { connect } from 'react-redux';
+
 
 class Filter extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalVisible: false, categoryCheck: [] };
+    this.state = { categoryCheck: [] };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ modalVisible: nextProps.modalVisible });
+  componentWillReceiveProps() {
+    this.setState({ categoryCheck: this.props.filteredCategories })
   }
+
 
   onCategoryCheck(categoryName) {
     const temp = this.state.categoryCheck;
@@ -60,26 +62,10 @@ class Filter extends Component {
 // TODO: styling modal to dialog, buttons and checkbox labels
 
     return (
-      <Modal
-        animationType={'slide'}
-        style={{ padding: 100,
-        right: 100,
-        bottom: 100,
-        left: 100,
-      }}
-        transparent={false}
-        visible={this.props.modalVisible}
-        onRequestClose={() => this.setModalVisible(false)}
-      >
+      <View>
+
         <View>
-          <Text
-            style={{ fontSize: 18,
-            marginVertical: 10,
-            paddingBottom: 3,
-            paddingLeft: 10,
-            color: 'black',
-          }}
-          >Filter</Text>
+
           { categories }
         </View>
         <View style={{ flexDirection: 'row-reverse' }}>
@@ -90,17 +76,14 @@ class Filter extends Component {
             iconColor={iconColor}
             onPress={this.onFilterSubmit}
           />
-          <ActionButton
-            iconName={getPlatformIcon('close')}
-            actionText={'Avslut'}
-            backgroundColor={favoriteColor}
-            iconColor={iconColor}
-            onPress={() => this.setModalVisible(false)}
-          />
         </View>
-      </Modal>
+      </View>
     );
   }
 }
 
-export default Filter;
+const mapStateToProps = state => ({
+  filteredCategories: state.filter.filteredCategories,
+});
+
+export default connect(mapStateToProps)(Filter);

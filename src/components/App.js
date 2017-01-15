@@ -16,7 +16,7 @@ const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 const store = createStoreWithMiddleware(reducer, undefined, autoRehydrate());
 persistStore(store, {
-  blacklist: ['tabNavigation', 'cardStackNavigation'],
+  blacklist: ['tabNavigation', 'cardStackNavigation', 'filter'],
   storage: AsyncStorage,
 });
 

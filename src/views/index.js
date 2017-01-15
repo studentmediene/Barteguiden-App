@@ -10,6 +10,7 @@ export default [
     component: Home,
     iconUri: 'all',
     isAndroidTab: true,
+    filterEvents: false,
   },
   {
     key: 'all',
@@ -17,6 +18,7 @@ export default [
     component: AllEvents,
     iconUri: 'all',
     isAndroidTab: true,
+    filterEvents: false,
   },
   {
     key: 'favorites',
@@ -24,6 +26,7 @@ export default [
     component: FavoriteEvents,
     iconUri: 'favorites',
     isAndroidTab: true,
+    filterEvents: false,
   },
   {
     key: 'settings',

@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { topColor } from '../colors';
 import { getPlatformIcon } from '../utilities';
 
 import { popNavRoute, pushNavRoute } from '../actions/navigation';
+import { filterEvents } from '../actions/events';
 
 import EventDetails from './EventDetails';
 import Settings from '../views/Settings';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ApplicationTabs from './ApplicationTabs';
+import Filter from '../components/Filter';
 
 import {
   NavigationExperimental,
@@ -17,6 +20,7 @@ import {
   Platform,
   BackAndroid,
   StyleSheet,
+  View,
 } from 'react-native';
 
 const {
@@ -34,6 +38,15 @@ class ApplicationCardStack extends Component {
       }
       return false;
     });
+  }
+
+  _onFilterSubmit = (categoryCheck) => {
+    this.props.dispatch(filterEvents(categoryCheck));
+    this.props.dispatch(popNavRoute(this.props.cardStackNavigation.key));
+  }
+
+  _setModalVisible = () => {
+    this.props.dispatch(pushNavRoute(3, 'cardstack'));
   }
 
   _renderHeader = props => (
@@ -79,15 +92,31 @@ class ApplicationCardStack extends Component {
     const { dispatch } = this.props;
     if (Platform.OS === 'android') {
       return (
-        <TouchableOpacity
-          onPress={() => dispatch(pushNavRoute(2, 'cardstack'))}
-          style={styles.buttonContainer}
-        >
-          <Icon name='md-settings' size={30} color='black' style={styles.navBarIcon} />
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={() => this._setModalVisible(true)}
+            style={styles.buttonContainer}
+          >
+            <Icon name='md-funnel' size={30} color='black' style={styles.navBarIcon} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => dispatch(pushNavRoute(2, 'cardstack'))}
+          >
+            <Icon name='md-settings' size={30} color='black' style={styles.navBarIcon} />
+          </TouchableOpacity>
+        </View>
       );
     }
-    return null;
+    return (
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => this._setModalVisible(true)}
+          style={styles.buttonContainer}
+        >
+          <Icon name='ios-funnel' size={30} color='black' style={styles.navBarIcon} />
+        </TouchableOpacity>
+      </View>
+    );
   }
 
   _renderScene = (props) => {
@@ -96,6 +125,14 @@ class ApplicationCardStack extends Component {
     }
     if (props.scene.route.key === 'settingsViewAndroid') {
       return <Settings />;
+    }
+    if (props.scene.route.key === 'filterView') {
+      return (
+        <Filter
+          setModalVisible={this._setModalVisible}
+          onFilterSubmit={this._onFilterSubmit}
+        />
+      );
     }
     if (Platform.OS === 'android') {
       return <ApplicationTabs />;

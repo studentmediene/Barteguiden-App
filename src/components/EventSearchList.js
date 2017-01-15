@@ -25,6 +25,7 @@ class EventSearchList extends Component {
     ));
     const EmptyListMessage = this.props.emptyListMessage;
 
+
     return (
       <View style={{ flex: 1 }}>
         <EventList

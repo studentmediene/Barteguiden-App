@@ -24,4 +24,13 @@ export default [
       android: true,
     },
   },
+  {
+    key: 'filterView',
+    index: 3,
+    title: 'Filter',
+    showBackButton: {
+      ios: true,
+      android: true,
+    },
+  },
 ];
