@@ -6,7 +6,9 @@ import EventDescription from './EventDescription';
 import EventDetailsImage from './EventDetailsImage';
 import ActionToolbar from './ActionToolbar';
 import ExternalLink from './ExternalLink';
-import { backgroundColor, separatorColor, containerColor } from '../colors';
+import { backgroundColor, separatorColor, favoriteColor, containerColor } from '../colors';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { getPlatformIcon, normalize } from '../utilities';
 
 import {
   StyleSheet,
@@ -14,10 +16,10 @@ import {
   Linking,
   ScrollView,
   Platform,
+  Text,
 } from 'react-native';
 
 class EventDetails extends Component {
-
   onMapClick = () => {
     const { latitude, longitude, name } = this.props.event.venue;
     let url;
@@ -42,6 +44,16 @@ class EventDetails extends Component {
         <EventDetailsImage event={this.props.event} />
         <ActionToolbar event={this.props.event} />
         <ScrollView style={styles.scroll}>
+          <View>
+            {this.props.event.isPromoted ?
+              <View style={styles.promotion}>
+                <Icon
+                  name={getPlatformIcon('star')}
+                  size={30} color={favoriteColor}
+                />
+                <Text style={styles.promoted}> Denne hendelsen er anbefalt </Text>
+              </View> : null}
+          </View>
           <EventDescription event={this.props.event} />
           <View style={styles.externalLinkContainer}>
             <ExternalLink
@@ -93,6 +105,16 @@ const styles = StyleSheet.create({
     borderColor: separatorColor,
     borderWidth: StyleSheet.hairlineWidth,
   },
+  promotion: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  promoted: {
+    fontSize: normalize(20),
+    alignSelf: 'center',
+  },
+
 });
 
 const mapStateToProps = (state, ownProps) => ({

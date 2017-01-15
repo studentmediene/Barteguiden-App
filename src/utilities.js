@@ -76,6 +76,10 @@ export function getPlatformIcon(iconName) {
       ios: 'ios-square',
       android: 'md-square',
     },
+    star: {
+      ios: 'ios-star',
+      android: 'md-star',
+    },
   };
 
   return platformIcons[iconName][Platform.OS];

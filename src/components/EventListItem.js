@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
   getTimeFromDate,
   formatPrice,
   categoryToImage,
+  getPlatformIcon,
   normalize } from '../utilities';
 import { categoryImages } from '../constants';
-import { separatorColor, containerColor } from '../colors';
+import { separatorColor, containerColor, favoriteColor } from '../colors';
 
 import { pushNavRoute } from '../actions/navigation';
 
@@ -27,7 +30,7 @@ class EventListItem extends Component {
   };
 
   render() {
-    const { category, title, venue, price, startAt } = this.props.event;
+    const { category, title, venue, price, startAt, isPromoted } = this.props.event;
     return (
       <TouchableOpacity
         onPress={this._onPressEvent} style={styles.onTouch}
@@ -37,6 +40,12 @@ class EventListItem extends Component {
             style={styles.image}
             source={categoryImages[categoryToImage(category)]}
           />
+          <View>
+            {isPromoted ? <Icon
+              name={getPlatformIcon('star')}
+              size={20} color={favoriteColor} style={styles.promotion}
+            /> : null}
+          </View>
           <View style={styles.eventContents}>
             <Text style={styles.eventTitle}>{title}</Text>
             <View style={styles.eventInfo}>
@@ -93,6 +102,12 @@ const styles = StyleSheet.create({
     flex: 5,
   },
   onTouch: {
+  },
+  promotion: {
+    left: -30,
+    bottom: -5,
+    backgroundColor: 'transparent',
+    marginRight: -20,
   },
 });
 
