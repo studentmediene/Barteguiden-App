@@ -7,6 +7,10 @@ const initialState = {
   eventsLoading: false,
   eventsLoadingFailed: false,
   favoriteEvents: [],
+  settings: {
+    notifyBeforeFavoriteStart: false,
+  },
+  scheduledNotifications: [],
 };
 
 export default function events(state = initialState, action = {}) {
@@ -73,6 +77,27 @@ export default function events(state = initialState, action = {}) {
         )),
       }, {
         favoriteEvents: [],
+      });
+    case types.SET_NOTIFY_BEFORE_FAVORITE_START:
+      return Object.assign({}, state, {
+        settings: Object.assign({}, state.settings, {
+          notifyBeforeFavoriteStart: action.payload.notifyBeforeFavoriteStart,
+        }),
+      });
+    case types.ADD_SCHEDULED_NOTIFICATION:
+      return Object.assign({}, state, {
+        scheduledNotifications: _.concat(state.scheduledNotifications, Object.assign({},
+          action.payload.notification)),
+      });
+    case types.REMOVE_SCHEDULED_NOTIFICATION:
+      return Object.assign({}, state, {
+        scheduledNotifications: _.filter(state.scheduledNotifications,
+          notification => notification.id !== action.payload.notification.id
+        ),
+      });
+    case types.CLEAR_SCHEDULED_NOTIFICATIONS:
+      return Object.assign({}, state, {
+        scheduledNotifications: [],
       });
     default:
       return state;

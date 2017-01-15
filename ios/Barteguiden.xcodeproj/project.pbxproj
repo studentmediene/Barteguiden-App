@@ -24,6 +24,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		4F3581071D60E225003EC3C0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3581061D60E225003EC3C0 /* EventKit.framework */; };
 		4F4742D21D60E37D00794D2E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4742D11D60E37D00794D2E /* Ionicons.ttf */; };
+		4F85BF641DB3F8F9005F64DB /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F85BF5B1DB3F8CA005F64DB /* libRCTPushNotification.a */; };
 		4FBAC6CE1D60E52A000B73A3 /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBAC6CD1D60E51B000B73A3 /* libRNCalendarEvents.a */; };
 		4FBAC6D51D60E5A5000B73A3 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBAC6D41D60E5A0000B73A3 /* libRNShare.a */; };
 		4FBAC6DC1D60E5BB000B73A3 /* libSafariViewManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBAC6DB1D60E5B5000B73A3 /* libSafariViewManager.a */; };
@@ -94,6 +95,13 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		4F85BF5A1DB3F8CA005F64DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F85BF511DB3F8CA005F64DB /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
 		4FBAC6CC1D60E51B000B73A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FBAC6BE1D60E51B000B73A3 /* RNCalendarEvents.xcodeproj */;
@@ -153,6 +161,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		4F3581061D60E225003EC3C0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		4F4742D11D60E37D00794D2E /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		4F85BF511DB3F8CA005F64DB /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
+		4F85BF651DB3F9C5005F64DB /* Barteguiden.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Barteguiden.entitlements; path = Barteguiden/Barteguiden.entitlements; sourceTree = "<group>"; };
 		4FBAC6BE1D60E51B000B73A3 /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCalendarEvents.xcodeproj; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; };
 		4FBAC6CF1D60E5A0000B73A3 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		4FBAC6D61D60E5B5000B73A3 /* SafariViewManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SafariViewManager.xcodeproj; path = "../node_modules/react-native-safari-view/SafariViewManager.xcodeproj"; sourceTree = "<group>"; };
@@ -173,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F85BF641DB3F8F9005F64DB /* libRCTPushNotification.a in Frameworks */,
 				4FBAC6DC1D60E5BB000B73A3 /* libSafariViewManager.a in Frameworks */,
 				4FBAC6D51D60E5A5000B73A3 /* libRNShare.a in Frameworks */,
 				4FBAC6CE1D60E52A000B73A3 /* libRNCalendarEvents.a in Frameworks */,
@@ -269,6 +280,7 @@
 		13B07FAE1A68108700A75B9A /* Barteguiden */ = {
 			isa = PBXGroup;
 			children = (
+				4F85BF651DB3F9C5005F64DB /* Barteguiden.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -284,6 +296,14 @@
 			isa = PBXGroup;
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F85BF521DB3F8CA005F64DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F85BF5B1DB3F8CA005F64DB /* libRCTPushNotification.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,6 +343,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4F85BF511DB3F8CA005F64DB /* RCTPushNotification.xcodeproj */,
 				4FBAC6D61D60E5B5000B73A3 /* SafariViewManager.xcodeproj */,
 				4FBAC6CF1D60E5A0000B73A3 /* RNShare.xcodeproj */,
 				4FBAC6BE1D60E51B000B73A3 /* RNCalendarEvents.xcodeproj */,
@@ -458,6 +479,10 @@
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
 				},
 				{
+					ProductGroup = 4F85BF521DB3F8CA005F64DB /* Products */;
+					ProjectRef = 4F85BF511DB3F8CA005F64DB /* RCTPushNotification.xcodeproj */;
+				},
+				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
 				},
@@ -553,6 +578,13 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4F85BF5B1DB3F8CA005F64DB /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = 4F85BF5A1DB3F8CA005F64DB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		4FBAC6CD1D60E51B000B73A3 /* libRNCalendarEvents.a */ = {

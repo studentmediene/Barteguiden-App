@@ -17,6 +17,7 @@
     "react-native-calendar-events": "0.1.6",
     "react-native-htmlview": "0.5.0",
     "react-native-navigation-redux-helpers": "0.5.0",
+    "react-native-push-notification": "2.1.1",
     "react-native-safari-view": "1.1.0",
     "react-native-scrollable-tab-view": "0.6.0",
     "react-native-send-intent": "1.0.13",
